@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="General details about our company">
+    <meta name="keywords" content="Company Details, Common Navigation, Jira & Github link">
+    <meta name="author" content="Sothearith Kuy">
+
+    <!--Title-->
+    <title>Job Info</title>
+
+    <!--Link to Stylesheet-->
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+
+    <style>
+        aside {
+            float: right;
+            width: 25%; /* Width of <aside> 25% to parentcontainer. */
+            padding: 10px; /* Adds space between border and text */
+            margin-top: 1em; /* Aligning with apply*/
+            border-radius: 8px; /* Rounds corners of border with an 8px radius. */
+            background-color: white; /*White Blackground */
+        }
+
+        article {
+            padding: 18px; /* 18px of inner spacing */
+            border-radius: 8px; /* Rounds corners of the border with an 8px radius. */
+            background-color: white; /*White Background*/
+        }
+
+        .applybtn {
+            display: inline-block; /* Button is horizontal*/
+            padding: 12px 24px; /* Space between text and border*/
+            font-size: 16px; /* Applies font changes*/
+            color: white; /* button color is white*/
+            margin-top: 10px; /* slight top margin for importance*/
+            background: #0073e6; /* Job site style blue */
+            border-radius: 8px; /* Corner round off 8px*/
+            text-decoration: none; /* Removes underline*/
+        }
+    </style>
+</head>
+
+<body>
+    <header> <!-- Standardized Heading-->
+
+        <!--Logo Image-->
+        <img id = "logo" src="images/Storage.png" alt="Diagram of four stacked gray layers">
+
+        <!--Main Heading Information-->
+        <div id="title"> 
+            <h1>THE BOX</h1>
+            <p>Infinitively Squared</p> 
+        </div>
+
+        <!--Seperate Slogan on Side-->
+        <section id= "slogan">
+            <h2>A NEW FRONTIER FOR DATA</h2>
+        </section>
+    </header>
+
+    <nav> <!--Navigation Bar-->
+        <ul> <!--Unordered List-->
+            <li><a href="index.html">HOME</a></li> <!--Home Link-->
+            <li><a href="job.html">JOBS</a></li> <!--Jobs Link-->
+            <li><a href="apply.html">APPLY</a></li> <!--Apply Link-->
+            <li><a href="about.html">ABOUT</a></li> <!--About Link-->
+        </ul>
+    </nav>
+
+<!-- Job Description generated from ChatGPT (We had no idea)-->
+    <main style="margin: 50px">
+        <!-- <section> groups content for job openings -->
+
+        <!--First Section for Senior Product Designer-->
+        <section>
+
+            <!-- Subheading under the main page heading -->
+            <h2 style="color: black">Open Positions</h2> 
+
+            <!-- Used Article instead of section because each section is self-contained-->
+            <article>
+                <!--Unique reference ID ("A1B2C"), makes it targetable.-->
+                <h3>Ref: A1B2C — Senior Product Designer</h3> 
+
+                <!-- Short description/summary of the role -->
+                <p> 
+                    Short: Lead product experiences across core flows — from discovery to design handoff.
+                    Balance craft with pragmatic delivery.
+                </p>
+
+                <!-- Description List Salary and Person they report to -->
+                <dl>
+                    <dt>Salary</dt> 
+                    <dd>AUD 120,000 - 150,000 + Employee Equity</dd>
+
+                    <dt>Reporting line</dt>
+                    <dd>Reports to Head of Product</dd> 
+                </dl>
+
+                <!-- Ordered list for Responsibilites-->
+                <h4>Key Responsibilities</h4>
+                <ol>
+                    <li>Drive end-to-end design for one product vertical (user research → prototype → handoff).</li>
+                    <li>Create and maintain reusable components and patterns in our design system.</li>
+                    <li>Partner with PMs and engineers to define metrics and measure impact of UX changes.</li>
+                    <li>Mentor junior designers; run design critiques and usability sessions.</li>
+                </ol>
+
+                <!--Unordered list for Essential Requirements-->
+                <h4>Essential requirements</h4>
+                <ul>
+                    <li>5+ years in product design with shipped SaaS products.</li>
+                    <li>Strong prototyping skills (Figma, interactive prototypes) and practical research experience.</li>
+                    <li>Experience contributing to or maintaining a design system.</li>
+                    <li>Excellent cross-functional communication and a portfolio demonstrating outcomes (not just 
+                    screens).</li>
+                </ul>
+
+                <!-- Another unordered list for "nice to have" skills. -->
+                <h4>Preferable</h4>
+                <ul>
+                    <li>Familiarity with HTML/CSS or React component thinking.</li>
+                    <li>Experience in developer tooling, analytics, or B2B workflow products.</li>
+                </ul>
+
+                <!--Button Apply-->
+                <a href="apply.html" class="applybtn">Apply Now</a>
+            </article>
+
+            <br> <!--Line Break-->
+
+            <!-- Second job article for Front-end Engineer-->
+            <article>
+                <!--Unique reference ID ("D4E5F"), makes it targetable.-->
+                <h3>Ref: D4E5F — Frontend Engineer, Design Systems</h3>
+
+                <!-- A short description/summary of the role. -->
+                <p>
+                    Short: Build and maintain the design system and component library used by product teams; reduce 
+                    design-to-code friction.
+                </p>
+                
+                <!-- Description List for Salary and Person to report to -->
+                <dl>
+                    <dt>Salary</dt>
+                        <dd>AUD 140,000 - 170,000 + Employee Equity</dd>
+                    <dt>Reporting line</dt>
+                        <dd>Reports to Engineering Manager (Platform)</dd>
+                </dl>
+
+                <!-- Ordered list for Responsibilites-->
+                <h4>Key Responsibilities</h4>
+                <ol>
+                    <li>Implement accessible, testable UI components as a shared library (React + TypeScript).</li>
+                    <li>Integrate design tokens and automate releases for designers and product teams.</li>
+                    <li>Collaborate with designers to translate patterns into code and improve documentation/examples. </li>
+                    <li>Maintain CI, visual regression tests, and versioning for the component library.</li>
+                </ol>
+
+                <!-- Unordered list for Essential Requirements-->
+                <h4>Essential requirements</h4>
+                <ul>
+                    <li>4+ years building production React component libraries in TypeScript.</li>
+                    <li>Practical experience with Storybook, unit & visual regression testing, and CSS-in-JS or 
+                    utility-first approaches.</li>
+                    <li>Clear communicator who can partner with designers to iterate on accessibility and behavior.</li>
+                </ul>
+
+                <!-- Another unordered list for "nice to have" (non-essential) skills. -->
+                <h4>Preferable</h4>
+                <ul> 
+                    <li>Experience exporting design tokens from Figma or similar tools and automating token pipelines.</li>
+                    <li>Worked at early-stage startups or on platform/infra teams focused on developer UX.</li>
+                </ul>
+
+                <!--Button to Apply-->
+                <a href="apply.html?job=A1B2C" class="applybtn">Apply Now</a>
+            </article>
+        </section>
+
+        <br>
+
+        <!-- Section for instructions on how to apply -->
+        <section style="float: left ; width: 60%">
+            <!--Embedded Style to make font black-->
+            <h2 style="color: black;">How to apply</h2>
+
+            <p> Send a one-page cover note and portfolio or GitHub link to </p>
+            <!--Link to Email--> 
+            <a href= "mailto:jobs@email.com">jobs@example.com with the reference code in the subject line.</a>
+
+            <p> We review applications on a rolling basis and aim for an interview loop that includes a short design/code
+                exercise and two cross-functional interviews.
+            </p>
+            
+            <p> Company is an equal-opportunity employer. Candidates must be authorized to work in the country they apply
+                from. 
+            </p>
+        </section>
+
+        <!-- Aside for Perks and practicals.-->
+        <aside>
+            <h3>Perks & practicals</h3>
+            <!--Unordered List for Perks-->
+            <ul>
+                <li>Flexible remote working (core overlap hours)</li>
+                <li>Competitive equity and parental leave</li>
+                <li>Learning budget and home office allowance</li>
+            </ul>
+        </aside>
+    </main>
+
+    <!--Adds break against Perks and Practicals-->
+    <footer style="clear:both">
+        <!--Jira Link-->
+        <p><a href="https://sothearithkuy37.atlassian.net/jira/software/projects/A1/summary"
+         title="This takes you to Jira">Jira Link</a></p>
+        <!--Github Link-->
+        <a href="https://github.com/Nam-Tran6/Applied-Group5-Project">Github Link</a>
+        <!-- Email Link-->
+        <a href="mailto:info@companyname.com">Email</a>
+    </footer>
+</body>
+
+</html>

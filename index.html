@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kha Nam Tran">
+    <meta name="description" content="Home Page for Index">
+    <meta name="keywords" content="Homepage, Index">
+
+    <!--Title-->
+    <title>The Box</title>
+
+    <!--Link to Stylesheet-->
+    <link rel="stylesheet" href="styles/layout.css" type="text/css">
+
+    <style>
+        .item {
+            /* selects all class of items*/
+            margin: 8em;
+            padding: 3em;
+            color: #1a1a1a;
+            background-color: #ccc;
+            border-radius: 1em;
+            /* Defines margin, padding, font color, background color, and radius for rectangle edges*/
+        }
+
+        body {
+            background: url(styles/images/background.png);
+            /* Background illustration*/
+            background-size: cover
+                /* Background cover*/
+
+            /* Image was sourced from Adobe Stock and generated with AI 
+            Link: https://stock.adobe.com/images/abstract-plexus-network-connection-background-with-digital-data-and-technology/1525752799?prev_url=detail
+            */
+        }
+
+        main {
+            /* utilises a grid to help create a 2 x 2*/
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+
+        /*styling for h2 catchy phrase*/
+        #CatchyPhrase {
+            color: black;
+            background: #ccc;
+            padding: 10px 10px;
+            margin-left: 25%;
+            margin-right: 25%;
+            text-align: center;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header> <!-- Standardized Heading-->
+        <!--Logo Image-->
+        <img id="logo" src="images/Storage.png" alt="Diagram of four stacked gray layers">
+
+        <!--Main Heading Information-->
+        <div id="title">
+            <h1>THE BOX</h1>
+            <p>Infinitively Squared</p>
+        </div>
+
+        <!--Seperate Slogan on Side-->
+        <section id="slogan">
+            <h2>A NEW FRONTIER FOR DATA</h2>
+        </section>
+    </header>
+
+    <nav> <!--Navigation Bar-->
+        <ul> <!--Unordered List-->
+            <li><a href="index.html">HOME</a></li> <!--Home Link-->
+            <li><a href="job.html">JOBS</a></li> <!--Jobs Link-->
+            <li><a href="apply.html">APPLY</a></li> <!--Apply Link-->
+            <li><a href="about.html">ABOUT</a></li> <!--About Link-->
+        </ul>
+    </nav>
+
+    <main>
+        <!--Description 1-->
+        <section class="item">
+            <h2>What is the BOX?</h2>
+            <p> A new method to store data, utilising cutting edge innovations from quantum mechanics to expand into the
+                infinite realm of data storage. </p>
+        </section>
+
+        <!--Description 2-->
+        <section class="item">
+            <h2>Who are We?</h2>
+            <p> We are a cutting-edge team of programmers and engineers who wish to create the building blocks of a new
+                way to store. </p>
+        </section>
+
+        <!--Description 3-->
+        <section class="item">
+            <h2>What do we offer?</h2>
+
+            <p> We operate on both a B2B and B2P model, providing every consumer, no matter how big or small, the
+                opportunity to access our infinite servers. </p>
+        </section>
+
+        <!--Description 4-->
+        <section class="item">
+            <h2>Pandora's Box</h2>
+            <p> The BOX is not liable if somehow, we open an interdimensional rift into some kind of wierd data world.
+                We would happily worship our Data Overloads though. </p>
+        </section>
+    </main>
+
+    <!--Catchy Phrase-->
+    <h2 id="CatchyPhrase">
+        Not Gigabytes, Terrabytes, or even Petabyte. Think as bold as us, think Yottabyte.
+    </h2>
+
+    <footer>
+        <!--Jira Link-->
+        <p><a href="https://sothearithkuy37.atlassian.net/jira/software/projects/A1/summary"
+                title="This takes you to Jira">Jira Link</a></p>
+        <!--Github Link-->
+        <a href="https://github.com/Nam-Tran6/Applied-Group5-Project">Github Link</a>
+        <!-- Email Link-->
+        <a href="mailto:info@companyname.com">Email</a>
+    </footer>
+</body>
+
+</html>

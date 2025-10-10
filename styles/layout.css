@@ -1,0 +1,230 @@
+/*
+filename: layout
+author: Kha Nam Tran
+created: 22/09/2025
+last modified: 26/09/2025
+description: layout for all four html pages
+*/
+
+/* === FONT SECTION === */
+
+@font-face { 
+    font-family: OCR-A-STD; /* Imports custom font */
+    src: url(fonts/ocr-a-extended.ttf) ; /* locates the source */
+}
+
+* {
+    font-family: OCR-A-STD, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif /* Apply font to all elements */
+}
+
+/* === HEADER SECTION === */
+
+/* General Header Settings*/
+header { 
+    background-color: #1a1a1a; /*background color*/
+    padding: 10px; /* Add space inside header */
+    display: flex; /* Flexbox layout*/ 
+    gap: 20px; /* Space between logo + title */
+    justify-content: space-between; /* logo+title left, slogan right */
+}
+
+/* Modification of Logo*/
+#logo { 
+    width: 100px; /* Width*/
+    height: 80px; /* Height*/
+}
+
+/* Company Name Modification */
+#title h1 { 
+    font-size: 3em; /* Font size alignment*/
+    letter-spacing: 5px; /* Space between letters*/
+    color: #ccc; /* Font color*/
+    margin: 0 0 8px; /* no top margin, 8px bottom margin for spacing */
+}
+
+/* Company Short Description Modification */
+#title p { 
+    font-size: 1.2em; /* Aligned with logo*/
+    margin-top: 5px; /* Small space above tagline */
+    color: #ccc; /* Set grey */
+    margin: 0 0 8px; /* no top margin, 8px bottom margin for spacing */
+}
+
+/* Side Description*/
+#slogan h2 { 
+    font-size: 1.5em; /* Font size alignment*/
+    color: #ccc; /* Set grey */
+    margin: 0; /* Remove margin*/
+    padding: 10px; /* Expands padding*/
+    border: #cccc dashed 1px; /* Adds dashed border*/
+    font-weight: normal; /* Unbold h2 font (to help accessbility)*/
+}
+
+/*Aligning Right*/
+#slogan { 
+    margin-left: auto; /* Pushes slogan right */
+    padding-right: 5em; /* Push comment inwards*/
+    align-self: center; /* Vertically center own property*/
+}
+
+/* === NAVIGATION BAR === */
+
+/* Background for Navigation */
+nav {
+    background-color: #999999; /* Set grey*/
+    padding: 1px; /* Extends Border */
+}
+
+/* Styles the list inside nav (links container) */
+nav ul {    
+    list-style: none; /* Removes bullet points */
+    display: grid; /* Grid Layout */
+    grid-template-columns: repeat(4, 25%); /* Assigns 4 columns of equal size */
+    text-align: center; /* Aligns text to the middle*/
+    padding-left: 0px; /* Removes default padding left (Inspect Element is so cool)*/
+}
+
+/* Link Change */
+nav ul li a {
+    text-decoration: none; /* Removes underline */
+    color: #000; /* Remove hyperlink color*/
+    font-size: 1.2em; /* Font size*/
+}
+
+/* Hover effect for links */
+nav ul li a:hover {
+    color: white; /* Text turns white*/
+    transition-duration: 0.2s; /* Delay when hovered*/
+    padding: 1em 50%; /* Dimensions that determine hover background color*/
+    background-color: #666666; /* Changes background colour when hovered over*/
+}
+
+/* ================= FOOTER ================= */
+
+/* General Footer Setting*/
+
+footer {
+    background-color: #999999; /* background colour is grey*/
+    display: flex; /* */
+    justify-content: space-around; /* */
+    align-items: center; /* */
+}
+
+footer a {
+    text-decoration: none; /* Removes underline */
+    color: #000; /* Remove hyperlink color*/
+}
+
+/* ================= BODY ================= */
+
+body {
+    background-color: #d6d6d6; /* Adds grey background*/
+    margin: 0; /* ensures background wraps around body*/
+    padding: 0; /*removes padding*/
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #333; /* Dark background */
+    color: white;  /* White text for contrast */
+}
+
+/* Submit Button on Hover*/
+input[type="submit"]:hover {
+    background-color: #555; /* Lighter gray on hover */
+}
+        
+/* Reset button */
+input[type="reset"] {
+    background-color: #e0e0e0; /* Light gray background */
+    color: #333; /* Dark text */
+}
+
+/* Reset Button on Hover*/
+input[type="reset"]:hover {
+    background-color: #d0d0d0; /* Slightly darker gray on hover */
+}
+
+/* Label CSS*/
+label {
+    font-weight: bold; /* Makes labels stand out */
+    color: black; /* Ensures high contrast readability */
+}
+
+/* fieldset CSS*/
+fieldset {
+    border: 2px solid black; /* Black border around gender group */
+    padding: 10px; /* Space inside the box */
+    background-color: lightgray; /* Light gray background */
+    border-radius: 4px; /* Rounded corners */
+}
+
+p, li, h3, h4, dt, dd {
+    color: #333; /* make all p, list items, headings 3–4 & des list dark grey */
+}
+
+legend {
+    font-weight: bold; /* Emphasizes section title */
+    padding: 0 0.5rem; /* Small spacing around legend text */
+}
+
+.form-section { 
+    display: grid; /* Allows inner elements to align neatly */
+    gap: 1rem; /* Space between child elements */
+    padding: 1.5rem; /* Inner padding for breathing room */
+    background-color: #f9f9f9; /* Subtle background for separation */
+    border-radius: 8px; /* Rounded corners */
+}
+        
+.form-section h2 { 
+    margin: 0 0 0.5rem 0; /* Removes top margin, keeps bottom gap */
+    font-size: 1.2rem; /* Slightly smaller than main heading */
+    color: #333;  /* Dark gray text for readability */
+}
+
+.checkbox-group dt { 
+    clear: left;  /* Ensures each <dt> starts on new line */
+    float: left;  /* Floats the checkbox description term left */
+}
+
+input, select, textarea { 
+    padding: 0.75rem;  /* Space between input size */
+    border: 1px solid #ccc; /* Neutral border */
+    border-radius: 16px; /* Rounded corners */
+    font-size: 1rem; /* Readable font size */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth focus transitions */
+
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none; /* Removes default outline */
+    border-color: #666; /* Darker border on focus */
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1); /* Subtle glow for accessibility */
+}
+        
+.radio-group {
+    display: flex; /* Aligns radios horizontally */
+    flex-wrap: wrap; /* Wraps onto new line if space is tight */
+    gap: 1rem;  /* Space between each option */
+    margin-top: 0.5rem;  /* Space above group */
+}
+        
+.radio-group label {
+    font-weight: normal; /* Radios don’t need bold labels */
+}
+       
+.form-actions {
+    display: flex; /* Aligns buttons in a row */
+    justify-content: center;  /* Centers buttons */
+    gap: 1rem; /* Space between buttons */
+    margin-top: 1rem; /* Space above action row */
+}
+        
+input[type="submit"], input[type="reset"] {
+    padding: 0.75rem 2rem; /* Big click/tap target */
+    border: none; /* No default borders */
+    border-radius: 4px; /* Rounded buttons */
+    font-weight: bold; /* Bold text */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth hover effect */
+}

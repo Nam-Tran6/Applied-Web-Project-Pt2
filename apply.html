@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Tag-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Sokna David Heang">
+    <meta name="description" content="page for applying for Tech Talent">
+    <meta name="keywords" content="Tech Talent, Application">
+
+    <!--Title-->
+    <title>Application</title>
+
+    <!--Link to Stylesheet-->
+    <link rel="stylesheet" href="styles/layout.css" type="text/css"> 
+    
+    <style>
+        main { /* Adjust size of main*/
+            max-width: 800px; /* Restricts content width for better readability */
+            margin: 2rem auto;  /* Horizontally center + Vertical spacing */
+        }
+
+        form { /* Grid to allow gap between form sections*/
+            display: grid; /* Uses CSS Grid for structured spacing */
+            gap: 1.5rem; /* Space between form sections */
+        }
+    </style>
+
+<body>
+    <header> <!-- Standardized Heading-->
+
+        <!--Logo Image-->
+        <img id = "logo" src="images/Storage.png" alt="Diagram of four stacked gray layers">
+
+        <!--Main Heading Information-->
+        <div id="title"> 
+            <h1>THE BOX</h1>
+            <p>Infinitively Squared</p> 
+        </div>
+
+        <!--Seperate Slogan on Side-->
+        <section id= "slogan">
+            <h2>A NEW FRONTIER FOR DATA</h2>
+        </section>
+    </header>
+
+    <nav> <!--Navigation Bar-->
+        <ul> <!--Unordered List-->
+            <li><a href="index.html">HOME</a></li> <!--Home Link-->
+            <li><a href="job.html">JOBS</a></li> <!--Jobs Link-->
+            <li><a href="apply.html">APPLY</a></li> <!--Apply Link-->
+            <li><a href="about.html">ABOUT</a></li> <!--About Link-->
+        </ul>
+    </nav>
+    
+    <main>
+        <!--H2 Heading for Application Form-->
+        <h2 style="text-align:center;">Tech Talent Application Form</h2>
+        
+        <!--Sends to this database through post-->
+        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+
+        <!-- SECTION 1: JOB DETAILS -->
+        <section class="form-section">
+            <h2>Job Details</h2>
+            
+            <!--Input 5 length character for Job Reference Number-->
+            <div class="form-group">
+                <label for="Job_Reference_Number">Job Reference Number:</label>
+                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" maxlength="5" required
+                pattern="[A-Za-z0-9]{5}" title="5 Alphanumeric Characters">
+            </div>
+        </section>
+            
+        <!-- SECTION 2: PERSONAL DETAILS -->
+        <section class="form-section">
+            <h2>Personal Details</h2>
+
+            <!--Input to a maxixmum of 20 Alphabetic Characters for First Name-->
+            <div class="form-group">
+                <label for="First_Name">First Name:</label>
+                <input type="text" id="First_Name" name="First_Name" required maxlength="20" pattern="[A-Za-z ]{1,20}" 
+                title="20 Alphabetic Characters Max">
+            </div>
+              
+            <!--Input to a maxixmum of 20 Alphabetic Characters for Last Name-->
+            <div class="form-group">
+                <label for="Last_Name">Last Name:</label>
+                <input type="text" id="Last_Name" name="Last_Name" required pattern="[A-Za-z ]{1,20}" maxlength="20" title="20 Alphabetic Characters Max">
+            </div>
+            
+            <!--Input Date of Birth in dd/mm/yyyy formart-->
+            <div class="form-group">
+                <label for="DOB">Date of Birth:</label>
+                <input type="text" id="DOB" name="DOB" placeholder="dd/mm/yyyy" 
+                pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\d{4}" title="Enter date in dd/mm/yyyy format" required>
+            </div>
+                
+            <!--Fieldset for Gender Selection-->
+            <div class="form-group">
+                <fieldset>
+                    <legend>Select your gender</legend>
+                    <div class="radio-group" style= "font-weight: normal">
+                        <!--Select Male Radio Button-->
+                        <input type="radio" id="Male" name="Gender" value="Male" required>
+                        <label for="Male">Male</label>
+
+                        <!--Select Female Radio Button-->
+                        <input type="radio" id="Female" name="Gender" value="Female" required>
+                        <label for="Female">Female</label>
+                            
+                        <!--Select Other Radio Button-->
+                        <input type="radio" id="Other" name="Gender" value="Other" required>
+                        <label for="Other">Other</label>
+                    </div>
+                </fieldset>
+            </div>
+        </section>
+            
+        <!-- SECTION 3: ADDRESS DETAILS -->
+        <section class="form-section">
+            <h2>Address Details</h2>
+            <div class="form-group">
+                <!--Input for Street Address, max of 40 characters-->
+                <label for="Street_Address">Street Address:</label>
+                <input type="text" id="Street_Address" name="Street_Address" required maxlength="40" title="40 Characters Max">
+            </div>
+                
+            <div class="form-group">
+                <!--Input for Suburb/Town, max of 40 characters-->
+                <label for="Suburb/Town">Suburb:</label>
+                <input type="text" id="Suburb/Town" name="Suburb/Town" required maxlength="40" title="40 Characters Max">
+            </div>
+                
+            <div class="form-group">
+                <!--Select Box for States-->
+                <label for="State">State:</label>
+                <select id="State" name="State" required>
+                    <!--Initial 0ption when selected-->
+                    <option value="" disabled selected>Select your state</option>
+                    <!--Available Options-->
+                    <option value="VIC">VIC</option>
+                    <option value="NSW">NSW</option>
+                    <option value="QLD">QLD</option>
+                    <option value="NT">NT</option>
+                    <option value="WA">WA</option>
+                    <option value="SA">SA</option>
+                    <option value="TAS">TAS</option>
+                    <option value="ACT">ACT</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <!-- Text input for Postcode-->
+                <label for="Postcode">Postcode:</label>
+                <input type="text" id="Postcode" name="Postcode" required pattern="\d{4}" maxlength="4" title="4 Digit Postcode">
+            </div>
+        </section>
+            
+        <!-- SECTION 4: CONTACT DETAILS -->
+        <section class="form-section">
+            <!-- Section Heading-->
+            <h2>Contact Details</h2>
+
+            <div class="form-group">
+                <!--Input Email Link-->
+                <label for="Email">Email:</label>
+                <input type="email" id="Email" name="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address">
+            </div>
+                
+            <div class="form-group">
+                <!--Input Phone Number-->
+                <label for="Phone">Phone Number:</label>
+                <input type="tel" id="Phone" name="Phone" required pattern="\d{8,12}" maxlength="12" title="8-12 Digit Phone Number">
+            </div>
+        </section>
+            
+        <!-- SECTION 5: SKILLS AND EXPERIENCE -->
+        <section class="form-section">
+            <!--Section Heading-->
+            <h2>Skills and Experience</h2>
+            
+            <div class="form-group">
+                <!--Checkbox Fieldset-->
+                <fieldset>
+                    <!--Legend for Skills-->
+                    <legend>Select Your Skills:</legend>
+                    <div class="checkbox-group">
+                        <dl class="skills-list">
+
+                            <!--Programming Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill1" name="Skills[]" value="Programming" required title="Select at least one skill"></dt>
+                                <dd><label for="Skill1">Programming</label></dd>
+                            </div>
+
+                            <!--Web Development Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill2" name="Skills[]" value="Web Development"></dt>
+                                <dd><label for="Skill2">Web Development</label></dd>
+                            </div>
+
+                            <!--Data Analysis Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill3" name="Skills[]" value="Data Analysis"></dt>
+                                <dd><label for="Skill3">Data Analysis</label></dd>
+                            </div>
+
+                            <!--Project Management Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill4" name="Skills[]" value="Project Management"></dt>
+                                <dd><label for="Skill4">Project Management</label></dd>
+                            </div>
+
+                            <!--Cybersecurity Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill5" name="Skills[]" value="Cybersecurity"></dt>
+                                <dd><label for="Skill5">Cybersecurity</label></dd>
+                            </div>
+
+                            <!--Cloud Computing Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill6" name="Skills[]" value="Cloud Computing"></dt>
+                                <dd><label for="Skill6">Cloud Computing</label></dd>
+                            </div>
+
+                            <!--AI and Machine Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill7" name="Skills[]" value="AI and Machine Learning"></dt>
+                                <dd><label for="Skill7">AI and Machine Learning</label></dd>
+                            </div>
+
+                            <!--Other Checkbox-->
+                            <div>
+                                <dt><input type="checkbox" id="Skill8" name="Skills[]" value="Other"></dt>
+                                <dd><label for="Skill8">Other</label></dd>
+                            </div>
+                        </dl>
+                    </div>
+                </fieldset>
+            </div>
+                
+            <div class="form-group">
+                <label for="Other_Skills">If Other, please specify:</label>
+                <textarea id="Other_Skills" name="Other_Skills" rows="5"></textarea>
+            </div>
+        </section>
+
+        <!-- SECTION 6: FORM CONTROL -->
+            <div class="form-actions">
+                <!--Submit Application Button-->
+                <input type="submit" value="Submit Application">
+                <!--Reset Application Button-->
+                <input type="reset" value="Reset Application Form">
+            </div>
+        </form>
+    </main>
+
+    <!--Adds break against Perks and Practicals-->
+    <footer style="clear:both">
+        <!--Jira Link-->
+        <p><a href="https://sothearithkuy37.atlassian.net/jira/software/projects/A1/summary"
+        title="This takes you to Jira">Jira Link</a></p>
+        <!--Github Link-->
+        <a href="https://github.com/Nam-Tran6/Applied-Group5-Project">Github Link</a>
+        <!-- Email Link-->
+        <a href="mailto:info@companyname.com">Email</a>
+    </footer>
+</body>
+</html>

@@ -59,30 +59,10 @@
 </head>
 
 <body>
-    <header> <!-- Standardized Heading-->
-        <!--Logo Image-->
-        <img id="logo" src="images/Storage.png" alt="Diagram of four stacked gray layers">
-
-        <!--Main Heading Information-->
-        <div id="title">
-            <h1>THE BOX</h1>
-            <p>Infinitively Squared</p>
-        </div>
-
-        <!--Seperate Slogan on Side-->
-        <section id="slogan">
-            <h2>A NEW FRONTIER FOR DATA</h2>
-        </section>
-    </header>
-
-    <nav> <!--Navigation Bar-->
-        <ul> <!--Unordered List-->
-            <li><a href="index.html">HOME</a></li> <!--Home Link-->
-            <li><a href="job.html">JOBS</a></li> <!--Jobs Link-->
-            <li><a href="apply.html">APPLY</a></li> <!--Apply Link-->
-            <li><a href="about.html">ABOUT</a></li> <!--About Link-->
-        </ul>
-    </nav>
+    <?php
+        // header inclusions
+        include "header.inc";
+    ?>
 
     <main>
         <!--Description 1-->
@@ -120,15 +100,10 @@
         Not Gigabytes, Terrabytes, or even Petabyte. Think as bold as us, think Yottabyte.
     </h2>
 
-    <footer>
-        <!--Jira Link-->
-        <p><a href="https://sothearithkuy37.atlassian.net/jira/software/projects/A1/summary"
-                title="This takes you to Jira">Jira Link</a></p>
-        <!--Github Link-->
-        <a href="https://github.com/Nam-Tran6/Applied-Group5-Project">Github Link</a>
-        <!-- Email Link-->
-        <a href="mailto:info@companyname.com">Email</a>
-    </footer>
+    <?php
+        // header footer
+        include "footer.inc";
+    ?>
 </body>
 
 </html>

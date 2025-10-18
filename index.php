@@ -6,8 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Kha Nam Tran">
-    <meta name="description" content="Home Page for Index">
-    <meta name="keywords" content="Homepage, Index">
+    <meta name="description" content="The home page for the startup quantum storage company 'The Box', serving as an
+    introduction and index for new viewers. ">
+    <meta name="keywords" content="The Box, Quantum Storage, Data Memory, Yottabyte, Information Protection, Index of The Box">
 
     <!--Title-->
     <title>The Box</title>

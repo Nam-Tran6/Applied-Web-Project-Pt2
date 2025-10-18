@@ -11,7 +11,7 @@
 
         <!--Seperate Slogan on Side-->
         <section id= "slogan">
-            <h2>A NEW FRONTIER FOR DATA</h2>
+            <h2>THE NEW FRONTIER FOR QUANTOM STORAGE</h2>
         </section>
     </header>
 

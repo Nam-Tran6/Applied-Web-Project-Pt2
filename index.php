@@ -38,25 +38,15 @@
             */
         }
 
-        main {
-            /* utilises a grid to help create a 2 x 2*/
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(2, 1fr);
-        }
-
-        /*styling for h2 catchy phrase*/
-        #CatchyPhrase {
-            color: black;
-            background: #ccc;
+        /*styling for heading*/
+        #CatchyPhrase h1, {
+            color: #ccc;
             padding: 10px 10px;
-            margin-left: 25%;
-            margin-right: 25%;
+            margin: 5%;
             text-align: center;
             border-radius: 10px;
         }
     </style>
-
 </head>
 
 <body>
@@ -66,6 +56,18 @@
     ?>
 
     <main>
+        <!--Heading containing catchy phrase and description-->
+        <section id="CatchyPhrase">
+            <h1>
+                Welcome to The Box&#8482;
+            </h1>
+
+            <p>
+                Not Gigabytes, Terrabytes, or even Petabyte. Think as bold as us, think Yottabyte.
+            </p>
+        </section>
+
+        
         <!--Description 1-->
         <section class="item">
             <h2>What is the BOX?</h2>
@@ -95,11 +97,6 @@
                 We would happily worship our Data Overloads though. </p>
         </section>
     </main>
-
-    <!--Catchy Phrase-->
-    <h2 id="CatchyPhrase">
-        Not Gigabytes, Terrabytes, or even Petabyte. Think as bold as us, think Yottabyte.
-    </h2>
 
     <?php
         // header footer

@@ -33,7 +33,7 @@ function validate_length($field_name, $data, $min, $max) {
         $other_skills = sanitise_input($_POST['Other_Skills']);
         $state = isset($_POST['State']) ? $_POST['State'] : '';
         $gender = sanitise_input($_POST['Gender']);
-        $skills = isset($_POST['Skills']) ? $_POST['Skills'] : array();
+        $skills = isset($_POST['Skills']) ? implode(", ", array_map('sanitise_input', $_POST["Skills"])) : "";
 
         if (empty($job_ref)) {
             $job_ref_error = "Job Reference Number is required.";

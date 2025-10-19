@@ -9,5 +9,6 @@ function sanitise_input($data){
         $job_ref = sanitise_input($_POST['Job_Reference_Number']);
         $first_name = sanitise_input($_POST['First_Name']);
         $last_name = sanitise_input($_POST['Last_Name']);
+        $dob = sanitise_input($_POST['Date_of_Birth']);
     }
 ?>

@@ -34,5 +34,18 @@ function validate_length($field_name, $data, $min, $max) {
         $state = isset($_POST['State']) ? $_POST['State'] : '';
         $gender = sanitise_input($_POST['Gender']);
         $skills = isset($_POST['Skills']) ? $_POST['Skills'] : array();
+
+        if (empty($job_ref)) {
+            $job_ref_error = "Job Reference Number is required.";
+            echo $job_ref_error;
+        } elseif ($msg = validate_length("Job Reference Number", $job_ref, 0, 5)) {
+            $job_ref_error = $msg;
+            echo $job_ref_error;
+        } else if (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref)) {
+            $job_ref_error = "Job Reference Number must be exactly 5 alphanumeric characters.";
+            echo $job_ref_error;
+        } else {
+            echo "<h2>Application Received</h2>";
+        }
     }
 ?>

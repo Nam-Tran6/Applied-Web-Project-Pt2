@@ -11,5 +11,6 @@ function sanitise_input($data){
         $last_name = sanitise_input($_POST['Last_Name']);
         $dob = sanitise_input($_POST['Date_of_Birth']);
         $address = sanitise_input($_POST['Address']);
+        $suburb = sanitise_input($_POST['Suburb']);
     }
 ?>

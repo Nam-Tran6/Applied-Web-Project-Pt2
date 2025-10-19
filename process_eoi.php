@@ -1,4 +1,5 @@
 <?php
+$job_ref_error = "";
 function sanitise_input($data){
         $data = trim($data);
         $data = stripslashes($data);

@@ -23,22 +23,22 @@ description: layout for all four html pages
 header { 
     background-color: #1a1a1a; /*background color*/
     display: flex; /* Flexbox layout*/ 
-    gap: 15px; /* Space between logo + title */
+    gap: 5px; /* Space between logo + title */
     justify-content: space-between; /* logo+title left, slogan right */
 }
 
 /* Modification of Logo*/
 #logo { 
-    width: 60px; /* Width*/
-    height: 60px; /* Height*/
-    margin: 15px 0 0 80px; /*adds a 15px margin top and left*/
+    width: 145px; /* Width*/
+    height: 75px; /* Height*/
+    margin: 5px 0 7px 0px; /*adds a 15px margin top and left*/
 }
 
 /* Company Name Modification */
 #title h1 { 
     letter-spacing: 9px; /* Space between letters*/
     color: #ccc; /* Font color*/
-    margin: 17px 0 5px; /* no top margin, 8px bottom margin for spacing */
+    margin: 13px 0 5px; /* Sets margin for heading*/
 }
 
 /* Company Short Description Modification */

@@ -1,7 +1,7 @@
 <header> <!-- Standardized Heading-->
 
         <!--Logo Image-->
-        <img id = "logo" src="images/Storage.png" alt="Diagram of four stacked gray layers">
+        <img id = "logo" src="images/Storage.png" alt="Logo of The Box, showing four stacked grey layers">
 
         <!--Main Heading Information-->
         <div id="title"> 

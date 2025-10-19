@@ -38,7 +38,7 @@
         <h2 style="text-align:center;">Tech Talent Application Form</h2>
         
         <!--Sends to this database through post-->
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+        <form action="process_eoi.php" method="POST">
 
         <!-- SECTION 1: JOB DETAILS -->
         <section class="form-section">

@@ -9,13 +9,13 @@ function sanitise_input($data){
         $job_ref = sanitise_input($_POST['Job_Reference_Number']);
         $first_name = sanitise_input($_POST['First_Name']);
         $last_name = sanitise_input($_POST['Last_Name']);
-        $dob = sanitise_input($_POST['Date_of_Birth']);
-        $address = sanitise_input($_POST['Address']);
-        $suburb = sanitise_input($_POST['Suburb']);
-        $state = sanitise_input($_POST['State']);
+        $dob = sanitise_input($_POST['DOB']);
+        $address = sanitise_input($_POST['Street_Address']);
+        $suburb = sanitise_input($_POST['Suburb/Town']);
         $postcode = sanitise_input($_POST['Postcode']);
         $email = sanitise_input($_POST['Email']);
         $phone = sanitise_input($_POST['Phone']);
         $other_skills = sanitise_input($_POST['Other_Skills']);
+        $state = isset($_POST['State']) ? $_POST['State'] : [];
     }
 ?>

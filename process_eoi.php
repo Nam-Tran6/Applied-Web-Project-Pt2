@@ -13,5 +13,6 @@ function sanitise_input($data){
         $address = sanitise_input($_POST['Address']);
         $suburb = sanitise_input($_POST['Suburb']);
         $state = sanitise_input($_POST['State']);
+        $postcode = sanitise_input($_POST['Postcode']);
     }
 ?>

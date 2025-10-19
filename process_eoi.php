@@ -16,6 +16,7 @@ function sanitise_input($data){
         $email = sanitise_input($_POST['Email']);
         $phone = sanitise_input($_POST['Phone']);
         $other_skills = sanitise_input($_POST['Other_Skills']);
-        $state = isset($_POST['State']) ? $_POST['State'] : [];
+        $state = isset($_POST['State']) ? $_POST['State'] : '';
+        $gender = isset($_POST['Gender']) ? $_POST['Gender'] : '';
     }
 ?>

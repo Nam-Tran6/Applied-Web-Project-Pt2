@@ -6,6 +6,20 @@ function sanitise_input($data){
         $data = htmlspecialchars($data);
         return $data;
     }
+
+function validate_length($field_name, $data, $min, $max) {
+        $data = trim($data);
+        $length = mb_strlen($data, 'UTF-8');
+
+        if ($length < $min) {
+        return "$field_name must be at least $min characters long.";
+        } elseif ($length > $max) {
+        return "$field_name must not exceed $max characters.";
+        } else {
+        return ""; 
+        }
+    }
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $job_ref = sanitise_input($_POST['Job_Reference_Number']);
         $first_name = sanitise_input($_POST['First_Name']);

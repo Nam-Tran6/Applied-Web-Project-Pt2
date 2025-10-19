@@ -8,5 +8,6 @@ function sanitise_input($data){
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $job_ref = sanitise_input($_POST['Job_Reference_Number']);
         $first_name = sanitise_input($_POST['First_Name']);
+        $last_name = sanitise_input($_POST['Last_Name']);
     }
 ?>

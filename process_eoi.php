@@ -15,5 +15,6 @@ function sanitise_input($data){
         $state = sanitise_input($_POST['State']);
         $postcode = sanitise_input($_POST['Postcode']);
         $email = sanitise_input($_POST['Email']);
+        $phone = sanitise_input($_POST['Phone_Number']);
     }
 ?>

@@ -18,7 +18,6 @@ function sanitise_input($data){
         $other_skills = sanitise_input($_POST['Other_Skills']);
         $state = isset($_POST['State']) ? $_POST['State'] : '';
         $gender = sanitise_input($_POST['Gender']);
-        
-        
+        $skills = isset($_POST['Skills']) ? $_POST['Skills'] : array();
     }
 ?>

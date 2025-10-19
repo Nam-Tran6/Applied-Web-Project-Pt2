@@ -47,8 +47,7 @@
             <!--Input 5 length character for Job Reference Number-->
             <div class="form-group">
                 <label for="Job_Reference_Number">Job Reference Number:</label>
-                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" maxlength="5" required
-                pattern="[A-Za-z0-9]{5}" title="5 Alphanumeric Characters">
+                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number">
             </div>
         </section>
             

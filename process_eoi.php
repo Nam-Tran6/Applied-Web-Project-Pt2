@@ -8,7 +8,6 @@ $suburb_error = "";
 $postcode_error = "";
 $email_error = "";
 $phone_error = "";
-$other_skills_error = "";
 $state_error = "";
 $gender_error = "";
 $skills_error = "";
@@ -135,9 +134,20 @@ function validate_length($field_name, $data, $min, $max) {
             $email_error = "Invalid email format.<br>";
         }
 
+        if (empty($phone)) {
+            $phone_error = "Phone Number is required.<br>";
+        } else {
+            $length_error = validate_length("Phone Number", $phone, 8, 12);
+            if (!empty($length_error)) {
+                $phone_error = $length_error . "<br>";
+            } elseif (!preg_match("/^\d{8,12}$/", $phone)) {
+                $phone_error = "Phone Number must be 8 to 12 digits.<br>";
+            }
+        }
+
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
             || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error) 
-            || !empty($state_error) || !empty($skills_error) || !empty($email_error)) {
+            || !empty($state_error) || !empty($skills_error) || !empty($email_error) || !empty($phone_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
@@ -149,6 +159,7 @@ function validate_length($field_name, $data, $min, $max) {
             echo $state_error;
             echo $skills_error;
             echo $email_error;
+            echo $phone_error;
         }
     }
 ?>

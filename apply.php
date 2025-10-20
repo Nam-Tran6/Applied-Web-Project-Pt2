@@ -148,7 +148,7 @@
             <div class="form-group">
                 <!--Input Phone Number-->
                 <label for="Phone">Phone Number:</label>
-                <input type="tel" id="Phone" name="Phone" required pattern="\d{8,12}" maxlength="12" title="8-12 Digit Phone Number">
+                <input type="tel" id="Phone" name="Phone">
             </div>
         </section>
             

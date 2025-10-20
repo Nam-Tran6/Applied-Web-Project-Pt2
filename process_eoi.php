@@ -101,14 +101,23 @@ function validate_length($field_name, $data, $min, $max) {
             }
         }
 
+        if (empty($suburb)) {
+            $suburb_error = "Suburb/Town is required.<br>";
+        } else {
+            $length_error = validate_length("Suburb/Town", $suburb, 1, 40);
+            if (!empty($length_error)) {
+                $suburb_error = $length_error . "<br>";
+            }
+        }
+
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
-            || !empty($gender_error) || !empty($address_error)) {
+            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
             echo $dob_error;
             echo $gender_error;
             echo $address_error;
-            }
+            echo $suburb_error;
     }
 ?>

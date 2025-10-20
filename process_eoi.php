@@ -125,8 +125,13 @@ function validate_length($field_name, $data, $min, $max) {
             $state_error = "State is required.<br>";
         }
 
+        if (empty($skills)) {
+            $skills_error = "At least one skill must be selected.<br>";
+        }
+
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
-            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error) || !empty($state_error)) {
+            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error) 
+            || !empty($state_error) || !empty($skills_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
@@ -136,6 +141,7 @@ function validate_length($field_name, $data, $min, $max) {
             echo $suburb_error;
             echo $postcode_error;
             echo $state_error;
+            echo $skills_error;
         }
     }
 ?>

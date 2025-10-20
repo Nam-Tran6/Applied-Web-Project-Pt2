@@ -167,7 +167,7 @@
 
                             <!--Programming Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill1" name="Skills[]" value="Programming" required title="Select at least one skill"></dt>
+                                <dt><input type="checkbox" id="Skill1" name="Skills[]" value="Programming"></dt>
                                 <dd><label for="Skill1">Programming</label></dd>
                             </div>
 

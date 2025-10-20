@@ -1,4 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require_once 'settings.php';
+
+$connection = @mysqli_connect($host, $user, $pwd, $sql_db);
+
+if (!$connection) {
+    echo "<p>Database connection failure: </p>";
+} else {
+    // echo "<p>Database connection successful</p>";
+}
+
 $job_ref_error = "";
 $first_name_error = "";
 $last_name_error = "";

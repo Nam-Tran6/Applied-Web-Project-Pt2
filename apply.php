@@ -105,8 +105,8 @@
                 
             <div class="form-group">
                 <!--Input for Suburb/Town, max of 40 characters-->
-                <label for="Suburb/Town">Suburb:</label>
-                <input type="text" id="Suburb/Town" name="Suburb/Town">
+                <label for="Suburb_Town">Suburb:</label>
+                <input type="text" id="Suburb_Town" name="Suburb_Town">
             </div>
                 
             <div class="form-group">

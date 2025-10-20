@@ -130,7 +130,7 @@
             <div class="form-group">
                 <!-- Text input for Postcode-->
                 <label for="Postcode">Postcode:</label>
-                <input type="text" id="Postcode" name="Postcode" required pattern="\d{4}" maxlength="4" title="4 Digit Postcode">
+                <input type="text" id="Postcode" name="Postcode">
             </div>
         </section>
             

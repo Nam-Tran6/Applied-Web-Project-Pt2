@@ -110,8 +110,19 @@ function validate_length($field_name, $data, $min, $max) {
             }
         }
 
+        if (empty($postcode)) {
+            $postcode_error = "Postcode is required.<br>";
+        } else {
+            $length_error = validate_length("Postcode", $postcode, 4, 4);
+            if (!empty($length_error)) {
+                $postcode_error = $length_error . "<br>";
+            } elseif (!preg_match("/^\d{4}$/", $postcode)) {
+                $postcode_error = "Postcode must be exactly 4 digits.<br>";
+            }
+        }
+
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
-            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error)) {
+            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
@@ -119,5 +130,7 @@ function validate_length($field_name, $data, $min, $max) {
             echo $gender_error;
             echo $address_error;
             echo $suburb_error;
+            echo $postcode_error;
+        }
     }
 ?>

@@ -112,7 +112,7 @@
             <div class="form-group">
                 <!--Select Box for States-->
                 <label for="State">State:</label>
-                <select id="State" name="State" required>
+                <select id="State" name="State">
                     <!--Initial 0ption when selected-->
                     <option value="" disabled selected>Select your state</option>
                     <!--Available Options-->

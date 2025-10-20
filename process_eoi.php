@@ -121,8 +121,12 @@ function validate_length($field_name, $data, $min, $max) {
             }
         }
 
+        if (empty($state)) {
+            $state_error = "State is required.<br>";
+        }
+
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
-            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error)) {
+            || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error) || !empty($state_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
@@ -131,6 +135,7 @@ function validate_length($field_name, $data, $min, $max) {
             echo $address_error;
             echo $suburb_error;
             echo $postcode_error;
+            echo $state_error;
         }
     }
 ?>

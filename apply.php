@@ -100,7 +100,7 @@
             <div class="form-group">
                 <!--Input for Street Address, max of 40 characters-->
                 <label for="Street_Address">Street Address:</label>
-                <input type="text" id="Street_Address" name="Street_Address" required maxlength="40" title="40 Characters Max">
+                <input type="text" id="Street_Address" name="Street_Address">
             </div>
                 
             <div class="form-group">

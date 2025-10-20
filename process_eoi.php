@@ -92,13 +92,23 @@ function validate_length($field_name, $data, $min, $max) {
             $gender_error = "Gender is required.<br>";
         }
 
+        if (empty($address)) {
+            $address_error = "Street Address is required.<br>";
+        } else {
+            $length_error = validate_length("Street Address", $address, 1, 40);
+            if (!empty($length_error)) {
+                $address_error = $length_error . "<br>";
+            }
+        }
+
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
-            || !empty($gender_error)) {
+            || !empty($gender_error) || !empty($address_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
             echo $dob_error;
             echo $gender_error;
+            echo $address_error;
             }
     }
 ?>

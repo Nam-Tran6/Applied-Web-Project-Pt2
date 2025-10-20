@@ -1,6 +1,17 @@
 <?php
 $job_ref_error = "";
 $first_name_error = "";
+$last_name_error = "";
+$dob_error = "";
+$address_error = "";
+$suburb_error = "";
+$postcode_error = "";
+$email_error = "";
+$phone_error = "";
+$other_skills_error = "";
+$state_error = "";
+$gender_error = "";
+$skills_error = "";
 
 function sanitise_input($data){
         $data = trim($data);

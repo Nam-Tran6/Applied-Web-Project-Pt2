@@ -176,7 +176,13 @@ function validate_length($field_name, $data, $min, $max) {
             $sql = "INSERT INTO eoi (job_ref_number, first_name, last_name, dob, gender, address, suburb, state, postcode, email, phone_number, skills, others, status) 
             VALUES ('$job_ref', '$first_name', '$last_name', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills', 'New')"; 
         }
-        
-                   
-    }
+
+        if (mysqli_query($connection, $sql)) {
+            echo "<h3>Expression of Interest Submitted Successfully!</h3>";
+        } else {
+            echo "<p>Error submitting Expression of Interest: " . mysqli_error($connection) . "</p>";
+        }
+        mysqli_close($connection);
+    } 
+
 ?>

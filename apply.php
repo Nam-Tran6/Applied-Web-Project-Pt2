@@ -142,7 +142,7 @@
             <div class="form-group">
                 <!--Input Email Link-->
                 <label for="Email">Email:</label>
-                <input type="email" id="Email" name="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address">
+                <input type="email" id="Email" name="Email">
             </div>
                 
             <div class="form-group">

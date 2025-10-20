@@ -58,8 +58,7 @@
             <!--Input to a maxixmum of 20 Alphabetic Characters for First Name-->
             <div class="form-group">
                 <label for="First_Name">First Name:</label>
-                <input type="text" id="First_Name" name="First_Name" required maxlength="20" pattern="[A-Za-z ]{1,20}" 
-                title="20 Alphabetic Characters Max">
+                <input type="text" id="First_Name" name="First_Name">
             </div>
 
             <!--Input to a maxixmum of 20 Alphabetic Characters for Last Name-->

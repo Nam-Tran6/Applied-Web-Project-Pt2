@@ -1,5 +1,7 @@
 <?php
 $job_ref_error = "";
+$first_name_error = "";
+
 function sanitise_input($data){
         $data = trim($data);
         $data = stripslashes($data);
@@ -38,14 +40,24 @@ function validate_length($field_name, $data, $min, $max) {
         if (empty($job_ref)) {
             $job_ref_error = "Job Reference Number is required.";
             echo $job_ref_error;
-        } elseif ($msg = validate_length("Job Reference Number", $job_ref, 0, 5)) {
-            $job_ref_error = $msg;
-            echo $job_ref_error;
-        } else if (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref)) {
+        } elseif (validate_length("Job Reference Number", $job_ref, 5, 5)) {
             $job_ref_error = "Job Reference Number must be exactly 5 alphanumeric characters.";
             echo $job_ref_error;
-        } else {
-            echo "<h2>Application Received</h2>";
+        } elseif (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref)) {
+            $job_ref_error = "Job Reference Number must be exactly 5 alphanumeric characters.";
+            echo $job_ref_error;
+        } 
+
+        if (empty($first_name)) {
+            $first_name_error = "First Name is required.<br>";
+            echo $first_name_error;
+        } elseif (validate_length("First Name", $first_name, 1, 20)) {
+            $first_name_error = "20 Alphabetic Characters Max.<br>";
+            echo $first_name_error;
+        } elseif (!preg_match("/^[A-Za-z ]{1,20}$/", $first_name)) {
+            $first_name_error = "20 Alphabetic Characters Max<br>";
+            echo $first_name_error;
         }
+        
     }
 ?>

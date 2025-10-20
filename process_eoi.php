@@ -172,6 +172,11 @@ function validate_length($field_name, $data, $min, $max) {
             echo $skills_error;
             echo $email_error;
             echo $phone_error;
+        } else {
+            $sql = "INSERT INTO eoi (job_ref_number, first_name, last_name, dob, gender, address, suburb, state, postcode, email, phone_number, skills, others, status) 
+            VALUES ('$job_ref', '$first_name', '$last_name', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills', 'New')"; 
         }
+        
+                   
     }
 ?>

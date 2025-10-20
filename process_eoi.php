@@ -50,7 +50,7 @@ function validate_length($field_name, $data, $min, $max) {
         $last_name = sanitise_input($_POST['Last_Name']);
         $dob = sanitise_input($_POST['DOB']);
         $address = sanitise_input($_POST['Street_Address']);
-        $suburb = sanitise_input($_POST['Suburb/Town']);
+        $suburb = sanitise_input($_POST['Suburb_Town']);
         $postcode = sanitise_input($_POST['Postcode']);
         $email = sanitise_input($_POST['Email']);
         $phone = sanitise_input($_POST['Phone']);
@@ -95,8 +95,8 @@ function validate_length($field_name, $data, $min, $max) {
         
         if (empty($dob)) {
             $dob_error = "Date of Birth is required.<br>";
-        } elseif (!preg_match("/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/", $dob)) {
-            $dob_error = "Date of Birth must be in dd/mm/yyyy format.<br>";
+        } elseif (!preg_match("/^\d{4}\/(0[1-9]|1[012])\/(0[1-9]|[12][0-9]|3[01])$/", $dob)) {
+            $dob_error = "Date of Birth must be in yyyy/mm/dd format.<br>";
         }
 
         if (empty($gender)) {
@@ -155,7 +155,7 @@ function validate_length($field_name, $data, $min, $max) {
             } elseif (!preg_match("/^\d{8,12}$/", $phone)) {
                 $phone_error = "Phone Number must be 8 to 12 digits.<br>";
             }
-        }
+        } 
 
         if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
             || !empty($gender_error) || !empty($address_error) || !empty($suburb_error) || !empty($postcode_error) 
@@ -173,16 +173,22 @@ function validate_length($field_name, $data, $min, $max) {
             echo $email_error;
             echo $phone_error;
         } else {
-            $sql = "INSERT INTO eoi (job_ref_number, first_name, last_name, dob, gender, address, suburb, state, postcode, email, phone_number, skills, others, status) 
+            $sql = "INSERT INTO eoi (job_ref_num, first_name, last_name, dob, gender, address, suburb, state, postcode, email, phone_number, skills, others, status) 
             VALUES ('$job_ref', '$first_name', '$last_name', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills', 'New')"; 
         }
 
-        if (mysqli_query($connection, $sql)) {
-            echo "<h3>Expression of Interest Submitted Successfully!</h3>";
+       if (mysqli_query($connection, $sql)) {
+            $eoi_number = mysqli_insert_id($connection);
+            echo "<h2>Application Submitted Successfully!</h2>";
+            echo "<p>Thank you, <strong>$first_name</strong>.</p>";
+            echo "<p>Your unique EOI number is: <strong>EOI-" . str_pad($eoi_number, 5, '0', STR_PAD_LEFT) . "</strong></p>";
+            echo "<p>Please keep this number for future reference.</p>";
         } else {
-            echo "<p>Error submitting Expression of Interest: " . mysqli_error($connection) . "</p>";
+            echo "Error: " . mysqli_error($connection);
         }
         mysqli_close($connection);
-    } 
+    } else {
+        header ('Location: apply.php');
+    }   
 
 ?>

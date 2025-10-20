@@ -70,7 +70,7 @@
             <!--Input Date of Birth in dd/mm/yyyy formart-->
             <div class="form-group">
                 <label for="DOB">Date of Birth:</label>
-                <input type="text" id="DOB" name="DOB" placeholder="dd/mm/yyyy">
+                <input type="text" id="DOB" name="DOB" placeholder="yyyy/mm/dd">
             </div>
                 
             <!--Fieldset for Gender Selection-->

@@ -79,15 +79,15 @@
                     <legend>Select your gender</legend>
                     <div class="radio-group" style= "font-weight: normal">
                         <!--Select Male Radio Button-->
-                        <input type="radio" id="Male" name="Gender" value="Male" required>
+                        <input type="radio" id="Male" name="Gender" value="Male">
                         <label for="Male">Male</label>
 
                         <!--Select Female Radio Button-->
-                        <input type="radio" id="Female" name="Gender" value="Female" required>
+                        <input type="radio" id="Female" name="Gender" value="Female">
                         <label for="Female">Female</label>
                             
                         <!--Select Other Radio Button-->
-                        <input type="radio" id="Other" name="Gender" value="Other" required>
+                        <input type="radio" id="Other" name="Gender" value="Other">
                         <label for="Other">Other</label>
                     </div>
                 </fieldset>

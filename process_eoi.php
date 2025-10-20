@@ -88,11 +88,17 @@ function validate_length($field_name, $data, $min, $max) {
             $dob_error = "Date of Birth must be in dd/mm/yyyy format.<br>";
         }
 
-        if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error)) {
+        if (empty($gender)) {
+            $gender_error = "Gender is required.<br>";
+        }
+
+        if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error) 
+            || !empty($gender_error)) {
             echo $job_ref_error;
             echo $first_name_error;
             echo $last_name_error;
             echo $dob_error;
-        }
+            echo $gender_error;
+            }
     }
 ?>

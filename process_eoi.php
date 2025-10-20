@@ -49,26 +49,42 @@ function validate_length($field_name, $data, $min, $max) {
         $skills = isset($_POST['Skills']) ? implode(", ", array_map('sanitise_input', $_POST["Skills"])) : "";
 
         if (empty($job_ref)) {
-            $job_ref_error = "Job Reference Number is required.";
-            echo $job_ref_error;
-        } elseif (validate_length("Job Reference Number", $job_ref, 5, 5)) {
-            $job_ref_error = "Job Reference Number must be exactly 5 alphanumeric characters.";
-            echo $job_ref_error;
-        } elseif (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref)) {
-            $job_ref_error = "Job Reference Number must be exactly 5 alphanumeric characters.";
-            echo $job_ref_error;
-        } 
+            $job_ref_error = "Job Reference Number is required.<br>";
+        } else {
+            $length_error = validate_length("Job Reference Number", $job_ref, 5, 5);
+            if (!empty($length_error)) {
+                $job_ref_error = $length_error . "<br>";
+            } elseif (!preg_match("/^[A-Za-z0-9]{5}$/", $job_ref)) {
+                $job_ref_error = "Job Reference Number must be exactly 5 alphanumeric characters.<br>";
+            }
+        }
 
         if (empty($first_name)) {
             $first_name_error = "First Name is required.<br>";
-            echo $first_name_error;
-        } elseif (validate_length("First Name", $first_name, 1, 20)) {
-            $first_name_error = "20 Alphabetic Characters Max.<br>";
-            echo $first_name_error;
-        } elseif (!preg_match("/^[A-Za-z ]{1,20}$/", $first_name)) {
-            $first_name_error = "20 Alphabetic Characters Max<br>";
-            echo $first_name_error;
+        } else {
+            $length_error = validate_length("First Name", $first_name, 1, 20);
+            if (!empty($length_error)) {
+                $first_name_error = $length_error . "<br>";
+            } elseif (!preg_match("/^[A-Za-z ]{1,20}$/", $first_name)) {
+                $first_name_error = "20 Alphabetic Characters Max<br>";
+            }
         }
         
+        if (empty($last_name)) {
+            $last_name_error = "Last Name is required.<br>";
+        } else {
+            $length_error = validate_length("Last Name", $last_name, 1, 20);
+            if (!empty($length_error)) {
+                $last_name_error = $length_error . "<br>";
+            } elseif (!preg_match("/^[A-Za-z ]{1,20}$/", $last_name)) {
+                $last_name_error = "20 Alphabetic Characters Max.<br>";
+            }
+            
+        }       
+        if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error)) {
+            echo $job_ref_error;
+            echo $first_name_error;
+            echo $last_name_error;  
+        } 
     }
 ?>

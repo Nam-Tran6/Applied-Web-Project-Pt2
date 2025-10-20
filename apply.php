@@ -64,7 +64,7 @@
             <!--Input to a maxixmum of 20 Alphabetic Characters for Last Name-->
             <div class="form-group">
                 <label for="Last_Name">Last Name:</label>
-                <input type="text" id="Last_Name" name="Last_Name" required pattern="[A-Za-z ]{1,20}" maxlength="20" title="20 Alphabetic Characters Max">
+                <input type="text" id="Last_Name" name="Last_Name">
             </div>
             
             <!--Input Date of Birth in dd/mm/yyyy formart-->

@@ -70,8 +70,7 @@
             <!--Input Date of Birth in dd/mm/yyyy formart-->
             <div class="form-group">
                 <label for="DOB">Date of Birth:</label>
-                <input type="text" id="DOB" name="DOB" placeholder="dd/mm/yyyy" 
-                pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\d{4}" title="Enter date in dd/mm/yyyy format" required>
+                <input type="text" id="DOB" name="DOB" placeholder="dd/mm/yyyy">
             </div>
                 
             <!--Fieldset for Gender Selection-->

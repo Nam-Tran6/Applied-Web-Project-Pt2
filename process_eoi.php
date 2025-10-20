@@ -80,11 +80,19 @@ function validate_length($field_name, $data, $min, $max) {
                 $last_name_error = "20 Alphabetic Characters Max.<br>";
             }
             
-        }       
-        if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error)) {
+        }  
+        
+        if (empty($dob)) {
+            $dob_error = "Date of Birth is required.<br>";
+        } elseif (!preg_match("/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/", $dob)) {
+            $dob_error = "Date of Birth must be in dd/mm/yyyy format.<br>";
+        }
+
+        if (!empty($job_ref_error) || !empty($first_name_error) || !empty($last_name_error) || !empty($dob_error)) {
             echo $job_ref_error;
             echo $first_name_error;
-            echo $last_name_error;  
-        } 
+            echo $last_name_error;
+            echo $dob_error;
+        }
     }
 ?>

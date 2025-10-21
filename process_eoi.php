@@ -189,6 +189,6 @@ function validate_length($field_name, $data, $min, $max) {
         mysqli_close($connection);
     } else {
         header ('Location: apply.php');
-    }   
+    }
 
 ?>

@@ -159,7 +159,18 @@
                     $result = mysqli_query($conn, $sql);
                     
                     //starts a table tag
-                    echo "<table>";
+                    echo "<table>
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Dream Job</th>
+                                    <th>Coding Snack</th>
+                                    <th>Hometown</th>
+                                    <th>Sport</th>
+                                    <th>Movie</th>
+                                </tr>
+                            </thead>
+                        <tbody>";
                     //if result is true + results has more then 0 rows
                     if($result && mysqli_num_rows($result)>0) {
                         //While loop to ensures that all data is searched through
@@ -184,7 +195,8 @@
                             }
 
                         //closes the table tag
-                        echo "</table>";
+                        echo "</tbody>
+                            </table>";
                         
                         // Fail state for when no data is given
                         } else {

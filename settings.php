@@ -2,6 +2,6 @@
 $host = "localhost";
 $user = "root";
 $pwd = "";
-$sql_db = "CHANGELATER"; 
+$sql_db = "thebox_db"; 
 
 ?>

@@ -140,57 +140,21 @@
             <!--Section involving facts about team-->
             <section id="funfacts">
                 <h2>Fun Facts:</h2>
-                <table>
-                <!-- Subheading introducing fun facts table -->
-                    <caption>Dream Job, Coding Snack, Hometown, Sport, and Movie</caption>
-                    <!-- Table caption: describes the content of the table -->
-                    <thead>
-                    <!-- Table header section -->
-                        <tr>
-                        <!-- Table row -->
-                            <th>Member</th>
-                            <th>Dream Job</th>
-                            <th>Coding Snack</th>
-                            <th>Hometown</th>
-                            <th>Sport</th>
-                            <th>Movie</th>
-                            <!-- table head -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Table body containing data rows -->
-                        <tr>
-                        <!-- Table row -->
-                            <td>Kha Nam Tran</td>
-                            <td>Teacher</td>
-                            <td>Lollies</td>
-                            <td>St Albans</td>
-                            <td>I'm a nerd, I don't do sports</td>
-                            <td>The Martian</td>
-                            <!-- table description-->
-                        </tr>
-                        <tr>
-                        <!-- Table row -->
-                            <td>Sothearith Kuy</td>
-                            <td>Developer</td>
-                            <td>Chip</td>
-                            <td>Siem Reap</td>
-                            <td>Soccer</td>
-                            <td>John Wick</td>
-                            <!-- table description-->
-                        </tr>
-                        <tr>
-                        <!-- Table row -->
-                            <td>Sokna David Heang</td>
-                            <td>Software Engineer</td>
-                            <td>Chocolate</td>
-                            <td>Phnom Penh</td>
-                            <td>Basketball</td>
-                            <td>Spiderman</td>
-                            <!-- table description-->
-                        </tr>
-                    </tbody>
-                </table>
+                
+                <?php
+                //Runs settings once 
+                require_once("settings.php"); 
+                //connects to database with the code necessary
+                $conn = mysqli_connect ($host, $username, $password, $database) 
+
+                //failsafe if $conn does not connect, leading to prompt detaling error 
+                if (!$conn) {
+                    echo " <p> Database Connection failed, dude: ".mysqli_connect_error()."</p>";
+                // else select all data from funfacts table
+                } else {
+                    $sql = "SELECT * FROM funfacts"
+                }
+                ?>
             </section>
         </main>
 

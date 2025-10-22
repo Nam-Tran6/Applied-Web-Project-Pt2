@@ -137,32 +137,67 @@
                 <hr>
             </section>
 
-            <!--Section involving facts about team-->
-            <section id="funfacts">
-                <h2>Fun Facts:</h2>
+            <?php
+                //Section involving facts about team
+                echo"<section id='funfacts'>";
+                echo"<h2>Fun Facts:</h2>";
                 
-                <?php
                 //Runs settings once 
                 require_once("settings.php"); 
                 //connects to database with the code necessary
-                $conn = mysqli_connect ($host, $username, $password, $database) 
+                $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
 
                 //failsafe if $conn does not connect, leading to prompt detaling error 
-                if (!$conn) {
+                if(!$conn){
                     echo " <p> Database Connection failed, dude: ".mysqli_connect_error()."</p>";
-                // else select all data from funfacts table
-                } else {
-                    $sql = "SELECT * FROM funfacts"
+                
+                    // else select all data from funfacts table
+                }else {
+                    $sql = "SELECT * FROM funfacts";
+
+                    // copies queries from funfacts into $results
+                    $result = mysqli_query($conn, $sql);
+                    
+                    //starts a table tag
+                    echo "<table>";
+                    //if result is true + results has more then 0 rows
+                    if($result && mysqli_num_rows($result)>0) {
+                        //While loop to ensures that all data is searched through
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            //gathers special characters from data in funfacts table
+                            $member = htmlspecialchars($row["member"]); 
+                            $dream = htmlspecialchars($row["dream_job"]);
+                            $coding = htmlspecialchars($row["coding_snacks"]);
+                            $home = htmlspecialchars($row["hometown"]);
+                            $sport = htmlspecialchars($row["sport"]);
+                            $movie = htmlspecialchars($row["movie"]);
+
+                            //produces a new table for each seperate id
+                            echo "<tr>
+                                <td>$member</td>
+                                <td>$dream</td>
+                                <td>$coding</td>
+                                <td>$home</td>
+                                <td>$sport</td>
+                                <td>$movie</td>
+                            </tr>";
+                            }
+
+                        //closes the table tag
+                        echo "</table>";
+                        
+                        // Fail state for when no data is given
+                        } else {
+                            echo "<p>No Data Found</p>";
+                        }
+                    mysqli_close($conn);
                 }
-                ?>
-            </section>
+                echo"</section>";
+
+                // header footer
+                include "footer.inc";
+            ?>
         </main>
-
-    <?php
-        // header footer
-        include "footer.inc";
-    ?>
-
         <br>
     </body>
 

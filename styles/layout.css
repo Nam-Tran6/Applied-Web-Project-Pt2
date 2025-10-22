@@ -22,37 +22,33 @@ description: layout for all four html pages
 /* General Header Settings*/
 header { 
     background-color: #1a1a1a; /*background color*/
-    padding: 10px; /* Add space inside header */
     display: flex; /* Flexbox layout*/ 
-    gap: 20px; /* Space between logo + title */
+    gap: 5px; /* Space between logo + title */
     justify-content: space-between; /* logo+title left, slogan right */
 }
 
 /* Modification of Logo*/
 #logo { 
-    width: 100px; /* Width*/
-    height: 80px; /* Height*/
+    width: 145px; /* Width*/
+    height: 75px; /* Height*/
+    margin: 5px 0 7px 0px; /*adds a 15px margin top and left*/
 }
 
 /* Company Name Modification */
 #title h1 { 
-    font-size: 3em; /* Font size alignment*/
-    letter-spacing: 5px; /* Space between letters*/
+    letter-spacing: 9px; /* Space between letters*/
     color: #ccc; /* Font color*/
-    margin: 0 0 8px; /* no top margin, 8px bottom margin for spacing */
+    margin: 13px 0 5px; /* Sets margin for heading*/
 }
 
 /* Company Short Description Modification */
 #title p { 
-    font-size: 1.2em; /* Aligned with logo*/
     margin-top: 5px; /* Small space above tagline */
     color: #ccc; /* Set grey */
-    margin: 0 0 8px; /* no top margin, 8px bottom margin for spacing */
 }
 
 /* Side Description*/
 #slogan h2 { 
-    font-size: 1.5em; /* Font size alignment*/
     color: #ccc; /* Set grey */
     margin: 0; /* Remove margin*/
     padding: 10px; /* Expands padding*/
@@ -63,7 +59,7 @@ header {
 /*Aligning Right*/
 #slogan { 
     margin-left: auto; /* Pushes slogan right */
-    padding-right: 5em; /* Push comment inwards*/
+    padding-right: 1em; /* Push comment inwards*/
     align-self: center; /* Vertically center own property*/
 }
 
@@ -212,7 +208,7 @@ input:focus, select:focus, textarea:focus {
 .radio-group label {
     font-weight: normal; /* Radios don’t need bold labels */
 }
-       
+
 .form-actions {
     display: flex; /* Aligns buttons in a row */
     justify-content: center;  /* Centers buttons */

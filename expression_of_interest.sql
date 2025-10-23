@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 23, 2025 at 03:42 AM
+-- Generation Time: Oct 23, 2025 at 04:02 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -57,7 +57,8 @@ INSERT INTO `eoi` (`EOInumber`, `job_ref_num`, `first_name`, `last_name`, `dob`,
 (5, 'Ah123', 'Taylor', 'Swift', '2015-12-20', 'Male', 'STREET A HOUSE 152', 'Phnom Penh', 'VIC', '1208', 'manager@gmail.com', '31414144', 'Programming, Web Development, Data Analysis, Project Management, Cybersecurity, AI and Machine Learning', 'dadbabdjakbsdjkabdba', 'New'),
 (6, 'Ah123', 'Taylor', 'Swift', '2015-12-20', 'Male', 'STREET A HOUSE 152', 'Phnom Penh', 'VIC', '1208', 'manager@gmail.com', '121213111', 'Programming, Web Development, Data Analysis, Project Management, Cybersecurity, AI and Machine Learning', 'dadbabdjakbsdjkabdba', 'New'),
 (7, 'Ah123', 'Taylor', 'Swift', '2015-12-20', 'Male', 'STREET A HOUSE 152', 'Phnom Penh', 'VIC', '1208', 'manager@gmail.com', '12121111', 'Programming, Web Development, Data Analysis, Project Management, Cybersecurity, Cloud Computing, AI and Machine Learning, Other', 'dadbabdjakbsdjkabdba', 'New'),
-(8, '12222', 'Taylor', 'Swift', '2020-12-20', 'Female', 'STREET A HOUSE 152', 'Phnom Penh', 'NSW', '1208', 'Soknadavid005@gmail.com', '12121245', 'Programming, Data Analysis', '', 'New');
+(8, '12222', 'Taylor', 'Swift', '2020-12-20', 'Female', 'STREET A HOUSE 152', 'Phnom Penh', 'NSW', '1208', 'Soknadavid005@gmail.com', '12121245', 'Programming, Data Analysis', '', 'New'),
+(9, '122oo', 'Taylor', 'Swift', '2005-12-30', 'Female', 'STREET A HOUSE 152', 'Phnom Penh', 'NSW', '1208', 'soknadavid005@gmail.com', '31414144', 'Programming, Web Development', '', 'New');
 
 --
 -- Indexes for dumped tables
@@ -77,7 +78,7 @@ ALTER TABLE `eoi`
 -- AUTO_INCREMENT for table `eoi`
 --
 ALTER TABLE `eoi`
-  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `EOInumber` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

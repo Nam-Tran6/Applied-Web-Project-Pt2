@@ -158,8 +158,12 @@
                     // copies queries from funfacts into $results
                     $result = mysqli_query($conn, $sql);
                     
-                    //starts a table tag
-                    echo "<table>
+
+                    //if result is true + results has more then 0 rows
+                    if($result && mysqli_num_rows($result)>0) {
+                        //While loop to ensures that all data is searched through
+                        //starts a table tag
+                        echo "<table>
                             <thead>
                                 <tr>
                                     <th>Member</th>
@@ -171,9 +175,6 @@
                                 </tr>
                             </thead>
                         <tbody>";
-                    //if result is true + results has more then 0 rows
-                    if($result && mysqli_num_rows($result)>0) {
-                        //While loop to ensures that all data is searched through
                         while ($row = mysqli_fetch_assoc($result)) {
                             //gathers special characters from data in funfacts table
                             $member = htmlspecialchars($row["member"]); 
@@ -210,7 +211,5 @@
                 include "footer.inc";
             ?>
         </main>
-        <br>
     </body>
-
 </html>

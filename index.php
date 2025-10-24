@@ -62,6 +62,8 @@
         #cloudpicture {
             text-align: center;
             margin: 1em;
+            color: #ccc;
+            font-style: italic;
         }
     </style>
 </head>
@@ -73,10 +75,12 @@
     ?>
     
 <main>
-    <section id = "cloudpicture">
-        <img src="images/Box.png" alt="Image of a cloud streching out network connections, 
-        enforcing our brand as a storage site">
-    </section>
+    <figure id = "cloudpicture">
+        <img src="images/Box.png" alt= "Icon of a cloud with connected network nodes representing cloud storage"> 
+        <figcaption>
+        For all your storage needs
+        </figcaption>
+    </figure>
     <!--Image of cloud storage to illustrate business plan-->
     
         

@@ -90,7 +90,7 @@
     <!--Heading introducing user to the business-->
     <h1>
         Welcome to <br> 
-        &lt;--- The Box&#8482; ---&gt;
+        &lt;-- The Box&#8482; --&gt;
     </h1>
 
     <!--Short introductionary paragraph with inline CSS to override external CSS rule-->

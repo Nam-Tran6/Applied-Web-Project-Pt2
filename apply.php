@@ -46,8 +46,8 @@
             
             <!--Input 5 length character for Job Reference Number-->
             <div class="form-group">
-                <label for="Job_Reference_Number">Job Reference Number:</label>
-                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" maxlength="5" required
+                <label for="job_reference_number">Job Reference Number:</label>
+                <input type="text" id="job_reference_number" name="job_reference_number" maxlength="5" required
                 pattern="[A-Za-z0-9]{5}" title="5 Alphanumeric Characters">
             </div>
         </section>
@@ -58,21 +58,21 @@
 
             <!--Input to a maxixmum of 20 Alphabetic Characters for First Name-->
             <div class="form-group">
-                <label for="First_Name">First Name:</label>
-                <input type="text" id="First_Name" name="First_Name" required maxlength="20" pattern="[A-Za-z ]{1,20}" 
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required maxlength="20" pattern="[A-Za-z ]{1,20}" 
                 title="20 Alphabetic Characters Max">
             </div>
 
             <!--Input to a maxixmum of 20 Alphabetic Characters for Last Name-->
             <div class="form-group">
-                <label for="Last_Name">Last Name:</label>
-                <input type="text" id="Last_Name" name="Last_Name" required pattern="[A-Za-z ]{1,20}" maxlength="20" title="20 Alphabetic Characters Max">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required pattern="[A-Za-z ]{1,20}" maxlength="20" title="20 Alphabetic Characters Max">
             </div>
             
             <!--Input Date of Birth in dd/mm/yyyy formart-->
             <div class="form-group">
-                <label for="DOB">Date of Birth:</label>
-                <input type="text" id="DOB" name="DOB" placeholder="dd/mm/yyyy" 
+                <label for="date">Date of Birth:</label>
+                <input type="text" id="date" name="date" placeholder="dd/mm/yyyy" 
                 pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\d{4}" title="Enter date in dd/mm/yyyy format" required>
             </div>
                 
@@ -82,16 +82,16 @@
                     <legend>Select your gender</legend>
                     <div class="radio-group" style= "font-weight: normal">
                         <!--Select Male Radio Button-->
-                        <input type="radio" id="Male" name="Gender" value="Male" required>
-                        <label for="Male">Male</label>
+                        <input type="radio" id="male" name="Gender" value="Male" required>
+                        <label for="male">Male</label>
 
                         <!--Select Female Radio Button-->
-                        <input type="radio" id="Female" name="Gender" value="Female" required>
-                        <label for="Female">Female</label>
+                        <input type="radio" id="female" name="Gender" value="Female" required>
+                        <label for="female">Female</label>
                             
                         <!--Select Other Radio Button-->
-                        <input type="radio" id="Other" name="Gender" value="Other" required>
-                        <label for="Other">Other</label>
+                        <input type="radio" id="other" name="Gender" value="Other" required>
+                        <label for="other">Other</label>
                     </div>
                 </fieldset>
             </div>
@@ -102,20 +102,20 @@
             <h2>Address Details</h2>
             <div class="form-group">
                 <!--Input for Street Address, max of 40 characters-->
-                <label for="Street_Address">Street Address:</label>
-                <input type="text" id="Street_Address" name="Street_Address" required maxlength="40" title="40 Characters Max">
+                <label for="street_address">Street Address:</label>
+                <input type="text" id="street_address" name="street_address" required maxlength="40" title="40 Characters Max">
             </div>
                 
             <div class="form-group">
                 <!--Input for Suburb/Town, max of 40 characters-->
-                <label for="Suburb/Town">Suburb:</label>
-                <input type="text" id="Suburb/Town" name="Suburb/Town" required maxlength="40" title="40 Characters Max">
+                <label for="suburb">Suburb:</label>
+                <input type="text" id="suburb" name="suburb" required maxlength="40" title="40 Characters Max">
             </div>
                 
             <div class="form-group">
                 <!--Select Box for States-->
-                <label for="State">State:</label>
-                <select id="State" name="State" required>
+                <label for="state">State:</label>
+                <select id="state" name="state" required>
                     <!--Initial 0ption when selected-->
                     <option value="" disabled selected>Select your state</option>
                     <!--Available Options-->
@@ -132,8 +132,8 @@
 
             <div class="form-group">
                 <!-- Text input for Postcode-->
-                <label for="Postcode">Postcode:</label>
-                <input type="text" id="Postcode" name="Postcode" required pattern="\d{4}" maxlength="4" title="4 Digit Postcode">
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" name="postcode" required pattern="\d{4}" maxlength="4" title="4 Digit Postcode">
             </div>
         </section>
             
@@ -144,14 +144,14 @@
 
             <div class="form-group">
                 <!--Input Email Link-->
-                <label for="Email">Email:</label>
-                <input type="email" id="Email" name="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address">
             </div>
                 
             <div class="form-group">
                 <!--Input Phone Number-->
-                <label for="Phone">Phone Number:</label>
-                <input type="tel" id="Phone" name="Phone" required pattern="\d{8,12}" maxlength="12" title="8-12 Digit Phone Number">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" required pattern="\d{8,12}" maxlength="12" title="8-12 Digit Phone Number">
             </div>
         </section>
             
@@ -163,66 +163,63 @@
             <div class="form-group">
                 <!--Checkbox Fieldset-->
                 <fieldset>
-                    <!--Legend for Skills-->
-                    <legend>Select Your Skills:</legend>
+                <!--Legend for Skills-->
+                <legend>Select Your Skills:</legend>
                     <div class="checkbox-group">
-                        <dl class="skills-list">
-
                             <!--Programming Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill1" name="Skills[]" value="Programming" required title="Select at least one skill"></dt>
-                                <dd><label for="Skill1">Programming</label></dd>
+                                <dt><input type="checkbox" id="skill1" name="skills[]" value="Programming" required title="Select at least one skill"></dt>
+                                <dd><label for="skill1">Programming</label></dd>
                             </div>
 
                             <!--Web Development Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill2" name="Skills[]" value="Web Development"></dt>
-                                <dd><label for="Skill2">Web Development</label></dd>
+                                <dt><input type="checkbox" id="skill2" name="skills[]" value="Web Development"></dt>
+                                <dd><label for="skill2">Web Development</label></dd>
                             </div>
 
                             <!--Data Analysis Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill3" name="Skills[]" value="Data Analysis"></dt>
-                                <dd><label for="Skill3">Data Analysis</label></dd>
+                                <dt><input type="checkbox" id="skill3" name="skills[]" value="Data Analysis"></dt>
+                                <dd><label for="skill3">Data Analysis</label></dd>
                             </div>
 
                             <!--Project Management Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill4" name="Skills[]" value="Project Management"></dt>
-                                <dd><label for="Skill4">Project Management</label></dd>
+                                <dt><input type="checkbox" id="skill4" name="skills[]" value="Project Management"></dt>
+                                <dd><label for="skill4">Project Management</label></dd>
                             </div>
 
                             <!--Cybersecurity Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill5" name="Skills[]" value="Cybersecurity"></dt>
-                                <dd><label for="Skill5">Cybersecurity</label></dd>
+                                <dt><input type="checkbox" id="skill5" name="skills[]" value="Cybersecurity"></dt>
+                                <dd><label for="skill5">Cybersecurity</label></dd>
                             </div>
 
                             <!--Cloud Computing Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill6" name="Skills[]" value="Cloud Computing"></dt>
-                                <dd><label for="Skill6">Cloud Computing</label></dd>
+                                <dt><input type="checkbox" id="skill6" name="skills[]" value="Cloud Computing"></dt>
+                                <dd><label for="skill6">Cloud Computing</label></dd>
                             </div>
 
                             <!--AI and Machine Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill7" name="Skills[]" value="AI and Machine Learning"></dt>
-                                <dd><label for="Skill7">AI and Machine Learning</label></dd>
+                                <dt><input type="checkbox" id="skill7" name="skills[]" value="AI and Machine Learning"></dt>
+                                <dd><label for="skill7">AI and Machine Learning</label></dd>
                             </div>
 
                             <!--Other Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill8" name="Skills[]" value="Other"></dt>
-                                <dd><label for="Skill8">Other</label></dd>
+                                <dt><input type="checkbox" id="skill8" name="skills[]" value="Other"></dt>
+                                <dd><label for="skill8">Other</label></dd>
                             </div>
-                        </dl>
                     </div>
                 </fieldset>
             </div>
                 
             <div class="form-group">
-                <label for="Other_Skills">If Other, please specify:</label>
-                <textarea id="Other_Skills" name="Other_Skills" rows="5"></textarea>
+                <textarea id="other_skills" name="other_skills" rows="5"></textarea>
+                <label for="other_skills">If Other, please specify:</label>
             </div>
         </section>
 

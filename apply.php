@@ -16,6 +16,15 @@
     <link rel="stylesheet" href="styles/layout.css" type="text/css"> 
     
     <style>
+        body {
+            /* Background illustration, sourced from Adobe Stock + generated with AI
+            Name: Vector futuristic sphere of particles and lines. Network connection big data. Abstract technology background.*/
+            background: url(styles/images/background2nd.png);
+            
+            /* Background cover*/
+            background-size: cover;
+        }
+
         main { /* Adjust size of main*/
             max-width: 800px; /* Restricts content width for better readability */
             margin: 2rem auto;  /* Horizontally center + Vertical spacing */
@@ -24,6 +33,15 @@
         form { /* Grid to allow gap between form sections*/
             display: grid; /* Uses CSS Grid for structured spacing */
             gap: 1.5rem; /* Space between form sections */
+        }
+
+        input { 
+            display:flex;
+        }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr
         }
     </style>
 
@@ -115,9 +133,10 @@
             <div class="form-group">
                 <!--Select Box for States-->
                 <label for="state">State:</label>
+                <br>
                 <select id="state" name="state" required>
                     <!--Initial 0ption when selected-->
-                    <option value="" disabled selected>Select your state</option>
+                    <option value="" disabled selected>Select your State</option>
                     <!--Available Options-->
                     <option value="VIC">VIC</option>
                     <option value="NSW">NSW</option>
@@ -166,60 +185,54 @@
                 <!--Legend for Skills-->
                 <legend>Select Your Skills:</legend>
                     <div class="checkbox-group">
+                            <dl class="skills-list">
+
                             <!--Programming Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill1" name="skills[]" value="Programming" required title="Select at least one skill">
-                                <label for="skill1">Programming</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill1" name="Skills[]" value="Programming" required title="Select at least one skill"></dt>
+                                <dd><label for="Skill1">Programming</label></dd>
+                                <br>
 
                             <!--Web Development Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill2" name="skills[]" value="Web Development">
-                                <label for="skill2">Web Development</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill2" name="Skills[]" value="Web Development"></dt>
+                                <dd><label for="Skill2">Web Development</label></dd>
+                                <br>
 
                             <!--Data Analysis Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill3" name="skills[]" value="Data Analysis">
-                                <label for="skill3">Data Analysis</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill3" name="Skills[]" value="Data Analysis"></dt>
+                                <dd><label for="Skill3">Data Analysis</label></dd>
+                                <br>
 
                             <!--Project Management Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill4" name="skills[]" value="Project Management">
-                                <label for="skill4">Project Management</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill4" name="Skills[]" value="Project Management"></dt>
+                                <dd><label for="Skill4">Project Management</label></dd>
+                                <br>
 
                             <!--Cybersecurity Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill5" name="skills[]" value="Cybersecurity">
-                                <label for="skill5">Cybersecurity</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill5" name="Skills[]" value="Cybersecurity"></dt>
+                                <dd><label for="Skill5">Cybersecurity</label></dd>
+                                <br>
 
                             <!--Cloud Computing Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill6" name="skills[]" value="Cloud Computing">
-                                <label for="skill6">Cloud Computing</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill6" name="Skills[]" value="Cloud Computing"></dt>
+                                <dd><label for="Skill6">Cloud Computing</label></dd>
+                                <br>
 
                             <!--AI and Machine Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill7" name="skills[]" value="AI and Machine Learning">
-                                <label for="skill7">AI and Machine Learning</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill7" name="Skills[]" value="AI and Machine Learning"></dt>
+                                <dd><label for="Skill7">AI and Machine Learning</label></dd>
+                                <br>
 
                             <!--Other Checkbox-->
-                            <div>
-                                <input type="checkbox" id="skill8" name="skills[]" value="Other">
-                                <label for="skill8">Other</label>
-                            </div>
+                                <dt><input type="checkbox" id="Skill8" name="Skills[]" value="Other"></dt>
+                                <dd><label for="Skill8">Other</label></dd>
+                        </dl>
                     </div>
                 </fieldset>
             </div>
                 
             <div class="form-group">
-                <textarea id="other_skills" name="other_skills" rows="5"></textarea>
                 <label for="other_skills">If Other, please specify:</label>
+                <textarea id="other_skills" name="other_skills" rows="5"></textarea>
             </div>
         </section>
 

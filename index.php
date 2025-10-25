@@ -76,7 +76,7 @@
     
 <main>
     <figure id = "cloudpicture">
-        <img src="images/Box.png" alt= "Icon of a cloud with connected network nodes representing cloud storage"> 
+        <img src="images/box.png" alt= "Icon of a cloud with connected network nodes representing cloud storage"> 
         <figcaption>
         For all your storage needs
         </figcaption>

@@ -173,43 +173,43 @@
 
                             <!--Web Development Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill2" name="Skills[]" value="Web Development"></dt>
+                                <dt><input type="checkbox" id="Skill2" name="skills[]" value="Web Development"></dt>
                                 <dd><label for="Skill2">Web Development</label></dd>
                             </div>
 
                             <!--Data Analysis Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill3" name="Skills[]" value="Data Analysis"></dt>
+                                <dt><input type="checkbox" id="Skill3" name="skills[]" value="Data Analysis"></dt>
                                 <dd><label for="Skill3">Data Analysis</label></dd>
                             </div>
 
                             <!--Project Management Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill4" name="Skills[]" value="Project Management"></dt>
+                                <dt><input type="checkbox" id="Skill4" name="skills[]" value="Project Management"></dt>
                                 <dd><label for="Skill4">Project Management</label></dd>
                             </div>
 
                             <!--Cybersecurity Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill5" name="Skills[]" value="Cybersecurity"></dt>
+                                <dt><input type="checkbox" id="Skill5" name="skills[]" value="Cybersecurity"></dt>
                                 <dd><label for="Skill5">Cybersecurity</label></dd>
                             </div>
 
                             <!--Cloud Computing Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill6" name="Skills[]" value="Cloud Computing"></dt>
+                                <dt><input type="checkbox" id="Skill6" name="skills[]" value="Cloud Computing"></dt>
                                 <dd><label for="Skill6">Cloud Computing</label></dd>
                             </div>
 
                             <!--AI and Machine Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill7" name="Skills[]" value="AI and Machine Learning"></dt>
+                                <dt><input type="checkbox" id="Skill7" name="skills[]" value="AI and Machine Learning"></dt>
                                 <dd><label for="Skill7">AI and Machine Learning</label></dd>
                             </div>
 
                             <!--Other Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="Skill8" name="Skills[]" value="Other"></dt>
+                                <dt><input type="checkbox" id="Skill8" name="skills[]" value="Other"></dt>
                                 <dd><label for="Skill8">Other</label></dd>
                             </div>
                         </dl>

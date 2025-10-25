@@ -168,50 +168,50 @@
                     <div class="checkbox-group">
                             <!--Programming Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill1" name="skills[]" value="Programming" required title="Select at least one skill"></dt>
-                                <dd><label for="skill1">Programming</label></dd>
+                                <input type="checkbox" id="skill1" name="skills[]" value="Programming" required title="Select at least one skill">
+                                <label for="skill1">Programming</label>
                             </div>
 
                             <!--Web Development Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill2" name="skills[]" value="Web Development"></dt>
-                                <dd><label for="skill2">Web Development</label></dd>
+                                <input type="checkbox" id="skill2" name="skills[]" value="Web Development">
+                                <label for="skill2">Web Development</label>
                             </div>
 
                             <!--Data Analysis Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill3" name="skills[]" value="Data Analysis"></dt>
-                                <dd><label for="skill3">Data Analysis</label></dd>
+                                <input type="checkbox" id="skill3" name="skills[]" value="Data Analysis">
+                                <label for="skill3">Data Analysis</label>
                             </div>
 
                             <!--Project Management Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill4" name="skills[]" value="Project Management"></dt>
-                                <dd><label for="skill4">Project Management</label></dd>
+                                <input type="checkbox" id="skill4" name="skills[]" value="Project Management">
+                                <label for="skill4">Project Management</label>
                             </div>
 
                             <!--Cybersecurity Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill5" name="skills[]" value="Cybersecurity"></dt>
-                                <dd><label for="skill5">Cybersecurity</label></dd>
+                                <input type="checkbox" id="skill5" name="skills[]" value="Cybersecurity">
+                                <label for="skill5">Cybersecurity</label>
                             </div>
 
                             <!--Cloud Computing Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill6" name="skills[]" value="Cloud Computing"></dt>
-                                <dd><label for="skill6">Cloud Computing</label></dd>
+                                <input type="checkbox" id="skill6" name="skills[]" value="Cloud Computing">
+                                <label for="skill6">Cloud Computing</label>
                             </div>
 
                             <!--AI and Machine Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill7" name="skills[]" value="AI and Machine Learning"></dt>
-                                <dd><label for="skill7">AI and Machine Learning</label></dd>
+                                <input type="checkbox" id="skill7" name="skills[]" value="AI and Machine Learning">
+                                <label for="skill7">AI and Machine Learning</label>
                             </div>
 
                             <!--Other Checkbox-->
                             <div>
-                                <dt><input type="checkbox" id="skill8" name="skills[]" value="Other"></dt>
-                                <dd><label for="skill8">Other</label></dd>
+                                <input type="checkbox" id="skill8" name="skills[]" value="Other">
+                                <label for="skill8">Other</label>
                             </div>
                     </div>
                 </fieldset>

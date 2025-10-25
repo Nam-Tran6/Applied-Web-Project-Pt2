@@ -36,13 +36,9 @@
         }
 
         input { 
-            display:flex;
+            display: flex; /* Aligns all input displays together*/
         }
 
-        .checkbox-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr
-        }
     </style>
 
 <body>
@@ -53,7 +49,7 @@
     
     <main>
         <!--H2 Heading for Application Form-->
-        <h2 style="text-align:center;">Tech Talent Application Form</h2>
+        <h2 style="text-align:center; color: #ccc;">Tech Talent Application Form</h2>
         
         <!--Sends to this database through post-->
         <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
@@ -64,7 +60,14 @@
             
             <!--Input 5 length character for Job Reference Number-->
             <div class="form-group">
-                <label for="job_reference_number">Job Reference Number:</label>
+                <label for="job_reference_number">Job Reference Number: 
+                <p>
+                    Ref: A1B2C — Senior Product Designer 
+                </p>
+                <p>
+                    Ref: D4E5F — Frontend Engineer, Design Systems
+                </p>
+                </label>
                 <input type="text" id="job_reference_number" name="job_reference_number" maxlength="5" required
                 pattern="[A-Za-z0-9]{5}" title="5 Alphanumeric Characters">
             </div>

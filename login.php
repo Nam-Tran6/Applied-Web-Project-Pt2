@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset(
 </form>
 
 <?php 
-    if (!empty($error)) echo "<p style='color:blue; text-align:center;'>$error</p>"; 
+    if (!empty($error)) echo "<p style='color:red; text-align:center;'>$error</p>"; 
     
     ?>
 

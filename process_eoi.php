@@ -7,7 +7,7 @@ require_once 'settings.php';
 // Establish a connection to the database
 $connection = @mysqli_connect($host, $user, $pwd, $sql_db);
 
-// Check if the database connection is successful
+// Check if the database connection is successful; Credits to Youtube: Dani Krossing and ChatGPT
 if (!$connection) {
     // If there's an error, flash a global error and go back to the form
     $_SESSION['errors'] = ['_global' => 'Database connection failure: please try again later.'];
@@ -221,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "INSERT INTO eoi (job_ref_num, first_name, last_name, dob, gender, address, suburb, state, postcode, email, phone_number, skills, others, status) 
                 VALUES ('$job_ref', '$first_name', '$last_name', '$dob', '$gender', '$address', '$suburb', '$state', '$postcode', '$email', '$phone', '$skills', '$other_skills', 'New')"; 
 
-        // Execute the query and check for success
+        // Execute the query and check for success; Credits to Youtube: Dani Krossing and ChatGPT
         if (mysqli_query($connection, $sql)) {
             $eoi_number = mysqli_insert_id($connection); // Get the unique ID of the inserted record
             // Store EOI number in session ; can display it if you ever want
@@ -231,7 +231,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirect back to the form 
             header('Location: apply.php');
         } else {
-            // Flash DB error and go back
+            // Flash DB error and go back; Credits to StackOverflow
             $_SESSION['errors'] = ['_global' => 'Error saving your application: ' . mysqli_error($connection)];
             $_SESSION['old']    = $_POST;
             header('Location: apply.php');

@@ -5,7 +5,7 @@ session_start();
 $errors = $_SESSION['errors'] ?? [];
 $old    = $_SESSION['old'] ?? [];
 
-// Helpers
+// Helpers (Credits to Youtube: Dani Krossing and ChatGPT)
 // Escape output safely to prevent XSS attacks
 function e($v){ 
     return htmlspecialchars($v ?? '', ENT_QUOTES, 'UTF-8'); 
@@ -80,7 +80,7 @@ function err($field){
     
     <main>
         <h2 style="text-align:center;">Tech Talent Application Form</h2>
-        <?php if (!empty($_SESSION['eoi_number'])): ?>
+        <?php if (!empty($_SESSION['eoi_number'])): ?> 
         <p style="text-align:center;color:#0a7a0a;font-weight:bold;">
         ✅ Application submitted successfully! <br>
         Your unique EOI number is:
@@ -90,7 +90,7 @@ function err($field){
     unset($_SESSION['eoi_number']); // clear it so it doesn't reappear after refresh
 endif; 
 ?>
-
+<!-- Credit to Youtube: Dani Krossing and ChatGPT for the error display functions -->
         
         <form action="process_eoi.php" method="POST">
 

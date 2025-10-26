@@ -72,13 +72,15 @@ nav {
 }
 
 /* Styles the list inside nav (links container) */
-nav ul {    
-    list-style: none; /* Removes bullet points */
-    display: grid; /* Grid Layout */
-    grid-template-columns: repeat(4, 25%); /* Assigns 4 columns of equal size */
-    text-align: center; /* Aligns text to the middle*/
-    padding-left: 0px; /* Removes default padding left (Inspect Element is so cool)*/
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* evenly spaced links */
+    align-items: center;
+    padding: 0 3em; /* adds spacing on left/right */
+    margin: 20px;
 }
+
 
 /* Link Change */
 nav ul li a {
@@ -223,4 +225,72 @@ input[type="submit"], input[type="reset"] {
     font-weight: bold; /* Bold text */
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth hover effect */
+}
+
+/*Login.php stye*/
+
+
+#formlogin {
+    max-width: 320px;              /* Limit form width */
+    margin: auto;                  /* Center the form horizontally */
+    background: #fff;              /* White background */
+    padding: 25px;                 /* Space inside the box */
+    border-radius: 8px;            /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);  /* Soft shadow around the form */
+}
+
+/* Style for the username and password input boxes */
+.inputlogin {
+    width: 100%;                   /* Make input boxes full width */
+    margin: 8px 0;                 /* Space above and below each input */
+    padding: 10px;                 /* Space inside the input box */
+    box-sizing: border-box;        /* Include padding in total width */
+}
+
+/* Style for the login button */
+.btnlogin {
+    background: grey;              /* Button background color */
+    color: white;                  /* Button text color */
+    border: none;                  /* Remove default border */
+    padding: 10px;                 /* Space inside the button */
+    width: 100%;                   /* Make button full width */
+    border-radius: 5px;            /* Rounded corners */
+    cursor: pointer;               /* Show pointer cursor on hover */
+}
+
+/* Change button color when hovered */
+.btnlogin:hover {
+    background: black;           /* Darker blue background on hover */
+}
+
+/* Center the heading text */
+#h2login {
+    text-align: center;            /* Center the login title */
+}
+
+/*manage.php style*/
+
+#message {
+    text-align: center;
+    color: green; /* Success message color */
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: grey; /* Button background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s; /* Smooth hover transition */
+}
+
+.btn:hover {
+    background: #555; /* Darker grey on hover */
+}
+
+/* === Logout Section === */
+.logout {
+    text-align: right;
+    margin-bottom: 20px;
 }

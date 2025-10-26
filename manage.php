@@ -51,6 +51,22 @@ if (isset($_POST['delete_eoi'])) {
     }
 }
 
+// UPDATE EOI STATUS
+
+if (isset($_POST['update_status'])) {
+    $eoi_num = $_POST['eoi_num'];
+    $new_status = $_POST['status'];
+
+    $stmt = $conn->prepare("UPDATE eoi SET status = ? WHERE EOInumber = ?");
+    $stmt->bind_param("si", $new_status, $eoi_num);
+
+    if ($stmt->execute()) {
+        $message = " Status updated successfully.";
+    } else {
+        $message = " Error updating status.";
+    }
+}
+
 // Build SQL dynamically based on user input
 $sql = "SELECT * FROM eoi";
 if (count($where_clauses) > 0) {

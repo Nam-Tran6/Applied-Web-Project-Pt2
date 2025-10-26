@@ -2,6 +2,5 @@
 $host = "localhost";
 $user = "root";
 $pwd = "";
-$sql_db = "database"; 
-
+$sql_db = "expression_of_interest"; 
 ?>

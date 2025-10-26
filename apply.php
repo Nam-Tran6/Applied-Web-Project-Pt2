@@ -1,3 +1,50 @@
+<?php
+session_start();
+
+// Pull errors & old input from session
+$errors = $_SESSION['errors'] ?? [];
+$old    = $_SESSION['old'] ?? [];
+
+// Helpers (Credits to Youtube: Dani Krossing and ChatGPT)
+// Escape output safely to prevent XSS attacks
+function e($v){ 
+    return htmlspecialchars($v ?? '', ENT_QUOTES, 'UTF-8'); 
+}
+
+// Get previously entered value for a field (to repopulate after validation fail)
+function old($key, $default=''){ 
+    global $old; 
+    return e($old[$key] ?? $default); 
+}
+
+// Keep radio button checked if user selected it before
+function checked_radio($name, $value){ 
+    global $old; 
+    return (isset($old[$name]) && $old[$name] === $value) ? ' checked' : ''; 
+}
+
+// Keep dropdown option selected if user chose it before
+function selected($name, $value){ 
+    global $old; 
+    return (isset($old[$name]) && $old[$name] === $value) ? ' selected' : ''; 
+}
+
+// Keep checkbox checked if user selected it before
+function checked_box($name, $value){
+    global $old;
+    $arr = $old[$name] ?? [];
+    return (is_array($arr) && in_array($value, $arr, true)) ? ' checked' : '';
+}
+
+// Display error message under a form field (in red text)
+function err($field){ 
+    global $errors; 
+    return !empty($errors[$field]) 
+        ? "<span class='error' style='color:#c0392b;display:block;margin-top:.25rem;font-size:.9rem;'>".e($errors[$field])."</span>" 
+        : ""; 
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,29 +73,34 @@
             gap: 1.5rem; /* Space between form sections */
         }
     </style>
+</head>
 
 <body>
-    <?php
-        // header inclusions
-        include "header.inc";
-    ?>
+    <?php include "header.inc"; ?>
     
     <main>
-        <!--H2 Heading for Application Form-->
         <h2 style="text-align:center;">Tech Talent Application Form</h2>
+        <?php if (!empty($_SESSION['eoi_number'])): ?> 
+        <p style="text-align:center;color:#0a7a0a;font-weight:bold;">
+        ✅ Application submitted successfully! <br>
+        Your unique EOI number is:
+        <span style="color:#0a7a0a;">EOI-<?= str_pad($_SESSION['eoi_number'], 5, '0', STR_PAD_LEFT) ?></span>
+    </p>
+<?php 
+    unset($_SESSION['eoi_number']); // clear it so it doesn't reappear after refresh
+endif; 
+?>
+<!-- Credit to Youtube: Dani Krossing and ChatGPT for the error display functions -->
         
-        <!--Sends to this database through post-->
-        <form action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+        <form action="process_eoi.php" method="POST">
 
         <!-- SECTION 1: JOB DETAILS -->
         <section class="form-section">
             <h2>Job Details</h2>
-            
-            <!--Input 5 length character for Job Reference Number-->
             <div class="form-group">
                 <label for="Job_Reference_Number">Job Reference Number:</label>
-                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" maxlength="5" required
-                pattern="[A-Za-z0-9]{5}" title="5 Alphanumeric Characters">
+                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" value="<?= old('Job_Reference_Number') ?>">
+                <?= err('job_ref') ?>
             </div>
         </section>
             
@@ -56,43 +108,38 @@
         <section class="form-section">
             <h2>Personal Details</h2>
 
-            <!--Input to a maxixmum of 20 Alphabetic Characters for First Name-->
             <div class="form-group">
                 <label for="First_Name">First Name:</label>
-                <input type="text" id="First_Name" name="First_Name" required maxlength="20" pattern="[A-Za-z ]{1,20}" 
-                title="20 Alphabetic Characters Max">
+                <input type="text" id="First_Name" name="First_Name" value="<?= old('First_Name') ?>">
+                <?= err('first_name') ?>
             </div>
 
-            <!--Input to a maxixmum of 20 Alphabetic Characters for Last Name-->
             <div class="form-group">
                 <label for="Last_Name">Last Name:</label>
-                <input type="text" id="Last_Name" name="Last_Name" required pattern="[A-Za-z ]{1,20}" maxlength="20" title="20 Alphabetic Characters Max">
+                <input type="text" id="Last_Name" name="Last_Name" value="<?= old('Last_Name') ?>">
+                <?= err('last_name') ?>
             </div>
             
-            <!--Input Date of Birth in dd/mm/yyyy formart-->
             <div class="form-group">
                 <label for="DOB">Date of Birth:</label>
-                <input type="text" id="DOB" name="DOB" placeholder="dd/mm/yyyy" 
-                pattern="(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[012])/\d{4}" title="Enter date in dd/mm/yyyy format" required>
+                <input type="text" id="DOB" name="DOB" placeholder="yyyy/mm/dd" value="<?= old('DOB') ?>">
+                <?= err('dob') ?>
             </div>
                 
-            <!--Fieldset for Gender Selection-->
             <div class="form-group">
                 <fieldset>
                     <legend>Select your gender</legend>
-                    <div class="radio-group" style= "font-weight: normal">
-                        <!--Select Male Radio Button-->
-                        <input type="radio" id="Male" name="Gender" value="Male" required>
+                    <div class="radio-group" style="font-weight: normal">
+                        <input type="radio" id="Male" name="Gender" value="Male" <?= checked_radio('Gender','Male') ?>>
                         <label for="Male">Male</label>
 
-                        <!--Select Female Radio Button-->
-                        <input type="radio" id="Female" name="Gender" value="Female" required>
+                        <input type="radio" id="Female" name="Gender" value="Female" <?= checked_radio('Gender','Female') ?>>
                         <label for="Female">Female</label>
                             
-                        <!--Select Other Radio Button-->
-                        <input type="radio" id="Other" name="Gender" value="Other" required>
+                        <input type="radio" id="Other" name="Gender" value="Other" <?= checked_radio('Gender','Other') ?>>
                         <label for="Other">Other</label>
                     </div>
+                    <?= err('gender') ?>
                 </fieldset>
             </div>
         </section>
@@ -101,143 +148,96 @@
         <section class="form-section">
             <h2>Address Details</h2>
             <div class="form-group">
-                <!--Input for Street Address, max of 40 characters-->
                 <label for="Street_Address">Street Address:</label>
-                <input type="text" id="Street_Address" name="Street_Address" required maxlength="40" title="40 Characters Max">
+                <input type="text" id="Street_Address" name="Street_Address" value="<?= old('Street_Address') ?>">
+                <?= err('address') ?>
             </div>
                 
             <div class="form-group">
-                <!--Input for Suburb/Town, max of 40 characters-->
-                <label for="Suburb/Town">Suburb:</label>
-                <input type="text" id="Suburb/Town" name="Suburb/Town" required maxlength="40" title="40 Characters Max">
+                <label for="Suburb_Town">Suburb:</label>
+                <input type="text" id="Suburb_Town" name="Suburb_Town" value="<?= old('Suburb_Town') ?>">
+                <?= err('suburb') ?>
             </div>
                 
             <div class="form-group">
-                <!--Select Box for States-->
                 <label for="State">State:</label>
-                <select id="State" name="State" required>
-                    <!--Initial 0ption when selected-->
-                    <option value="" disabled selected>Select your state</option>
-                    <!--Available Options-->
-                    <option value="VIC">VIC</option>
-                    <option value="NSW">NSW</option>
-                    <option value="QLD">QLD</option>
-                    <option value="NT">NT</option>
-                    <option value="WA">WA</option>
-                    <option value="SA">SA</option>
-                    <option value="TAS">TAS</option>
-                    <option value="ACT">ACT</option>
+                <select id="State" name="State">
+                    <option value="" disabled <?= (old('State')===''?' selected':'') ?>>Select your state</option>
+                    <option value="VIC" <?= selected('State','VIC') ?>>VIC</option>
+                    <option value="NSW" <?= selected('State','NSW') ?>>NSW</option>
+                    <option value="QLD" <?= selected('State','QLD') ?>>QLD</option>
+                    <option value="NT" <?= selected('State','NT') ?>>NT</option>
+                    <option value="WA" <?= selected('State','WA') ?>>WA</option>
+                    <option value="SA" <?= selected('State','SA') ?>>SA</option>
+                    <option value="TAS" <?= selected('State','TAS') ?>>TAS</option>
+                    <option value="ACT" <?= selected('State','ACT') ?>>ACT</option>
                 </select>
+                <?= err('state') ?>
             </div>
 
             <div class="form-group">
-                <!-- Text input for Postcode-->
                 <label for="Postcode">Postcode:</label>
-                <input type="text" id="Postcode" name="Postcode" required pattern="\d{4}" maxlength="4" title="4 Digit Postcode">
+                <input type="text" id="Postcode" name="Postcode" value="<?= old('Postcode') ?>">
+                <?= err('postcode') ?>
             </div>
         </section>
             
         <!-- SECTION 4: CONTACT DETAILS -->
         <section class="form-section">
-            <!-- Section Heading-->
             <h2>Contact Details</h2>
 
             <div class="form-group">
-                <!--Input Email Link-->
                 <label for="Email">Email:</label>
-                <input type="email" id="Email" name="Email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter a valid email address">
+                <input type="email" id="Email" name="Email" value="<?= old('Email') ?>">
+                <?= err('email') ?>
             </div>
                 
             <div class="form-group">
-                <!--Input Phone Number-->
                 <label for="Phone">Phone Number:</label>
-                <input type="tel" id="Phone" name="Phone" required pattern="\d{8,12}" maxlength="12" title="8-12 Digit Phone Number">
+                <input type="tel" id="Phone" name="Phone" value="<?= old('Phone') ?>">
+                <?= err('phone') ?>
             </div>
         </section>
             
         <!-- SECTION 5: SKILLS AND EXPERIENCE -->
         <section class="form-section">
-            <!--Section Heading-->
             <h2>Skills and Experience</h2>
             
             <div class="form-group">
-                <!--Checkbox Fieldset-->
                 <fieldset>
-                    <!--Legend for Skills-->
                     <legend>Select Your Skills:</legend>
                     <div class="checkbox-group">
                         <dl class="skills-list">
-
-                            <!--Programming Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill1" name="Skills[]" value="Programming" required title="Select at least one skill"></dt>
-                                <dd><label for="Skill1">Programming</label></dd>
-                            </div>
-
-                            <!--Web Development Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill2" name="Skills[]" value="Web Development"></dt>
-                                <dd><label for="Skill2">Web Development</label></dd>
-                            </div>
-
-                            <!--Data Analysis Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill3" name="Skills[]" value="Data Analysis"></dt>
-                                <dd><label for="Skill3">Data Analysis</label></dd>
-                            </div>
-
-                            <!--Project Management Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill4" name="Skills[]" value="Project Management"></dt>
-                                <dd><label for="Skill4">Project Management</label></dd>
-                            </div>
-
-                            <!--Cybersecurity Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill5" name="Skills[]" value="Cybersecurity"></dt>
-                                <dd><label for="Skill5">Cybersecurity</label></dd>
-                            </div>
-
-                            <!--Cloud Computing Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill6" name="Skills[]" value="Cloud Computing"></dt>
-                                <dd><label for="Skill6">Cloud Computing</label></dd>
-                            </div>
-
-                            <!--AI and Machine Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill7" name="Skills[]" value="AI and Machine Learning"></dt>
-                                <dd><label for="Skill7">AI and Machine Learning</label></dd>
-                            </div>
-
-                            <!--Other Checkbox-->
-                            <div>
-                                <dt><input type="checkbox" id="Skill8" name="Skills[]" value="Other"></dt>
-                                <dd><label for="Skill8">Other</label></dd>
-                            </div>
+                            <div><dt><input type="checkbox" id="Skill1" name="skills[]" value="Programming" <?= checked_box('skills','Programming') ?>></dt><dd><label for="Skill1">Programming</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill2" name="skills[]" value="Web Development" <?= checked_box('skills','Web Development') ?>></dt><dd><label for="Skill2">Web Development</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill3" name="skills[]" value="Data Analysis" <?= checked_box('skills','Data Analysis') ?>></dt><dd><label for="Skill3">Data Analysis</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill4" name="skills[]" value="Project Management" <?= checked_box('skills','Project Management') ?>></dt><dd><label for="Skill4">Project Management</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill5" name="skills[]" value="Cybersecurity" <?= checked_box('skills','Cybersecurity') ?>></dt><dd><label for="Skill5">Cybersecurity</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill6" name="skills[]" value="Cloud Computing" <?= checked_box('skills','Cloud Computing') ?>></dt><dd><label for="Skill6">Cloud Computing</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill7" name="skills[]" value="AI and Machine Learning" <?= checked_box('skills','AI and Machine Learning') ?>></dt><dd><label for="Skill7">AI and Machine Learning</label></dd></div>
+                            <div><dt><input type="checkbox" id="Skill8" name="skills[]" value="Other" <?= checked_box('skills','Other') ?>></dt><dd><label for="Skill8">Other</label></dd></div>
                         </dl>
                     </div>
+                    <?= err('skills') ?>
                 </fieldset>
             </div>
                 
             <div class="form-group">
                 <label for="Other_Skills">If Other, please specify:</label>
-                <textarea id="Other_Skills" name="Other_Skills" rows="5"></textarea>
+                <textarea id="Other_Skills" name="Other_Skills" rows="5"><?= old('Other_Skills') ?></textarea>
             </div>
         </section>
 
         <!-- SECTION 6: FORM CONTROL -->
-            <div class="form-actions">
-                <!--Submit Application Button-->
-                <input type="submit" value="Submit Application">
-                <!--Reset Application Button-->
-                <input type="reset" value="Reset Application Form">
-            </div>
+        <div class="form-actions">
+            <input type="submit" value="Submit Application">
+            <input type="reset" value="Reset Application Form">
+        </div>
         </form>
     </main>
 
     <?php
-        // header footer
+        unset($_SESSION['errors'], $_SESSION['old']); // clear session after render
         include "footer.inc";
     ?>
 </body>

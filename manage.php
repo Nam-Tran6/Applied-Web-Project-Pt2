@@ -50,7 +50,60 @@ if (count($params) > 0) {
     <meta name="author" content="Sothearith Kuy">
 <title>Manage EOIs</title>
 <style>
+   body {
    
+    background: #f5f5f5; /* Light grey background */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Headings */
+h1 {
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark grey text color */
+}
+
+/* Form Container */
+form {
+    background: #fff; /* White background for form */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px; /* Limit form width */
+    border-radius: 8px; /* Rounded corners */
+    
+}
+
+/* Input Fields, Dropdowns, and Buttons */
+input,
+select,
+button {
+    margin: 8px 0;
+    padding: 8px;
+    width: 100%; /* Full width elements */
+    box-sizing: border-box; /* Include padding in total width */
+}
+
+/* Table Styles  */
+table {
+    width: 100%; /* Full-width table */
+    border-collapse: collapse; /* Merge table borders */
+    background: white; /* White background */
+    margin-top: 20px;
+}
+
+th,
+td {
+    border: 1px solid #ccc; /* Light grey border */
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background: grey; /* Header background color */
+    color: white; /* White header text */
+}
+
+
 </style>
 </head>
 <body>
@@ -65,7 +118,7 @@ if (count($params) > 0) {
 
 <!-- Message after actions -->
 <?php if ($message): ?>
-<p class="message"><?php echo $message; ?></p>
+<p id="message"><?php echo $message; ?></p>
 <?php endif; ?>
 
 <!-- FILTER / SORT FORM -->

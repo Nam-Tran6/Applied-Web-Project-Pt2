@@ -24,6 +24,20 @@ if (!empty($_GET['job_ref'])) {
     $types .= "s";
 }
 
+// Filter by first name (partial match)
+if (!empty($_GET['first_name'])) {
+    $where_clauses[] = "first_name LIKE ?";
+    $params[] = "%" . $_GET['first_name'] . "%";
+    $types .= "s";
+}
+
+// Filter by last name (partial match)
+if (!empty($_GET['last_name'])) {
+    $where_clauses[] = "last_name LIKE ?";
+    $params[] = "%" . $_GET['last_name'] . "%";
+    $types .= "s";
+}
+
 // Initialize default variables
 $message = ""; // Used to store success or error messages
 $order_by = "EOInumber"; // Default column to sort the results by if the user doesn't choose another field

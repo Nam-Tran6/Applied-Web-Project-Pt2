@@ -2,5 +2,5 @@
 $host = "localhost";
 $user = "root";
 $pwd = "";
-$sql_db = "thebox_db"; 
+$sql_db = "expression_of_interest"; 
 ?>

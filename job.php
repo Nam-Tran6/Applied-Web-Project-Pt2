@@ -128,7 +128,7 @@
                 </ul>
 
                 <!--Button Apply-->
-                <a href="apply.html" class="applybtn">Apply Now</a>
+                <a href="apply.php" class="applybtn">Apply Now</a>
             </article>
 
             <br> <!--Line Break-->
@@ -178,7 +178,7 @@
                 </ul>
 
                 <!--Button to Apply-->
-                <a href="apply.html?job=A1B2C" class="applybtn">Apply Now</a>
+                <a href="apply.php?job=A1B2C" class="applybtn">Apply Now</a>
             </article>
         </section>
 

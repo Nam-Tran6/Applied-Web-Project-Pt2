@@ -27,16 +27,15 @@
         aside {
             float: right;
             width: 25%; /* Width of <aside> 25% to parentcontainer. */
-            padding: 10px; /* Adds space between border and text */
-            margin-top: 1em; /* Aligning with apply*/
+            padding: 18px; /* Adds space between border and text */
             border-radius: 8px; /* Rounds corners of border with an 8px radius. */
-            background-color: white; /*White Blackground */
+            background-color: #ccc; /*White Blackground */
         }
 
         article {
             padding: 18px; /* 18px of inner spacing */
             border-radius: 8px; /* Rounds corners of the border with an 8px radius. */
-            background-color: white; /*White Background*/
+            background-color: #ccc; /*White Background*/
         }
 
         .applybtn {
@@ -48,6 +47,13 @@
             background: #0073e6; /* Job site style blue */
             border-radius: 8px; /* Corner round off 8px*/
             text-decoration: none; /* Removes underline*/
+        }
+
+        #apply {
+            padding: 10px; /* 18px of inner spacing */
+            border-radius: 8px; /* Rounds corners of the border with an 8px radius. */
+            background-color: #ccc; /*White Background*/
+            margin-bottom: 1em; /*adds spacing on bottom*/
         }
 
     </style>
@@ -67,7 +73,7 @@
         <section>
 
             <!-- Subheading under the main page heading -->
-            <h2 style="color: #ccc">Open Positions</h2> 
+            <h2 style="color: #ccc;">Open Positions</h2> 
 
             <!-- Used Article instead of section because each section is self-contained-->
             <article>
@@ -173,7 +179,7 @@
         <br>
 
         <!-- Section for instructions on how to apply -->
-        <section style="float: left ; width: 60%">
+        <section id = apply style="float: left ; width: 60%">
             <!--Embedded Style to make font black-->
             <h2 style="color: black;">How to apply</h2>
 

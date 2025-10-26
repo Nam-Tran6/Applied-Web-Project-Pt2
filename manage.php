@@ -37,6 +37,20 @@ if (isset($_POST['delete_ref'])) {
     }
 }
 
+// DELETE SINGLE EOI
+if (isset($_POST['delete_eoi'])) {
+    $eoi_num = $_POST['delete_eoi'];
+
+    $stmt = $conn->prepare("DELETE FROM eoi WHERE EOInumber = ?");
+    $stmt->bind_param("i", $eoi_num);
+
+    if ($stmt->execute()) {
+        $message = "EOI #$eoi_num deleted successfully.";
+    } else {
+        $message = "Error deleting EOI #$eoi_num.";
+    }
+}
+
 // Build SQL dynamically based on user input
 $sql = "SELECT * FROM eoi";
 if (count($where_clauses) > 0) {

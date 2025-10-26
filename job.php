@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="styles/layout.css" type="text/css">
 
     <style>
+        body {
+            /* Background illustration, sourced from Adobe Stock + generated with AI */
+            background: url(styles/images/background3rd.png);
+            
+            /* Background cover*/
+            background-size: cover;
+        }
+
         aside {
             float: right;
             width: 25%; /* Width of <aside> 25% to parentcontainer. */
@@ -41,6 +49,7 @@
             border-radius: 8px; /* Corner round off 8px*/
             text-decoration: none; /* Removes underline*/
         }
+
     </style>
 </head>
 
@@ -58,7 +67,7 @@
         <section>
 
             <!-- Subheading under the main page heading -->
-            <h2 style="color: black">Open Positions</h2> 
+            <h2 style="color: #ccc">Open Positions</h2> 
 
             <!-- Used Article instead of section because each section is self-contained-->
             <article>
@@ -170,7 +179,7 @@
 
             <p> Send a one-page cover note and portfolio or GitHub link to </p>
             <!--Link to Email--> 
-            <a href= "mailto:jobs@email.com">jobs@example.com with the reference code in the subject line.</a>
+            <a href= "mailto:info@thebox.com">info@thebox.com with the reference code in the subject line.</a>
 
             <p> We review applications on a rolling basis and aim for an interview loop that includes a short design/code
                 exercise and two cross-functional interviews.

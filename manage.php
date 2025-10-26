@@ -22,6 +22,20 @@ $where_clauses = [];  // Store conditional filters (WHERE)
 $params = [];         // Values for the placeholders
 $types = "";          // Data types for bind_param()
 
+// DELETE All EOIs BY JOB REFERENCE
+
+if (isset($_POST['delete_ref'])) {
+    $job_ref = trim($_POST['delete_ref']);
+
+    $stmt = $conn->prepare("DELETE FROM eoi WHERE job_ref_num = ?");
+    $stmt->bind_param("s", $job_ref);
+
+    if ($stmt->execute()) {
+        $message = " All EOIs for Job Reference '$job_ref' deleted successfully.";
+    } else {
+        $message = "Error deleting EOIs.";
+    }
+}
 
 // Build SQL dynamically based on user input
 $sql = "SELECT * FROM eoi";

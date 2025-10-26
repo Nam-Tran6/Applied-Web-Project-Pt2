@@ -118,7 +118,7 @@ endif;
         <section class="form-section">
             <h2>Job Details</h2>
             <div class="form-group">
-                <label for="job_reference_number">Job Reference Number: 
+                <label for="Job_Reference_Number">Job Reference Number: 
                 <p>
                     Ref: A1B2C — Senior Product Designer 
                 </p>
@@ -126,7 +126,7 @@ endif;
                     Ref: D4E5F — Frontend Engineer, Design Systems
                 </p>
                 </label>
-                <input type="text" id="job_reference_number" name="job_reference_number" value="<?= old('Job_Reference_Number') ?>">
+                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" value="<?= old('Job_Reference_Number') ?>">
                 <?= err('job_ref') ?>
             </div>
         </section>
@@ -137,21 +137,21 @@ endif;
 
             <div class="form-group">
 
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name" value="<?= old('First_Name') ?>">
+                <label for="First_Name">First Name:</label>
+                <input type="text" id="First_Name" name="First_Name" value="<?= old('First_Name') ?>">
                 <?= err('first_name') ?>
 
             </div>
 
             <div class="form-group">
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name" value="<?= old('Last_Name') ?>">
+                <label for="Last_Name">Last Name:</label>
+                <input type="text" id="Last_Name" name="Last_Name" value="<?= old('Last_Name') ?>">
                 <?= err('last_name') ?>
             </div>
             
             <div class="form-group">
-                <label for="date">Date of Birth:</label>
-                <input type="text" id="date" name="date" placeholder="yyyy/mm/dd" value="<?= old('DOB') ?>">
+                <label for="DOB">Date of Birth:</label>
+                <input type="text" id="DOB" name="DOB" placeholder="yyyy/mm/dd" value="<?= old('DOB') ?>">
                 <?= err('dob') ?>
             </div>
                 

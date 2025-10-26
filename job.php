@@ -56,6 +56,12 @@
             margin-bottom: 1em; /*adds spacing on bottom*/
         }
 
+        #job_title { /*id for h2 main title*/
+            color: #ccc; /* Changes text color to #ccc*/
+            width: 30%; /* Sets limit to 30%*/
+            background-color: #1a1a1a; /* Makes background solid to improve visibility*/
+        }
+
     </style>
 </head>
 
@@ -73,7 +79,7 @@
         <section>
 
             <!-- Subheading under the main page heading -->
-            <h2 style="color: #ccc;">Open Positions</h2> 
+            <h2 id = "job_title">Open Positions</h2> 
 
             <!-- Used Article instead of section because each section is self-contained-->
             <article>

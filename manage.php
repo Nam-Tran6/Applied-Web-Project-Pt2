@@ -38,6 +38,11 @@ if (!empty($_GET['last_name'])) {
     $types .= "s";
 }
 
+// Sorting option
+if (!empty($_GET['sort_by'])) {
+    $order_by = $_GET['sort_by'];
+}
+
 // Initialize default variables
 $message = ""; // Used to store success or error messages
 $order_by = "EOInumber"; // Default column to sort the results by if the user doesn't choose another field

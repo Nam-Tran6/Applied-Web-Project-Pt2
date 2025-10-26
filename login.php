@@ -28,7 +28,7 @@
 
 <?php
         // header footer
-        include "footer.inc";
+        include "footer.inc"; 
     ?>
 
 </body>

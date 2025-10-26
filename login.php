@@ -1,3 +1,37 @@
+<?php
+session_start();
+include "settings.php"; // Contains your DB connection ($conn)
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset($_POST['password'])) {
+    $username = trim($_POST['username']);
+    $password = trim($_POST['password']);
+
+    // Prepared statement to check user
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? ");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // If user exists
+    if ($result->num_rows === 1) {
+        $row = $result->fetch_assoc();
+
+        //  Verify hashed password
+        if (password_verify($password, $row['password'])) {
+            session_regenerate_id(true);   // prevent session from using same session again and again
+            $_SESSION['user'] = $row['username']; // Save username in session
+            header("Location: manage.php"); // Redirect to HR dashboard
+            exit;
+        } else {
+            $error = "Incorrect password.";
+        }
+    } else {
+        $error = "Username not found.";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +59,11 @@
     <input class="inputlogin" type="password" name="password" placeholder="Password" required><br>
     <button class="btnlogin" type="submit">Login</button>
 </form>
+
+<?php 
+    if (!empty($error)) echo "<p style='color:blue; text-align:center;'>$error</p>"; 
+    
+    ?>
 
 <?php
         // header footer

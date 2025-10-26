@@ -16,19 +16,26 @@
     <link rel="stylesheet" href="styles/layout.css" type="text/css">
 
     <style>
+        body {
+            /* Background illustration, sourced from Adobe Stock + generated with AI */
+            background: url(styles/images/back_job.png);
+            
+            /* Background cover*/
+            background-size: cover;
+        }
+
         aside {
             float: right;
             width: 25%; /* Width of <aside> 25% to parentcontainer. */
-            padding: 10px; /* Adds space between border and text */
-            margin-top: 1em; /* Aligning with apply*/
+            padding: 18px; /* Adds space between border and text */
             border-radius: 8px; /* Rounds corners of border with an 8px radius. */
-            background-color: white; /*White Blackground */
+            background-color: #ccc; /*White Blackground */
         }
 
         article {
             padding: 18px; /* 18px of inner spacing */
             border-radius: 8px; /* Rounds corners of the border with an 8px radius. */
-            background-color: white; /*White Background*/
+            background-color: #ccc; /*White Background*/
         }
 
         .applybtn {
@@ -41,6 +48,20 @@
             border-radius: 8px; /* Corner round off 8px*/
             text-decoration: none; /* Removes underline*/
         }
+
+        #apply {
+            padding: 10px; /* 18px of inner spacing */
+            border-radius: 8px; /* Rounds corners of the border with an 8px radius. */
+            background-color: #ccc; /*White Background*/
+            margin-bottom: 1em; /*adds spacing on bottom*/
+        }
+
+        #job_title { /*id for h2 main title*/
+            color: #ccc; /* Changes text color to #ccc*/
+            width: 30%; /* Sets limit to 30%*/
+            background-color: #1a1a1a; /* Makes background solid to improve visibility*/
+        }
+
     </style>
 </head>
 
@@ -58,7 +79,7 @@
         <section>
 
             <!-- Subheading under the main page heading -->
-            <h2 style="color: black">Open Positions</h2> 
+            <h2 id = "job_title">Open Positions</h2> 
 
             <!-- Used Article instead of section because each section is self-contained-->
             <article>
@@ -164,13 +185,13 @@
         <br>
 
         <!-- Section for instructions on how to apply -->
-        <section style="float: left ; width: 60%">
+        <section id = apply style="float: left ; width: 60%">
             <!--Embedded Style to make font black-->
             <h2 style="color: black;">How to apply</h2>
 
             <p> Send a one-page cover note and portfolio or GitHub link to </p>
             <!--Link to Email--> 
-            <a href= "mailto:jobs@email.com">jobs@example.com with the reference code in the subject line.</a>
+            <a href= "mailto:info@thebox.com">info@thebox.com with the reference code in the subject line.</a>
 
             <p> We review applications on a rolling basis and aim for an interview loop that includes a short design/code
                 exercise and two cross-functional interviews.

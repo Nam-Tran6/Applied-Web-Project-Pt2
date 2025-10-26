@@ -63,6 +63,15 @@ function err($field){
     <link rel="stylesheet" href="styles/layout.css" type="text/css"> 
     
     <style>
+        body {
+            /* Background illustration, sourced from Adobe Stock + generated with AI
+            Name: Vector futuristic sphere of particles and lines. Network connection big data. Abstract technology background.*/
+            background: url(styles/images/back_apply.png);
+            
+            /* Background cover*/
+            background-size: cover;
+        }
+
         main { /* Adjust size of main*/
             max-width: 800px; /* Restricts content width for better readability */
             margin: 2rem auto;  /* Horizontally center + Vertical spacing */
@@ -72,6 +81,11 @@ function err($field){
             display: grid; /* Uses CSS Grid for structured spacing */
             gap: 1.5rem; /* Space between form sections */
         }
+
+        input { 
+            display: flex; /* Aligns all input displays together*/
+        }
+
     </style>
 </head>
 
@@ -79,18 +93,24 @@ function err($field){
     <?php include "header.inc"; ?>
     
     <main>
+
+        <!--H2 Heading for Application Form-->
+        <h2 style="text-align:center; color: #ccc;">Tech Talent Application Form</h2>
+
         <h2 style="text-align:center;">Tech Talent Application Form</h2>
-        <?php if (!empty($_SESSION['eoi_number'])): ?> 
+<?php if (!empty($_SESSION['eoi_number'])): ?> 
         <p style="text-align:center;color:#0a7a0a;font-weight:bold;">
         ✅ Application submitted successfully! <br>
         Your unique EOI number is:
-        <span style="color:#0a7a0a;">EOI-<?= str_pad($_SESSION['eoi_number'], 5, '0', STR_PAD_LEFT) ?></span>
+        <span style="color:#0a7a0a;">EOI-<?= str_pad($_SESSION['eoi_number'], 5, '0', STR_PAD_LEFT) ?> </span>
     </p>
+
 <?php 
     unset($_SESSION['eoi_number']); // clear it so it doesn't reappear after refresh
 endif; 
 ?>
 <!-- Credit to Youtube: Dani Krossing and ChatGPT for the error display functions -->
+
         
         <form action="process_eoi.php" method="POST">
 
@@ -98,8 +118,15 @@ endif;
         <section class="form-section">
             <h2>Job Details</h2>
             <div class="form-group">
-                <label for="Job_Reference_Number">Job Reference Number:</label>
-                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" value="<?= old('Job_Reference_Number') ?>">
+                <label for="job_reference_number">Job Reference Number: 
+                <p>
+                    Ref: A1B2C — Senior Product Designer 
+                </p>
+                <p>
+                    Ref: D4E5F — Frontend Engineer, Design Systems
+                </p>
+                </label>
+                <input type="text" id="job_reference_number" name="job_reference_number" value="<?= old('Job_Reference_Number') ?>">
                 <?= err('job_ref') ?>
             </div>
         </section>
@@ -109,20 +136,22 @@ endif;
             <h2>Personal Details</h2>
 
             <div class="form-group">
-                <label for="First_Name">First Name:</label>
-                <input type="text" id="First_Name" name="First_Name" value="<?= old('First_Name') ?>">
+
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" value="<?= old('First_Name') ?>">
                 <?= err('first_name') ?>
+
             </div>
 
             <div class="form-group">
-                <label for="Last_Name">Last Name:</label>
-                <input type="text" id="Last_Name" name="Last_Name" value="<?= old('Last_Name') ?>">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" value="<?= old('Last_Name') ?>">
                 <?= err('last_name') ?>
             </div>
             
             <div class="form-group">
-                <label for="DOB">Date of Birth:</label>
-                <input type="text" id="DOB" name="DOB" placeholder="yyyy/mm/dd" value="<?= old('DOB') ?>">
+                <label for="date">Date of Birth:</label>
+                <input type="text" id="date" name="date" placeholder="yyyy/mm/dd" value="<?= old('DOB') ?>">
                 <?= err('dob') ?>
             </div>
                 
@@ -130,14 +159,14 @@ endif;
                 <fieldset>
                     <legend>Select your gender</legend>
                     <div class="radio-group" style="font-weight: normal">
-                        <input type="radio" id="Male" name="Gender" value="Male" <?= checked_radio('Gender','Male') ?>>
-                        <label for="Male">Male</label>
+                        <input type="radio" id="male" name="Gender" value="Male" <?= checked_radio('Gender','Male') ?>>
+                        <label for="male">Male</label>
 
-                        <input type="radio" id="Female" name="Gender" value="Female" <?= checked_radio('Gender','Female') ?>>
-                        <label for="Female">Female</label>
+                        <input type="radio" id="female" name="Gender" value="Female" <?= checked_radio('Gender','Female') ?>>
+                        <label for="female">Female</label>
                             
-                        <input type="radio" id="Other" name="Gender" value="Other" <?= checked_radio('Gender','Other') ?>>
-                        <label for="Other">Other</label>
+                        <input type="radio" id="other" name="Gender" value="Other" <?= checked_radio('Gender','Other') ?>>
+                        <label for="other">Other</label>
                     </div>
                     <?= err('gender') ?>
                 </fieldset>
@@ -148,20 +177,21 @@ endif;
         <section class="form-section">
             <h2>Address Details</h2>
             <div class="form-group">
-                <label for="Street_Address">Street Address:</label>
-                <input type="text" id="Street_Address" name="Street_Address" value="<?= old('Street_Address') ?>">
+
+                <label for="street_address">Street Address:</label>
+                <input type="text" id="street_address" name="Street_Address" value="<?= old('Street_Address') ?>">
                 <?= err('address') ?>
             </div>
                 
             <div class="form-group">
-                <label for="Suburb_Town">Suburb:</label>
-                <input type="text" id="Suburb_Town" name="Suburb_Town" value="<?= old('Suburb_Town') ?>">
+                <label for="suburb_town">Suburb:</label>
+                <input type="text" id="suburb_town" name="Suburb_Town" value="<?= old('Suburb_Town') ?>">
                 <?= err('suburb') ?>
-            </div>
+            </div>     
                 
             <div class="form-group">
-                <label for="State">State:</label>
-                <select id="State" name="State">
+                <label for="state">State:</label>
+                <select id="state" name="State">
                     <option value="" disabled <?= (old('State')===''?' selected':'') ?>>Select your state</option>
                     <option value="VIC" <?= selected('State','VIC') ?>>VIC</option>
                     <option value="NSW" <?= selected('State','NSW') ?>>NSW</option>
@@ -176,8 +206,8 @@ endif;
             </div>
 
             <div class="form-group">
-                <label for="Postcode">Postcode:</label>
-                <input type="text" id="Postcode" name="Postcode" value="<?= old('Postcode') ?>">
+                <label for="postcode">Postcode:</label>
+                <input type="text" id="postcode" name="Postcode" value="<?= old('Postcode') ?>">
                 <?= err('postcode') ?>
             </div>
         </section>
@@ -187,14 +217,14 @@ endif;
             <h2>Contact Details</h2>
 
             <div class="form-group">
-                <label for="Email">Email:</label>
-                <input type="email" id="Email" name="Email" value="<?= old('Email') ?>">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="Email" value="<?= old('Email') ?>">
                 <?= err('email') ?>
             </div>
                 
             <div class="form-group">
-                <label for="Phone">Phone Number:</label>
-                <input type="tel" id="Phone" name="Phone" value="<?= old('Phone') ?>">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="Phone" value="<?= old('Phone') ?>">
                 <?= err('phone') ?>
             </div>
         </section>
@@ -223,8 +253,8 @@ endif;
             </div>
                 
             <div class="form-group">
-                <label for="Other_Skills">If Other, please specify:</label>
-                <textarea id="Other_Skills" name="Other_Skills" rows="5"><?= old('Other_Skills') ?></textarea>
+                <label for="other_skills">If Other, please specify:</label>
+                <textarea id="other_skills" name="Other_Skills" rows="5"><?= old('Other_Skills') ?></textarea>
             </div>
         </section>
 

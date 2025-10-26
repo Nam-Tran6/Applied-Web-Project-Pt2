@@ -1,7 +1,7 @@
 <header> <!-- Standardized Heading-->
 
         <!--Logo Image-->
-        <img id = "logo" src="images/Storage.png" alt="Logo of The Box, showing four stacked grey layers">
+        <img id = "logo" src="images/storage.png" alt="Logo of The Box, showing four stacked grey layers">
 
         <!--Main Heading Information-->
         <div id="title"> 
@@ -21,6 +21,6 @@
             <li><a href="job.php">JOBS</a></li> <!--Jobs Link-->
             <li><a href="apply.php">APPLY</a></li> <!--Apply Link-->
             <li><a href="about.php">ABOUT</a></li> <!--About Link-->
-            <li><a href="Login.php">Login</a></li> <!-Login Link-->
+            <li><a href="login.php">LOGIN</a></li> <!--Login Link-->
         </ul>
     </nav>

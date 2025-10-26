@@ -30,7 +30,7 @@
         body {
             /* Background illustration, sourced from Adobe Stock + generated with AI
             Link: https://stock.adobe.com/images/abstract-plexus-network-connection-background-with-digital-data-and-technology/1525752799?prev_url=detail*/
-            background: url(styles/images/background.png);
+            background: url(styles/images/back_index.png);
             
             /* Background cover*/
             background-size: cover;
@@ -62,6 +62,8 @@
         #cloudpicture {
             text-align: center;
             margin: 1em;
+            color: #ccc;
+            font-style: italic;
         }
     </style>
 </head>
@@ -73,10 +75,12 @@
     ?>
     
 <main>
-    <section id = "cloudpicture">
-        <img src="images/Box.png" alt="Image of a cloud streching out network connections, 
-        enforcing our brand as a storage site">
-    </section>
+    <figure id = "cloudpicture">
+        <img src="images/box.png" alt= "Icon of a cloud with connected network nodes representing cloud storage"> 
+        <figcaption>
+        For all your storage needs
+        </figcaption>
+    </figure>
     <!--Image of cloud storage to illustrate business plan-->
     
         
@@ -86,7 +90,7 @@
     <!--Heading introducing user to the business-->
     <h1>
         Welcome to <br> 
-        &lt;--- The Box&#8482; ---&gt;
+        &lt;-- The Box&#8482; --&gt;
     </h1>
 
     <!--Short introductionary paragraph with inline CSS to override external CSS rule-->

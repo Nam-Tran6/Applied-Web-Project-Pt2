@@ -15,10 +15,21 @@
         <!--Link to Stylesheet-->
 
         <style>
+            body {
+            /* Background illustration, sourced from Adobe Stock + generated with AI
+            Name: Abstract Big Data visualization digital network connection concept background. Artificial intelligenc
+            e and engineering technology. Global network, Lines plexus, minimal array. Vector illustration.
+            Link: https://stock.adobe.com/search?k=network+array&search_type=usertyped&asset_id=383217485 */
+            background: url(styles/images/back_about.png);
+            
+            /* Background cover*/
+            background-size: cover;
+            }
+
             table, th, td {
                 border: 1px solid black;   /* draws the borders */
                 border-collapse: collapse; /* merges double borders */
-                background-color: #f9f9f9;
+                background-color: #ccc;
             }
 
             .information {
@@ -27,7 +38,7 @@
                 width: 30%; /* changes the aside shrinks and expands*/
                 border: 2px solid black; /* Adds a 2 pixel solid black line*/
                 border-radius: 14px; /*rounds off rectangle*/
-                background-color: #f9f9f9;
+                background-color: #ccc;
             }
 
             .flex-layout {
@@ -45,6 +56,13 @@
                 align-content: center;
                 margin: 1em
             }
+
+            #apply_title { /*id for h2 main title*/
+            color: #ccc; /* Changes text color to #ccc*/
+            text-align: center; /* Position text in middle*/
+            margin: 2em 10em 0 10em; /* Adds a margin on top and either side of title*/
+            background-color: #1a1a1a; /* Makes background solid to improve visibility*/
+            }
         </style>     
     </head>
 
@@ -56,7 +74,7 @@
 
     <main>
         <!-- Main heading for the page, centered using inline CSS -->
-        <h1 id = "heading" style="text-align:center;">Team Profile: The Lads</h1>
+        <h1 id = "apply_title">Team Profile: The Lads</h1>
         
         <div class="flex-layout">
             <section class="information">
@@ -70,6 +88,7 @@
                     <dd>Quote: "Viciously Coding"</dd>
                     <dd>Favorite Language: French</dd>
                     <dd>Translation: Codage vicieux</dd>
+                    <br>
 
                     <!-- Description list for Sothearith Kuy -->
                     <dt>Sothearith Kuy— Front-end Engineer</dt>
@@ -77,7 +96,7 @@
                     <dd>Quote: "Code Breaker"</dd>
                     <dd>Favourite language: Spanish</dd>
                     <dd>Translation: descifrador de códigos</dd>
-
+                    <br>
 
                     <!-- Description list for Sokna David Heang -->
                     <dt>Sokna David Heang — Front-end Engineer</dt>
@@ -85,6 +104,14 @@
                     <dd>Quote: "Eat, Sleep, Code, Repeat"</dd>
                     <dd>Favourite language: German</dd>
                     <dd>Translation: Essen, Schlafen, Code, Wiederholen</dd>
+                    <br>
+
+                    <!-- Description list for Rakibul Hasan -->
+                    <dt>Rakibul Hasan — N/A</dt>
+                    <dd>Contribution: N/A</dd>
+                    <dd>Quote: N/A</dd>
+                    <dd>Favourite Language: N/A</dd>
+                    <dd>Translation: N/A</dd>
                 </dl>
             </section>
 
@@ -127,79 +154,89 @@
 
         <!--Section detailing Photo-->
             <section id = "photo" style="text-align:center;">
-                <h2>Group Photo</h2>
+                <h2 style = "color: #ccc">Group Photo</h2>
                 <hr>
                 <figure> 
-                    <img style = "border: 5px solid black;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
-                    <figcaption>The Lads — Semester 2, 2025. Left to right: Kha Nam Tran, Sothearith Kuy, 
+                    <img style = "border: 5px solid #ccc;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
+                    <figcaption style = "color: #ccc">The Lads — Semester 2, 2025. Left to right: Kha Nam Tran, Sothearith Kuy, 
                     Sokna David Hoang, Rakibul.</figcaption>
                 </figure> 
                 <hr>
             </section>
 
-            <!--Section involving facts about team-->
-            <section id="funfacts">
-                <h2>Fun Facts:</h2>
-                <table>
-                <!-- Subheading introducing fun facts table -->
-                    <caption>Dream Job, Coding Snack, Hometown, Sport, and Movie</caption>
-                    <!-- Table caption: describes the content of the table -->
-                    <thead>
-                    <!-- Table header section -->
-                        <tr>
-                        <!-- Table row -->
-                            <th>Member</th>
-                            <th>Dream Job</th>
-                            <th>Coding Snack</th>
-                            <th>Hometown</th>
-                            <th>Sport</th>
-                            <th>Movie</th>
-                            <!-- table head -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <!-- Table body containing data rows -->
-                        <tr>
-                        <!-- Table row -->
-                            <td>Kha Nam Tran</td>
-                            <td>Teacher</td>
-                            <td>Lollies</td>
-                            <td>St Albans</td>
-                            <td>I'm a nerd, I don't do sports</td>
-                            <td>The Martian</td>
-                            <!-- table description-->
-                        </tr>
-                        <tr>
-                        <!-- Table row -->
-                            <td>Sothearith Kuy</td>
-                            <td>Developer</td>
-                            <td>Chip</td>
-                            <td>Siem Reap</td>
-                            <td>Soccer</td>
-                            <td>John Wick</td>
-                            <!-- table description-->
-                        </tr>
-                        <tr>
-                        <!-- Table row -->
-                            <td>Sokna David Heang</td>
-                            <td>Software Engineer</td>
-                            <td>Chocolate</td>
-                            <td>Phnom Penh</td>
-                            <td>Basketball</td>
-                            <td>Spiderman</td>
-                            <!-- table description-->
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
+            <?php
+                //Section involving facts about team
+                echo"<section id='funfacts'>";
+                echo"<h2 style= 'color: #ccc;'>Fun Facts</h2>";
+                
+                //Runs settings once 
+                require_once("settings.php"); 
+                //connects to database with the code necessary
+                $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
+
+                //failsafe if $conn does not connect, leading to prompt detaling error 
+                if(!$conn){
+                    echo " <p> Database Connection failed, dude: ".mysqli_connect_error()."</p>";
+                
+                    // else select all data from funfacts table
+                }else {
+                    $sql = "SELECT * FROM funfacts";
+
+                    // copies queries from funfacts into $results
+                    $result = mysqli_query($conn, $sql);
+                    
+
+                    //if result is true + results has more then 0 rows
+                    if($result && mysqli_num_rows($result)>0) {
+                        //While loop to ensures that all data is searched through
+                        //starts a table tag
+                        echo "<table>
+                            <thead>
+                                <tr>
+                                    <th>Member</th>
+                                    <th>Dream Job</th>
+                                    <th>Coding Snack</th>
+                                    <th>Hometown</th>
+                                    <th>Sport</th>
+                                    <th>Movie</th>
+                                </tr>
+                            </thead>
+                        <tbody>";
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            //gathers special characters from data in funfacts table
+                            $member = htmlspecialchars($row["member"]); 
+                            $dream = htmlspecialchars($row["dream_job"]);
+                            $coding = htmlspecialchars($row["coding_snacks"]);
+                            $home = htmlspecialchars($row["hometown"]);
+                            $sport = htmlspecialchars($row["sport"]);
+                            $movie = htmlspecialchars($row["movie"]);
+
+                            //produces a new table for each seperate id
+                            echo "<tr>
+                                <td>$member</td>
+                                <td>$dream</td>
+                                <td>$coding</td>
+                                <td>$home</td>
+                                <td>$sport</td>
+                                <td>$movie</td>
+                            </tr>";
+                            }
+
+                        //closes the table tag
+                        echo "</tbody>
+                            </table>";
+                        
+                        // Fail state for when no data is given
+                        } else {
+                            echo "<p>No Data Found</p>";
+                        }
+                    mysqli_close($conn);
+                }
+                echo"</section> <br>";
+
+                // header footer
+                include "footer.inc";
+            ?>
         </main>
-
-    <?php
-        // header footer
-        include "footer.inc";
-    ?>
-
-        <br>
     </body>
-
 </html>

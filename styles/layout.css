@@ -72,13 +72,13 @@ nav {
 }
 
 /* Styles the list inside nav (links container) */
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-between; /* evenly spaced links */
-    align-items: center;
-    padding: 0 3em; /* adds spacing on left/right */
-    margin: 20px;
+
+nav ul {    
+    list-style: none; /* Removes bullet points */
+    display: grid; /* Grid Layout */
+    grid-template-columns: repeat(5, 20%); /* Assigns 4 columns of equal size */
+    text-align: center; /* Aligns text to the middle*/
+    padding-left: 0px; /* Removes default padding left (Inspect Element is so cool)*/
 }
 
 
@@ -116,7 +116,6 @@ footer a {
 /* ================= BODY ================= */
 
 body {
-    background-color: #d6d6d6; /* Adds grey background*/
     margin: 0; /* ensures background wraps around body*/
     padding: 0; /*removes padding*/
 }
@@ -153,7 +152,7 @@ label {
 fieldset {
     border: 2px solid black; /* Black border around gender group */
     padding: 10px; /* Space inside the box */
-    background-color: lightgray; /* Light gray background */
+    background-color: #ccc; /* Light gray background */
     border-radius: 4px; /* Rounded corners */
 }
 
@@ -170,7 +169,7 @@ legend {
     display: grid; /* Allows inner elements to align neatly */
     gap: 1rem; /* Space between child elements */
     padding: 1.5rem; /* Inner padding for breathing room */
-    background-color: #f9f9f9; /* Subtle background for separation */
+    background-color: #ccc; /* Subtle background for separation */
     border-radius: 8px; /* Rounded corners */
 }
         
@@ -191,7 +190,6 @@ input, select, textarea {
     border-radius: 16px; /* Rounded corners */
     font-size: 1rem; /* Readable font size */
     transition: border-color 0.3s, box-shadow 0.3s; /* Smooth focus transitions */
-
 }
 
 input:focus, select:focus, textarea:focus {

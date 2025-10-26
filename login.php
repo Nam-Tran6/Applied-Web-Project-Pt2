@@ -2,6 +2,14 @@
 session_start();
 include "settings.php"; // Contains your DB connection ($conn)
 
+// Create a new MySQLi connection to the database
+$conn = new mysqli($host, $user, $pwd, $sql_db);
+
+// Check if connection failed and stop script with error message
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset($_POST['password'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);

@@ -3,10 +3,17 @@ session_start();
 include "settings.php"; // Connects to your database
 
 //  Check if user is logged in, otherwise redirect to login page
-//  Check if user is logged in, otherwise redirect to login page
 if (!isset($_SESSION['user'])) {
     header("Location: login.php");
     exit;
+}
+
+// Create a new MySQLi connection to the database
+$conn = new mysqli($host, $user, $pwd, $sql_db);
+
+// Check if connection failed and stop script with error message
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
 // Initialize default variables

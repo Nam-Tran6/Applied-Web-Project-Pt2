@@ -15,10 +15,21 @@
         <!--Link to Stylesheet-->
 
         <style>
+            body {
+            /* Background illustration, sourced from Adobe Stock + generated with AI
+            Name: Abstract Big Data visualization digital network connection concept background. Artificial intelligenc
+            e and engineering technology. Global network, Lines plexus, minimal array. Vector illustration.
+            Link: https://stock.adobe.com/search?k=network+array&search_type=usertyped&asset_id=383217485 */
+            background: url(styles/images/back_about.png);
+            
+            /* Background cover*/
+            background-size: cover;
+            }
+
             table, th, td {
                 border: 1px solid black;   /* draws the borders */
                 border-collapse: collapse; /* merges double borders */
-                background-color: #f9f9f9;
+                background-color: #ccc;
             }
 
             .information {
@@ -27,7 +38,7 @@
                 width: 30%; /* changes the aside shrinks and expands*/
                 border: 2px solid black; /* Adds a 2 pixel solid black line*/
                 border-radius: 14px; /*rounds off rectangle*/
-                background-color: #f9f9f9;
+                background-color: #ccc;
             }
 
             .flex-layout {

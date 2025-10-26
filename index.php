@@ -30,7 +30,7 @@
         body {
             /* Background illustration, sourced from Adobe Stock + generated with AI
             Link: https://stock.adobe.com/images/abstract-plexus-network-connection-background-with-digital-data-and-technology/1525752799?prev_url=detail*/
-            background: url(styles/images/background.png);
+            background: url(styles/images/back_index.png);
             
             /* Background cover*/
             background-size: cover;

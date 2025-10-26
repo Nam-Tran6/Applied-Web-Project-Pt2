@@ -18,7 +18,7 @@
     <style>
         body {
             /* Background illustration, sourced from Adobe Stock + generated with AI */
-            background: url(styles/images/background3rd.png);
+            background: url(styles/images/back_job.png);
             
             /* Background cover*/
             background-size: cover;

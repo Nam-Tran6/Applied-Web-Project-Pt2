@@ -19,7 +19,7 @@
         body {
             /* Background illustration, sourced from Adobe Stock + generated with AI
             Name: Vector futuristic sphere of particles and lines. Network connection big data. Abstract technology background.*/
-            background: url(styles/images/background2nd.png);
+            background: url(styles/images/back_apply.png);
             
             /* Background cover*/
             background-size: cover;

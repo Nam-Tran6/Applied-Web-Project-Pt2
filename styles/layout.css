@@ -75,7 +75,7 @@ nav {
 nav ul {    
     list-style: none; /* Removes bullet points */
     display: grid; /* Grid Layout */
-    grid-template-columns: repeat(4, 25%); /* Assigns 4 columns of equal size */
+    grid-template-columns: repeat(5, 20%); /* Assigns 4 columns of equal size */
     text-align: center; /* Aligns text to the middle*/
     padding-left: 0px; /* Removes default padding left (Inspect Element is so cool)*/
 }

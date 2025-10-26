@@ -21,5 +21,6 @@
             <li><a href="job.php">JOBS</a></li> <!--Jobs Link-->
             <li><a href="apply.php">APPLY</a></li> <!--Apply Link-->
             <li><a href="about.php">ABOUT</a></li> <!--About Link-->
+            <li><a href="login.php">LOGIN</a></li> <!--Login Link-->
         </ul>
     </nav>

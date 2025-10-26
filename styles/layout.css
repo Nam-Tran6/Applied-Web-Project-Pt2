@@ -76,13 +76,15 @@ nav {
 }
 
 /* Styles the list inside nav (links container) */
-nav ul {    
-    list-style: none; /* Removes bullet points */
-    display: grid; /* Grid Layout */
-    grid-template-columns: repeat(4, 25%); /* Assigns 4 columns of equal size */
-    text-align: center; /* Aligns text to the middle*/
-    padding-left: 0px; /* Removes default padding left (Inspect Element is so cool)*/
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between; /* evenly spaced links */
+    align-items: center;
+    padding: 0 3em; /* adds spacing on left/right */
+    margin: 20px;
 }
+
 
 /* Link Change */
 nav ul li a {
@@ -228,3 +230,4 @@ input[type="submit"], input[type="reset"] {
     cursor: pointer; /* Pointer cursor on hover */
     transition: background-color 0.3s; /* Smooth hover effect */
 }
+

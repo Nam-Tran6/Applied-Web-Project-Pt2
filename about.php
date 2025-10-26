@@ -56,6 +56,13 @@
                 align-content: center;
                 margin: 1em
             }
+
+            #apply_title { /*id for h2 main title*/
+            color: #ccc; /* Changes text color to #ccc*/
+            text-align: center; /* Position text in middle*/
+            margin: 2em 10em 0 10em; /* Adds a margin on top and either side of title*/
+            background-color: #1a1a1a; /* Makes background solid to improve visibility*/
+            }
         </style>     
     </head>
 
@@ -67,7 +74,7 @@
 
     <main>
         <!-- Main heading for the page, centered using inline CSS -->
-        <h1 id = "heading" style="text-align:center;">Team Profile: The Lads</h1>
+        <h1 id = "apply_title">Team Profile: The Lads</h1>
         
         <div class="flex-layout">
             <section class="information">
@@ -81,6 +88,7 @@
                     <dd>Quote: "Viciously Coding"</dd>
                     <dd>Favorite Language: French</dd>
                     <dd>Translation: Codage vicieux</dd>
+                    <br>
 
                     <!-- Description list for Sothearith Kuy -->
                     <dt>Sothearith Kuy— Front-end Engineer</dt>
@@ -88,7 +96,7 @@
                     <dd>Quote: "Code Breaker"</dd>
                     <dd>Favourite language: Spanish</dd>
                     <dd>Translation: descifrador de códigos</dd>
-
+                    <br>
 
                     <!-- Description list for Sokna David Heang -->
                     <dt>Sokna David Heang — Front-end Engineer</dt>
@@ -96,6 +104,14 @@
                     <dd>Quote: "Eat, Sleep, Code, Repeat"</dd>
                     <dd>Favourite language: German</dd>
                     <dd>Translation: Essen, Schlafen, Code, Wiederholen</dd>
+                    <br>
+
+                    <!-- Description list for Rakibul Hasan -->
+                    <dt>Rakibul Hasan — N/A</dt>
+                    <dd>Contribution: N/A</dd>
+                    <dd>Quote: N/A</dd>
+                    <dd>Favourite Language: N/A</dd>
+                    <dd>Translation: N/A</dd>
                 </dl>
             </section>
 
@@ -138,11 +154,11 @@
 
         <!--Section detailing Photo-->
             <section id = "photo" style="text-align:center;">
-                <h2>Group Photo</h2>
+                <h2 style = "color: #ccc">Group Photo</h2>
                 <hr>
                 <figure> 
-                    <img style = "border: 5px solid black;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
-                    <figcaption>The Lads — Semester 2, 2025. Left to right: Kha Nam Tran, Sothearith Kuy, 
+                    <img style = "border: 5px solid #ccc;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
+                    <figcaption style = "color: #ccc">The Lads — Semester 2, 2025. Left to right: Kha Nam Tran, Sothearith Kuy, 
                     Sokna David Hoang, Rakibul.</figcaption>
                 </figure> 
                 <hr>
@@ -151,7 +167,7 @@
             <?php
                 //Section involving facts about team
                 echo"<section id='funfacts'>";
-                echo"<h2>Fun Facts:</h2>";
+                echo"<h2 style= 'color: #ccc;'>Fun Facts</h2>";
                 
                 //Runs settings once 
                 require_once("settings.php"); 
@@ -216,7 +232,7 @@
                         }
                     mysqli_close($conn);
                 }
-                echo"</section>";
+                echo"</section> <br>";
 
                 // header footer
                 include "footer.inc";

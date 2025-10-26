@@ -6,17 +6,45 @@ $errors = $_SESSION['errors'] ?? [];
 $old    = $_SESSION['old'] ?? [];
 
 // Helpers
-function e($v){ return htmlspecialchars($v ?? '', ENT_QUOTES, 'UTF-8'); }
-function old($key, $default=''){ global $old; return e($old[$key] ?? $default); }
-function checked_radio($name, $value){ global $old; return (isset($old[$name]) && $old[$name] === $value) ? ' checked' : ''; }
-function selected($name, $value){ global $old; return (isset($old[$name]) && $old[$name] === $value) ? ' selected' : ''; }
+// Escape output safely to prevent XSS attacks
+function e($v){ 
+    return htmlspecialchars($v ?? '', ENT_QUOTES, 'UTF-8'); 
+}
+
+// Get previously entered value for a field (to repopulate after validation fail)
+function old($key, $default=''){ 
+    global $old; 
+    return e($old[$key] ?? $default); 
+}
+
+// Keep radio button checked if user selected it before
+function checked_radio($name, $value){ 
+    global $old; 
+    return (isset($old[$name]) && $old[$name] === $value) ? ' checked' : ''; 
+}
+
+// Keep dropdown option selected if user chose it before
+function selected($name, $value){ 
+    global $old; 
+    return (isset($old[$name]) && $old[$name] === $value) ? ' selected' : ''; 
+}
+
+// Keep checkbox checked if user selected it before
 function checked_box($name, $value){
     global $old;
     $arr = $old[$name] ?? [];
     return (is_array($arr) && in_array($value, $arr, true)) ? ' checked' : '';
 }
-function err($field){ global $errors; return !empty($errors[$field]) ? "<span class='error' style='color:#c0392b;display:block;margin-top:.25rem;font-size:.9rem;'>".e($errors[$field])."</span>" : ""; }
+
+// Display error message under a form field (in red text)
+function err($field){ 
+    global $errors; 
+    return !empty($errors[$field]) 
+        ? "<span class='error' style='color:#c0392b;display:block;margin-top:.25rem;font-size:.9rem;'>".e($errors[$field])."</span>" 
+        : ""; 
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

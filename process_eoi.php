@@ -224,11 +224,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Execute the query and check for success
         if (mysqli_query($connection, $sql)) {
             $eoi_number = mysqli_insert_id($connection); // Get the unique ID of the inserted record
-            // Store EOI number in session so you can display it if you ever want
+            // Store EOI number in session ; can display it if you ever want
             $_SESSION['eoi_number'] = $eoi_number;
             // Clear old input on success
             unset($_SESSION['old'], $_SESSION['errors']);
-            // Redirect back to the form (your apply page only shows errors; keeping behavior minimal)
+            // Redirect back to the form 
             header('Location: apply.php');
         } else {
             // Flash DB error and go back

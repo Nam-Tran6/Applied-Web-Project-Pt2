@@ -271,3 +271,30 @@ input[type="submit"], input[type="reset"] {
 #h2login {
     text-align: center;            /* Center the login title */
 }
+
+/*manage.php style*/
+
+#message {
+    text-align: center;
+    color: green; /* Success message color */
+    margin-bottom: 20px;
+}
+
+.btn {
+    background: grey; /* Button background */
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s; /* Smooth hover transition */
+}
+
+.btn:hover {
+    background: #555; /* Darker grey on hover */
+}
+
+/* === Logout Section === */
+.logout {
+    text-align: right;
+    margin-bottom: 20px;
+}

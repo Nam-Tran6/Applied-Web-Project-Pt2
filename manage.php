@@ -9,11 +9,6 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-// Initialize default variables
-$message = ""; // Used to store success or error messages
-$order_by = "EOInumber"; // Default column to sort the results by if the user doesn't choose another field
-$search_sql = "";  // Placeholder for search query text not currently used, but kept for clarity or future use
-
 
 // FILTER & SORT EOIs
 
@@ -21,6 +16,18 @@ $search_sql = "";  // Placeholder for search query text not currently used, but 
 $where_clauses = [];  // Store conditional filters (WHERE)
 $params = [];         // Values for the placeholders
 $types = "";          // Data types for bind_param()
+
+// Filter by job reference
+if (!empty($_GET['job_ref'])) {
+    $where_clauses[] = "job_ref_num = ?";
+    $params[] = $_GET['job_ref'];
+    $types .= "s";
+}
+
+// Initialize default variables
+$message = ""; // Used to store success or error messages
+$order_by = "EOInumber"; // Default column to sort the results by if the user doesn't choose another field
+$search_sql = "";  // Placeholder for search query text not currently used, but kept for clarity or future use
 
 // DELETE All EOIs BY JOB REFERENCE
 

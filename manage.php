@@ -9,40 +9,6 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-
-// FILTER & SORT EOIs
-
-
-$where_clauses = [];  // Store conditional filters (WHERE)
-$params = [];         // Values for the placeholders
-$types = "";          // Data types for bind_param()
-
-// Filter by job reference
-if (!empty($_GET['job_ref'])) {
-    $where_clauses[] = "job_ref_num = ?";
-    $params[] = $_GET['job_ref'];
-    $types .= "s";
-}
-
-// Filter by first name (partial match)
-if (!empty($_GET['first_name'])) {
-    $where_clauses[] = "first_name LIKE ?";
-    $params[] = "%" . $_GET['first_name'] . "%";
-    $types .= "s";
-}
-
-// Filter by last name (partial match)
-if (!empty($_GET['last_name'])) {
-    $where_clauses[] = "last_name LIKE ?";
-    $params[] = "%" . $_GET['last_name'] . "%";
-    $types .= "s";
-}
-
-// Sorting option
-if (!empty($_GET['sort_by'])) {
-    $order_by = $_GET['sort_by'];
-}
-
 // Initialize default variables
 $message = ""; // Used to store success or error messages
 $order_by = "EOInumber"; // Default column to sort the results by if the user doesn't choose another field
@@ -92,6 +58,40 @@ if (isset($_POST['update_status'])) {
         $message = " Error updating status.";
     }
 }
+
+
+// FILTER & SORT EOIs
+
+$where_clauses = [];  // Store conditional filters (WHERE)
+$params = [];         // Values for the placeholders
+$types = "";          // Data types for bind_param()
+
+// Filter by job reference
+if (!empty($_GET['job_ref'])) {
+    $where_clauses[] = "job_ref_num = ?";
+    $params[] = $_GET['job_ref'];
+    $types .= "s";
+}
+
+// Filter by first name (partial match)
+if (!empty($_GET['first_name'])) {
+    $where_clauses[] = "first_name LIKE ?";
+    $params[] = "%" . $_GET['first_name'] . "%";
+    $types .= "s";
+}
+
+// Filter by last name (partial match)
+if (!empty($_GET['last_name'])) {
+    $where_clauses[] = "last_name LIKE ?";
+    $params[] = "%" . $_GET['last_name'] . "%";
+    $types .= "s";
+}
+
+// Sorting option
+if (!empty($_GET['sort_by'])) {
+    $order_by = $_GET['sort_by'];
+}
+
 
 // Build SQL dynamically based on user input
 $sql = "SELECT * FROM eoi";

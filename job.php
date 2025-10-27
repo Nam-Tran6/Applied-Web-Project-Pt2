@@ -82,9 +82,9 @@
             <h2 id = "job_title">Open Positions</h2> 
 
             <!-- Used Article instead of section because each section is self-contained-->
-            <article>
+            <article aria-labelledby="senior-designer-title">
                 <!--Unique reference ID ("A1B2C"), makes it targetable.-->
-                <h3>Ref: A1B2C — Senior Product Designer</h3> 
+                <h3 id="senior-designer-title">Ref: A1B2C — Senior Product Designer</h3> 
 
                 <!-- Short description/summary of the role -->
                 <p> 
@@ -134,9 +134,9 @@
             <br> <!--Line Break-->
 
             <!-- Second job article for Front-end Engineer-->
-            <article>
+            <article aria-labelledby="frontend-engineer-title">
                 <!--Unique reference ID ("D4E5F"), makes it targetable.-->
-                <h3>Ref: D4E5F — Frontend Engineer, Design Systems</h3>
+                <h3 id="frontend-engineer-title">Ref: D4E5F — Frontend Engineer, Design Systems</h3>
 
                 <!-- A short description/summary of the role. -->
                 <p>
@@ -185,9 +185,9 @@
         <br>
 
         <!-- Section for instructions on how to apply -->
-        <section id = apply style="float: left ; width: 60%">
+        <section id = apply aria-labelledby="apply-title" style="float: left ; width: 60%">
             <!--Embedded Style to make font black-->
-            <h2 style="color: black;">How to apply</h2>
+            <h2 id="apply-title" style="color: black;">How to apply</h2>
 
             <p> Send a one-page cover note and portfolio or GitHub link to </p>
             <!--Link to Email--> 
@@ -203,8 +203,8 @@
         </section>
 
         <!-- Aside for Perks and practicals.-->
-        <aside>
-            <h3>Perks & practicals</h3>
+        <aside aria-labelledby="perks-title">
+            <h3 id="perks-title">Perks & practicals</h3>
             <!--Unordered List for Perks-->
             <ul>
                 <li>Flexible remote working (core overlap hours)</li>

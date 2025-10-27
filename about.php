@@ -90,8 +90,7 @@
                 echo"<div class='flex-layout'>
                     <section class='information' aria-labelledby='contribution-heading'>
                     <h2 id='contribution-heading'>Member Contributions &amp; Quotes</h2>
-                    <!-- Subheading introducing the contributions section -->
-                    <dl>";
+                    <!-- Subheading introducing the contributions section -->";
                 
                 //Runs settings once 
                 require_once("settings.php"); 
@@ -128,8 +127,7 @@
                             <dd> Contribution: $contribution </dd>
                             <dd> Quote: $quote </dd>
                             <dd> Language: $languagne </dd>
-                            <dd> Translation: $translation </dd>
-                            <br>";
+                            <dd> Translation: $translation </dd>";
                             }
 
                         //closes the table tag
@@ -146,7 +144,7 @@
 
             <section class="information" aria-labelledby="class_student-heading">
             <!--Class Day and Time Aside Text-->
-            <div id = "class_student">
+            <article id = "class_student">
                 <h2 id = "class_student-heading">Class Day &amp; Time</h2>
                     <!-- Unordered list to display class day and time -->
                     <p>Day: Thursday</p>
@@ -163,8 +161,9 @@
                             <dt>Rakibul Hasan</dt>
                                 <dd>N/A</dd>
                         </dl> 
-                </div>    
+                </article>        
             </section>
+            </div>
 
         <!--Section detailing Photo-->
         <section id = "photo" style="text-align:center;" aria-labelledby="photo-heading">
@@ -180,8 +179,8 @@
 
             <?php
                 //Section involving facts about team
-                echo"<section id='funfacts' aria-labelledby= 'funfacts-heading;'>";
-                echo"<h2 style= 'color: #ccc;' id= 'funfacts-heading'>Fun Facts of the Team</h2>";
+                echo"<section id='funfacts' aria-labelledby= 'funfacts-heading'>";
+                echo"<h2 style= 'color: #ccc;' id='funfacts-heading'>Fun Facts of the Team</h2>";
                 
                 //Runs settings once 
                 require_once("settings.php"); 

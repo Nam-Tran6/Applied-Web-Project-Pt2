@@ -292,3 +292,8 @@ input[type="submit"], input[type="reset"] {
     text-align: right;
     margin-bottom: 20px;
 }
+
+/* Change button color when hovered */
+th,td:hover {
+background-color: white; /* Light gray background on hover */
+}

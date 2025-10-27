@@ -86,6 +86,15 @@ function err($field){
             display: flex; /* Aligns all input displays together*/
         }
 
+        #main_h2 {
+            text-align:center; 
+            color: #ccc;
+            background-color: #1a1a1a;
+        }
+
+        .skills-list dd {
+            margin-bottom: 0.5em; /* spacing between checkbox */
+        }
     </style>
 </head>
 
@@ -95,9 +104,7 @@ function err($field){
     <main>
 
         <!--H2 Heading for Application Form-->
-        <h2 style="text-align:center; color: #ccc;">Tech Talent Application Form</h2>
-
-        <h2 style="text-align:center;">Tech Talent Application Form</h2>
+        <h2 id="main_h2">Tech Talent Application Form</h2>
 <?php if (!empty($_SESSION['eoi_number'])): ?> 
         <p style="text-align:center;color:#0a7a0a;font-weight:bold;">
         ✅ Application submitted successfully! <br>
@@ -112,52 +119,50 @@ endif;
 <!-- Credit to Youtube: Dani Krossing and ChatGPT for the error display functions -->
 
         
-        <form action="process_eoi.php" method="POST">
+        <form action="process_eoi.php" method="POST" aria-labelledby="main_h2">
 
         <!-- SECTION 1: JOB DETAILS -->
-        <section class="form-section">
-            <h2>Job Details</h2>
+        <section class="form-section" aria-labelledby="job_details_heading">
+            <h2 id="job_details_heading">Job Details</h2>
             <div class="form-group">
-                <label for="Job_Reference_Number">Job Reference Number: 
-                <p>
-                    Ref: A1B2C — Senior Product Designer 
-                </p>
-                <p>
-                    Ref: D4E5F — Frontend Engineer, Design Systems
-                </p>
+                <label for="job_reference_number">Job Reference Number:
                 </label>
-                <input type="text" id="Job_Reference_Number" name="Job_Reference_Number" value="<?= old('Job_Reference_Number') ?>">
+                <input type="text" id="job_reference_number" name="Job_Reference_Number" 
+                value="<?= old('Job_Reference_Number') ?>" aria-labelledby="job_reference_number">
                 <?= err('job_ref') ?>
             </div>
         </section>
             
         <!-- SECTION 2: PERSONAL DETAILS -->
-        <section class="form-section">
-            <h2>Personal Details</h2>
+        <section class="form-section" aria-labelledby="personal_details_heading">
+            <h2 id="personal_details_heading">Personal Details</h2>
 
             <div class="form-group">
 
-                <label for="First_Name">First Name:</label>
-                <input type="text" id="First_Name" name="First_Name" value="<?= old('First_Name') ?>">
+                <label id="label_firstname" for="First_Name">First Name:</label>
+                <input type="text" id="First_Name" name="First_Name" 
+                value="<?= old('First_Name') ?>" aria-labelledby="label_firstname">
                 <?= err('first_name') ?>
 
             </div>
 
             <div class="form-group">
-                <label for="Last_Name">Last Name:</label>
-                <input type="text" id="Last_Name" name="Last_Name" value="<?= old('Last_Name') ?>">
+                <label id="label_lastname" for="Last_Name">Last Name:</label>
+                <input type="text" id="Last_Name" name="Last_Name" 
+                value="<?= old('Last_Name') ?>" aria-labelledby="label_lastname">
                 <?= err('last_name') ?>
             </div>
             
             <div class="form-group">
-                <label for="DOB">Date of Birth:</label>
-                <input type="text" id="DOB" name="DOB" placeholder="yyyy/mm/dd" value="<?= old('DOB') ?>">
+                <label id="label_dob" for="DOB">Date of Birth:</label>
+                <input type="text" id="DOB" name="DOB" placeholder="yyyy/mm/dd" 
+                value="<?= old('DOB') ?>" aria-labelledby="label_dob">
                 <?= err('dob') ?>
             </div>
                 
             <div class="form-group">
-                <fieldset>
-                    <legend>Select your gender</legend>
+                <fieldset aria-labelledby="gender_legend">
+                    <legend id="gender_legend">Select your gender</legend>
                     <div class="radio-group" style="font-weight: normal">
                         <input type="radio" id="male" name="Gender" value="Male" <?= checked_radio('Gender','Male') ?>>
                         <label for="male">Male</label>
@@ -174,24 +179,26 @@ endif;
         </section>
             
         <!-- SECTION 3: ADDRESS DETAILS -->
-        <section class="form-section">
-            <h2>Address Details</h2>
+        <section class="form-section" aria-labelledby="address_details_heading">
+            <h2 id="address_details_heading">Address Details</h2>
             <div class="form-group">
 
-                <label for="street_address">Street Address:</label>
-                <input type="text" id="street_address" name="Street_Address" value="<?= old('Street_Address') ?>">
+                <label id="label_street" for="street_address">Street Address:</label>
+                <input type="text" id="street_address" name="Street_Address" 
+                value="<?= old('Street_Address') ?>" aria-labelledby="label_street">
                 <?= err('address') ?>
             </div>
                 
             <div class="form-group">
-                <label for="suburb_town">Suburb:</label>
-                <input type="text" id="suburb_town" name="Suburb_Town" value="<?= old('Suburb_Town') ?>">
+                <label id="label_suburb" for="suburb_town">Suburb:</label>
+                <input type="text" id="suburb_town" name="Suburb_Town" 
+                value="<?= old('Suburb_Town') ?>" aria-labelledby="label_suburb">
                 <?= err('suburb') ?>
             </div>     
                 
             <div class="form-group">
-                <label for="state">State:</label>
-                <select id="state" name="State">
+                <label id="label_state" for="state">State:</label>
+                <select id="state" name="State" aria-labelledby="label_state">
                     <option value="" disabled <?= (old('State')===''?' selected':'') ?>>Select your state</option>
                     <option value="VIC" <?= selected('State','VIC') ?>>VIC</option>
                     <option value="NSW" <?= selected('State','NSW') ?>>NSW</option>
@@ -206,15 +213,16 @@ endif;
             </div>
 
             <div class="form-group">
-                <label for="postcode">Postcode:</label>
-                <input type="text" id="postcode" name="Postcode" value="<?= old('Postcode') ?>">
+                <label id="label_postcode" for="postcode">Postcode:</label>
+                <input type="text" id="postcode" name="Postcode" 
+                value="<?= old('Postcode') ?>" aria-labelledby="label_postcode">
                 <?= err('postcode') ?>
             </div>
         </section>
             
         <!-- SECTION 4: CONTACT DETAILS -->
-        <section class="form-section">
-            <h2>Contact Details</h2>
+        <section class="form-section" aria-labelledby="contact_details_heading">
+            <h2 id="contact_details_heading">Contact Details</h2>
 
             <div class="form-group">
                 <label for="email">Email:</label>
@@ -230,22 +238,45 @@ endif;
         </section>
             
         <!-- SECTION 5: SKILLS AND EXPERIENCE -->
-        <section class="form-section">
-            <h2>Skills and Experience</h2>
+        <section class="form-section" aria-labelledby="skills_heading">
+            <h2 id="skills_heading">Skills and Experience</h2>
             
             <div class="form-group">
-                <fieldset>
-                    <legend>Select Your Skills:</legend>
+                <fieldset aria-labelledby="skills_legend">
+                    <legend id="skills_legend">Select Your Skills:</legend>
                     <div class="checkbox-group">
                         <dl class="skills-list">
-                            <div><dt><input type="checkbox" id="Skill1" name="skills[]" value="Programming" <?= checked_box('skills','Programming') ?>></dt><dd><label for="Skill1">Programming</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill2" name="skills[]" value="Web Development" <?= checked_box('skills','Web Development') ?>></dt><dd><label for="Skill2">Web Development</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill3" name="skills[]" value="Data Analysis" <?= checked_box('skills','Data Analysis') ?>></dt><dd><label for="Skill3">Data Analysis</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill4" name="skills[]" value="Project Management" <?= checked_box('skills','Project Management') ?>></dt><dd><label for="Skill4">Project Management</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill5" name="skills[]" value="Cybersecurity" <?= checked_box('skills','Cybersecurity') ?>></dt><dd><label for="Skill5">Cybersecurity</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill6" name="skills[]" value="Cloud Computing" <?= checked_box('skills','Cloud Computing') ?>></dt><dd><label for="Skill6">Cloud Computing</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill7" name="skills[]" value="AI and Machine Learning" <?= checked_box('skills','AI and Machine Learning') ?>></dt><dd><label for="Skill7">AI and Machine Learning</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill8" name="skills[]" value="Other" <?= checked_box('skills','Other') ?>></dt><dd><label for="Skill8">Other</label></dd></div>
+                            <!--Checkbox for Programming-->
+                            <div><dt><input type="checkbox" id="Skill1" name="skills[]" value="Programming" 
+                            <?= checked_box('skills','Programming') ?>></dt><dd><label for="Skill1">Programming</label></dd></div>
+
+                            <!--Checkbox for Web Programming-->
+                            <div><dt><input type="checkbox" id="Skill2" name="skills[]" value="Web Development" 
+                            <?= checked_box('skills','Web Development') ?>></dt><dd><label for="Skill2">Web Development</label></dd></div>
+
+                            <!--Checkbox for Data Analysis-->
+                            <div><dt><input type="checkbox" id="Skill3" name="skills[]" value="Data Analysis" 
+                            <?= checked_box('skills','Data Analysis') ?>></dt><dd><label for="Skill3">Data Analysis</label></dd></div>
+
+                            <!--Checkbox for Project Management-->
+                            <div><dt><input type="checkbox" id="Skill4" name="skills[]" value="Project Management" 
+                            <?= checked_box('skills','Project Management') ?>></dt><dd><label for="Skill4">Project Management</label></dd></div>
+
+                            <!--Checkbox for Project Cybersecurity-->
+                            <div><dt><input type="checkbox" id="Skill5" name="skills[]" value="Cybersecurity" 
+                            <?= checked_box('skills','Cybersecurity') ?>></dt><dd><label for="Skill5">Cybersecurity</label></dd></div>
+
+                            <!--Checkbox for Project Cloud Computing-->
+                            <div><dt><input type="checkbox" id="Skill6" name="skills[]" value="Cloud Computing" 
+                            <?= checked_box('skills','Cloud Computing') ?>></dt><dd><label for="Skill6">Cloud Computing</label></dd></div>
+
+                            <!--Checkbox for AI and Machine Learning-->
+                            <div><dt><input type="checkbox" id="Skill7" name="skills[]" value="AI and Machine Learning" 
+                            <?= checked_box('skills','AI and Machine Learning') ?>></dt><dd><label for="Skill7">AI and Machine Learning</label></dd></div>
+
+                            <!--Checkbox for Other-->
+                            <div><dt><input type="checkbox" id="Skill8" name="skills[]" value="Other" 
+                            <?= checked_box('skills','Other') ?>></dt><dd><label for="Skill8">Other</label></dd></div>
                         </dl>
                     </div>
                     <?= err('skills') ?>
@@ -253,8 +284,9 @@ endif;
             </div>
                 
             <div class="form-group">
-                <label for="other_skills">If Other, please specify:</label>
-                <textarea id="other_skills" name="Other_Skills" rows="5"><?= old('Other_Skills') ?></textarea>
+                <label id="label_other_skills" for="other_skills">If Other, please specify:</label>
+                <textarea id="other_skills" name="Other_Skills" rows="5" aria-labelledby="label_other_skills">
+                <?= old('Other_Skills') ?></textarea>
             </div>
         </section>
 

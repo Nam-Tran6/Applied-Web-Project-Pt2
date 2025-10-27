@@ -75,9 +75,9 @@
     ?>
     
 <main>
-    <figure id = "cloudpicture">
+    <figure id = "cloudpicture" aria-labelledby="cloudcaption">
         <img src="images/box.png" alt= "Icon of a cloud with connected network nodes representing cloud storage"> 
-        <figcaption>
+        <figcaption id="cloudcaption">
         For all your storage needs
         </figcaption>
     </figure>
@@ -85,10 +85,10 @@
     
         
     <!--Section for Front-Title-->
-    <section id="FrontTitle">
+    <section id="FrontTitle" aria-labelledby="main-heading">
     
     <!--Heading introducing user to the business-->
-    <h1>
+    <h1 id="main-heading">
         Welcome to <br> 
         &lt;-- The Box&#8482; --&gt;
     </h1>
@@ -101,29 +101,29 @@
 
     <article>
         <!--Top Left Description detailing The Box business-->
-        <section class="item">
-            <h2>What is the BOX?</h2>
+        <section class="item" aria-labelledby="what-heading">
+            <h2 id="what-heading">What is the BOX?</h2>
             <p> A new method to store data, utilising cutting edge innovations from quantum mechanics to expand into the
                 infinite realm of data storage. </p>
         </section>
 
         <!--Top Right Description detailing the team behind The Box-->
-        <section class="item">
-            <h2>Who are We?</h2>
+        <section class="item" aria-labelledby="who-heading">
+            <h2 id="who-heading">Who are We?</h2>
             <p> We are a cutting-edge team of programmers and engineers who wish to create the building blocks of a new
                 way to store. </p>
         </section>
 
         <!--Bottom Left Description detailing what The Box offers-->
-        <section class="item">
-            <h2>What do we offer?</h2>
+        <section class="item" aria-labelledby="offer-heading">
+            <h2 id="offer-heading">What do we offer?</h2>
             <p> We operate on both a B2B and B2P model, providing every consumer, no matter how big or small, the
                 opportunity to access our infinite servers. </p>
         </section>
 
         <!--Bottom Right Description detailing liabilities-->
-        <section class="item">
-            <h2>Pandora's Box</h2>
+        <section class="item" aria-labelledby="liability-heading">
+            <h2 id="liability-heading">Pandora's Box</h2>
             <p> The BOX is not liable if somehow, we open an interdimensional rift into some kind of wierd data world.
                 We would happily worship our Data Overloads though. </p>
         </section>

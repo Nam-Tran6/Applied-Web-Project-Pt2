@@ -53,6 +53,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset(
 <!--Link to Stylesheet-->
     <link rel="stylesheet" href="styles/layout.css" type="text/css">
 
+    <style>
+        body {
+            background-color: #1a1a1a;
+        }
+    </style>
+
 </head>
 <body>
     <?php
@@ -60,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset(
         include "header.inc";
     ?>
 
-<h2 id="h2login" >HR Manager Login</h2>
+<h2 id="h2login" style="color: #ccc" >HR Manager Login</h2>
 
 <form id="formlogin" method="post">
     <input class="inputlogin" type="text" name="username" placeholder="Username" required><br>
@@ -69,11 +75,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset(
 </form>
 
 <?php 
-    if (!empty($error)) echo "<p style='color:red; text-align:center;'>$error</p>"; 
+    if (!empty($error)) echo "<p style='color:red; text-align:center;'>$error</p>";
     
-    ?>
-
-<?php
+    echo "<br>";
         // header footer
         include "footer.inc"; 
     ?>

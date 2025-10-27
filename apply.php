@@ -86,6 +86,12 @@ function err($field){
             display: flex; /* Aligns all input displays together*/
         }
 
+        #main_h2 {
+            text-align:center; 
+            color: #ccc;
+            background-color: #1a1a1a;
+        }
+
     </style>
 </head>
 
@@ -95,7 +101,7 @@ function err($field){
     <main>
 
         <!--H2 Heading for Application Form-->
-        <h2 style="text-align:center; color: #ccc;">Tech Talent Application Form</h2>
+        <h2 id="main_h2">Tech Talent Application Form</h2>
 <?php if (!empty($_SESSION['eoi_number'])): ?> 
         <p style="text-align:center;color:#0a7a0a;font-weight:bold;">
         ✅ Application submitted successfully! <br>

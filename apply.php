@@ -96,8 +96,6 @@ function err($field){
 
         <!--H2 Heading for Application Form-->
         <h2 style="text-align:center; color: #ccc;">Tech Talent Application Form</h2>
-
-        <h2 style="text-align:center;">Tech Talent Application Form</h2>
 <?php if (!empty($_SESSION['eoi_number'])): ?> 
         <p style="text-align:center;color:#0a7a0a;font-weight:bold;">
         ✅ Application submitted successfully! <br>
@@ -238,14 +236,44 @@ endif;
                     <legend>Select Your Skills:</legend>
                     <div class="checkbox-group">
                         <dl class="skills-list">
-                            <div><dt><input type="checkbox" id="Skill1" name="skills[]" value="Programming" <?= checked_box('skills','Programming') ?>></dt><dd><label for="Skill1">Programming</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill2" name="skills[]" value="Web Development" <?= checked_box('skills','Web Development') ?>></dt><dd><label for="Skill2">Web Development</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill3" name="skills[]" value="Data Analysis" <?= checked_box('skills','Data Analysis') ?>></dt><dd><label for="Skill3">Data Analysis</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill4" name="skills[]" value="Project Management" <?= checked_box('skills','Project Management') ?>></dt><dd><label for="Skill4">Project Management</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill5" name="skills[]" value="Cybersecurity" <?= checked_box('skills','Cybersecurity') ?>></dt><dd><label for="Skill5">Cybersecurity</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill6" name="skills[]" value="Cloud Computing" <?= checked_box('skills','Cloud Computing') ?>></dt><dd><label for="Skill6">Cloud Computing</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill7" name="skills[]" value="AI and Machine Learning" <?= checked_box('skills','AI and Machine Learning') ?>></dt><dd><label for="Skill7">AI and Machine Learning</label></dd></div>
-                            <div><dt><input type="checkbox" id="Skill8" name="skills[]" value="Other" <?= checked_box('skills','Other') ?>></dt><dd><label for="Skill8">Other</label></dd></div>
+                            <!--Checkbox for Programming-->
+                            <div><dt><input type="checkbox" id="Skill1" name="skills[]" value="Programming" 
+                            <?= checked_box('skills','Programming') ?>></dt><dd><label for="Skill1">Programming</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for Web Programming-->
+                            <div><dt><input type="checkbox" id="Skill2" name="skills[]" value="Web Development" 
+                            <?= checked_box('skills','Web Development') ?>></dt><dd><label for="Skill2">Web Development</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for Data Analysis-->
+                            <div><dt><input type="checkbox" id="Skill3" name="skills[]" value="Data Analysis" 
+                            <?= checked_box('skills','Data Analysis') ?>></dt><dd><label for="Skill3">Data Analysis</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for Project Management-->
+                            <div><dt><input type="checkbox" id="Skill4" name="skills[]" value="Project Management" 
+                            <?= checked_box('skills','Project Management') ?>></dt><dd><label for="Skill4">Project Management</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for Project Cybersecurity-->
+                            <div><dt><input type="checkbox" id="Skill5" name="skills[]" value="Cybersecurity" 
+                            <?= checked_box('skills','Cybersecurity') ?>></dt><dd><label for="Skill5">Cybersecurity</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for Project Cloud Computing-->
+                            <div><dt><input type="checkbox" id="Skill6" name="skills[]" value="Cloud Computing" 
+                            <?= checked_box('skills','Cloud Computing') ?>></dt><dd><label for="Skill6">Cloud Computing</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for AI and Machine Learning-->
+                            <div><dt><input type="checkbox" id="Skill7" name="skills[]" value="AI and Machine Learning" 
+                            <?= checked_box('skills','AI and Machine Learning') ?>></dt><dd><label for="Skill7">AI and Machine Learning</label></dd></div>
+                            <br>
+
+                            <!--Checkbox for Other-->
+                            <div><dt><input type="checkbox" id="Skill8" name="skills[]" value="Other" 
+                            <?= checked_box('skills','Other') ?>></dt><dd><label for="Skill8">Other</label></dd></div>
                         </dl>
                     </div>
                     <?= err('skills') ?>

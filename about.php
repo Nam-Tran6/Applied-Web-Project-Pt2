@@ -117,7 +117,7 @@
 
             <section class="information">
             <!--Class Day and Time Aside Text-->
-                        <h2>Class Day &amp; Time</h2>
+            <h2>Class Day &amp; Time</h2>
                 <div>
                     <!-- Unordered list to display class day and time -->
                     <ul>
@@ -153,14 +153,14 @@
         </div>
 
         <!--Section detailing Photo-->
-            <section id = "photo" style="text-align:center;">
-                <h2 style = "color: #ccc">Group Photo</h2>
+        <section id = "photo" style="text-align:center;">
+            <h2 style = "color: #ccc">Group Photo</h2>
                 <hr>
-                <figure> 
-                    <img style = "border: 5px solid #ccc;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
-                    <figcaption style = "color: #ccc">The Lads — Semester 2, 2025. Left to right: Kha Nam Tran, Sothearith Kuy, 
-                    Sokna David Hoang, Rakibul.</figcaption>
-                </figure> 
+                    <figure> 
+                        <img style = "border: 5px solid #ccc;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
+                        <figcaption style = "color: #ccc">The Lads — Semester 2, 2025. Left to right: Kha Nam Tran, Sothearith Kuy, 
+                        Sokna David Hoang, Rakibul.</figcaption>
+                    </figure> 
                 <hr>
             </section>
 

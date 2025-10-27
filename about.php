@@ -26,12 +26,6 @@
             background-size: cover;
             }
 
-            table, th, td {
-                border: 1px solid black;   /* draws the borders */
-                border-collapse: collapse; /* merges double borders */
-                background-color: #ccc;
-            }
-
             .information {
                 margin: 3em; /* outside of box*/
                 padding: 1em; /* inside of box*/
@@ -62,6 +56,12 @@
             text-align: center; /* Position text in middle*/
             margin: 2em 10em 0 10em; /* Adds a margin on top and either side of title*/
             background-color: #1a1a1a; /* Makes background solid to improve visibility*/
+            }
+
+            table, th, td {
+            border: 1px solid black;   /* draws the borders */
+            border-collapse: collapse; /* merges double borders */
+            background-color: #ccc;
             }
         </style>     
     </head>

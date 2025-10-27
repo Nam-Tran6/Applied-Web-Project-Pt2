@@ -42,7 +42,7 @@
             }
 
             #funfacts {
-                display: flex;
+                display: grid;
                 justify-content: center;
             }
 
@@ -63,6 +63,15 @@
             border-collapse: collapse; /* merges double borders */
             background-color: #ccc;
             }
+
+            #class_student {
+                margin: 1em;
+                text-align: center;
+            }
+
+            #photo img {
+            max-width: 90%; /* restrict width to prevent image going outside width*/
+            }
         </style>     
     </head>
 
@@ -76,68 +85,72 @@
         <!-- Main heading for the page, centered using inline CSS -->
         <h1 id = "apply_title">Team Profile: The Lads</h1>
         
-        <div class="flex-layout">
-            <section class="information">
-                <h2>Member Contributions &amp; Quotes</h2>
-                <!-- Subheading introducing the contributions section -->
-                <dl>
+        <?php
+                //Section involving facts about team
+                echo"<div class='flex-layout'>
+                    <section class='information'>
+                    <h2>Member Contributions &amp; Quotes</h2>
+                    <!-- Subheading introducing the contributions section -->
+                    <dl>";
+                
+                //Runs settings once 
+                require_once("settings.php"); 
+                //connects to database with the code necessary
+                $conn = mysqli_connect ($host, $user, $pwd, $sql_db);
 
-                    <!-- Description list for Kha Nam Tran-->
-                    <dt>Kha Nam Tran — Front-end Lead</dt>
-                    <dd>Contribution: Coded index.html, style.css</dd>
-                    <dd>Quote: "Viciously Coding"</dd>
-                    <dd>Favorite Language: French</dd>
-                    <dd>Translation: Codage vicieux</dd>
-                    <br>
+                //failsafe if $conn does not connect, leading to prompt detaling error 
+                if(!$conn){
+                    echo " <p> Database Connection failed".mysqli_connect_error()."</p>";
+                
+                    // else select all data from funfacts table
+                }else {
+                    $sql = "SELECT * FROM member_contri";
 
-                    <!-- Description list for Sothearith Kuy -->
-                    <dt>Sothearith Kuy— Front-end Engineer</dt>
-                    <dd>Contribution: Coded job.html</dd>
-                    <dd>Quote: "Code Breaker"</dd>
-                    <dd>Favourite language: Spanish</dd>
-                    <dd>Translation: descifrador de códigos</dd>
-                    <br>
+                    // copies queries from funfacts into $results
+                    $result = mysqli_query($conn, $sql);
+                    
 
-                    <!-- Description list for Sokna David Heang -->
-                    <dt>Sokna David Heang — Front-end Engineer</dt>
-                    <dd>Contribution: Coded about.html + apply.html</dd>
-                    <dd>Quote: "Eat, Sleep, Code, Repeat"</dd>
-                    <dd>Favourite language: German</dd>
-                    <dd>Translation: Essen, Schlafen, Code, Wiederholen</dd>
-                    <br>
+                    //if result is true + results has more then 0 rows
+                    if($result && mysqli_num_rows($result)>0) {
+                        //While loop to ensures that all data is searched through
+                        //starts a table tag
+                        echo "<dl>";
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            //gathers special characters from data in funfacts table
+                            $name = htmlspecialchars($row["name"]); 
+                            $contribution = htmlspecialchars($row["contribution"]);
+                            $quote = htmlspecialchars($row["quote"]);
+                            $languagne = htmlspecialchars($row["fav_lag"]);
+                            $translation = htmlspecialchars($row["translation"]);
 
-                    <!-- Description list for Rakibul Hasan -->
-                    <dt>Rakibul Hasan — N/A</dt>
-                    <dd>Contribution: N/A</dd>
-                    <dd>Quote: N/A</dd>
-                    <dd>Favourite Language: N/A</dd>
-                    <dd>Translation: N/A</dd>
-                </dl>
-            </section>
+                            //produces a new definition description for each seperate id
+                            echo "<dt> $name </dt>
+                            <dd> Contribution: $contribution </dd>
+                            <dd> Quote: $quote </dd>
+                            <dd> Language: $languagne </dd>
+                            <dd> Translation: $translation </dd>
+                            <br>";
+                            }
+
+                        //closes the table tag
+                        echo "</dl>
+                            </section>";
+                        
+                        // Fail state for when no data is given
+                        } else {
+                            echo "<p>No Data Found</p>";
+                        }
+                    mysqli_close($conn);
+                }
+            ?>
 
             <section class="information">
             <!--Class Day and Time Aside Text-->
-            <h2>Class Day &amp; Time</h2>
-                <div>
+            <div id = "class_student">
+                <h2>Class Day &amp; Time</h2>
                     <!-- Unordered list to display class day and time -->
-                    <ul>
-                        <!--Day list-->
-                        <li>Day
-                            <ul>
-                                <li>Thursday</li>                       
-                            </ul>
-                        </li>
-                        
-                        <!--Time List-->
-                        <li>Time
-                            <ul>
-                                <li>12:30 PM - 2:30 PM</li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
+                    <p>Day: Thursday</p>
+                    <p>Time: 12:30 - 14:30pm</p>
                     <!--Description List for Student IDs-->
                     <h2>Student ID</h2>
                         <dl>
@@ -147,10 +160,11 @@
                                 <dd>105962079</dd>
                             <dt>Sothearith Kuy</dt>
                                 <dd>105069886</dd>
+                            <dt>Rakibul Hasan</dt>
+                                <dd>N/A</dd>
                         </dl> 
                 </div>    
             </section>
-        </div>
 
         <!--Section detailing Photo-->
         <section id = "photo" style="text-align:center;">
@@ -167,7 +181,7 @@
             <?php
                 //Section involving facts about team
                 echo"<section id='funfacts'>";
-                echo"<h2 style= 'color: #ccc;'>Fun Facts</h2>";
+                echo"<h2 style= 'color: #ccc;'>Fun Facts of the Team</h2>";
                 
                 //Runs settings once 
                 require_once("settings.php"); 
@@ -190,7 +204,8 @@
                     if($result && mysqli_num_rows($result)>0) {
                         //While loop to ensures that all data is searched through
                         //starts a table tag
-                        echo "<table>
+                        echo "
+                            <table>
                             <thead>
                                 <tr>
                                     <th>Member</th>
@@ -232,11 +247,12 @@
                         }
                     mysqli_close($conn);
                 }
-                echo"</section> <br>";
-
+                echo"</section>
+                </main>
+                <br>";
+            
                 // header footer
-                include "footer.inc";
+            include "footer.inc";
             ?>
-        </main>
     </body>
 </html>

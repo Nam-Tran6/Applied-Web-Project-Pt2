@@ -88,8 +88,8 @@
         <?php
                 //Section involving facts about team
                 echo"<div class='flex-layout'>
-                    <section class='information'>
-                    <h2>Member Contributions &amp; Quotes</h2>
+                    <section class='information' aria-labelledby='contribution-heading'>
+                    <h2 id='contribution-heading'>Member Contributions &amp; Quotes</h2>
                     <!-- Subheading introducing the contributions section -->
                     <dl>";
                 
@@ -144,10 +144,10 @@
                 }
             ?>
 
-            <section class="information">
+            <section class="information" aria-labelledby="class_student-heading">
             <!--Class Day and Time Aside Text-->
             <div id = "class_student">
-                <h2>Class Day &amp; Time</h2>
+                <h2 id = "class_student-heading">Class Day &amp; Time</h2>
                     <!-- Unordered list to display class day and time -->
                     <p>Day: Thursday</p>
                     <p>Time: 12:30 - 14:30pm</p>
@@ -167,8 +167,8 @@
             </section>
 
         <!--Section detailing Photo-->
-        <section id = "photo" style="text-align:center;">
-            <h2 style = "color: #ccc">Group Photo</h2>
+        <section id = "photo" style="text-align:center;" aria-labelledby="photo-heading">
+            <h2 style = "color: #ccc" id="photo-heading">Group Photo</h2>
                 <hr>
                     <figure> 
                         <img style = "border: 5px solid #ccc;" src="images/team-photo.jpg" alt="Group photo of The Lads team">
@@ -180,8 +180,8 @@
 
             <?php
                 //Section involving facts about team
-                echo"<section id='funfacts'>";
-                echo"<h2 style= 'color: #ccc;'>Fun Facts of the Team</h2>";
+                echo"<section id='funfacts' aria-labelledby= 'funfacts-heading;'>";
+                echo"<h2 style= 'color: #ccc;' id= 'funfacts-heading'>Fun Facts of the Team</h2>";
                 
                 //Runs settings once 
                 require_once("settings.php"); 

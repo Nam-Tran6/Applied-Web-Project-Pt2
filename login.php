@@ -76,10 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['username']) && isset(
 
 <?php 
     if (!empty($error)) echo "<p style='color:red; text-align:center;'>$error</p>";
-    
-    echo "<br>";
-        // header footer
-        include "footer.inc"; 
+     
     ?>
 
 </body>

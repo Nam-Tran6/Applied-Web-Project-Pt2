@@ -73,12 +73,6 @@
         include "header.inc";
         include "settings.php";
 
-        if (isset($conn)) {
-    echo "Connection successful!";
-} else {
-    echo "Connection failed. \$conn not found.";
-}
-
 
 // Create a new MySQLi connection to the database
 $conn = new mysqli($host, $user, $pwd, $sql_db);

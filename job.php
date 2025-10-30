@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,152 +68,110 @@
 
 <body>
     <?php
+    session_start();
         // header inclusions
         include "header.inc";
+        include "settings.php";
+
+        if (isset($conn)) {
+    echo "Connection successful!";
+} else {
+    echo "Connection failed. \$conn not found.";
+}
+
+
+// Create a new MySQLi connection to the database
+$conn = new mysqli($host, $user, $pwd, $sql_db);
+
+// Check if connection failed and stop script with error message
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
     ?>
 
-<!-- Job Description generated from ChatGPT (We had no idea)-->
-    <main style="margin: 50px">
-        <!-- <section> groups content for job openings -->
+<main style="margin: 50px">
+    <section>
+        <h2 id="job_title">Open Positions</h2>
 
-        <!--First Section for Senior Product Designer-->
-        <section>
+        <?php
+        $sql = "SELECT * FROM jobs ORDER BY created_at DESC";
+        $result = $conn->query($sql);
 
-            <!-- Subheading under the main page heading -->
-            <h2 id = "job_title">Open Positions</h2> 
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $responsibilities = explode("\n", $row['key_responsibilities']);
+                $requirements = explode("\n", $row['essential_requirements']);
+                $preferable = explode("\n", $row['preferable']);
+                ?>
 
-            <!-- Used Article instead of section because each section is self-contained-->
-            <article aria-labelledby="senior-designer-title">
-                <!--Unique reference ID ("A1B2C"), makes it targetable.-->
-                <h3 id="senior-designer-title">Ref: A1B2C — Senior Product Designer</h3> 
+                <article aria-labelledby="job-<?php echo $row['id']; ?>">
+                    <h3 id="job-<?php echo $row['id']; ?>">
+                        Ref: <?php echo htmlspecialchars($row['ref']); ?> — 
+                        <?php echo htmlspecialchars($row['title']); ?>
+                    </h3>
 
-                <!-- Short description/summary of the role -->
-                <p> 
-                    Short: Lead product experiences across core flows — from discovery to design handoff.
-                    Balance craft with pragmatic delivery.
-                </p>
+                    <p><?php echo nl2br(htmlspecialchars($row['short_description'])); ?></p>
 
-                <!-- Description List Salary and Person they report to -->
-                <dl>
-                    <dt>Salary</dt> 
-                    <dd>AUD 120,000 - 150,000 + Employee Equity</dd>
+                    <dl>
+                        <dt>Salary</dt>
+                        <dd><?php echo htmlspecialchars($row['salary']); ?></dd>
+                        <dt>Reporting line</dt>
+                        <dd>Reports to <?php echo htmlspecialchars($row['reporting_line']); ?></dd>
+                    </dl>
 
-                    <dt>Reporting line</dt>
-                    <dd>Reports to Head of Product</dd> 
-                </dl>
+                    <h4>Key Responsibilities</h4>
+                    <ol>
+                        <?php foreach ($responsibilities as $item) {
+                            if (trim($item)) echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                        } ?>
+                    </ol>
 
-                <!-- Ordered list for Responsibilites-->
-                <h4>Key Responsibilities</h4>
-                <ol>
-                    <li>Drive end-to-end design for one product vertical (user research → prototype → handoff).</li>
-                    <li>Create and maintain reusable components and patterns in our design system.</li>
-                    <li>Partner with PMs and engineers to define metrics and measure impact of UX changes.</li>
-                    <li>Mentor junior designers; run design critiques and usability sessions.</li>
-                </ol>
+                    <h4>Essential requirements</h4>
+                    <ul>
+                        <?php foreach ($requirements as $item) {
+                            if (trim($item)) echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                        } ?>
+                    </ul>
 
-                <!--Unordered list for Essential Requirements-->
-                <h4>Essential requirements</h4>
-                <ul>
-                    <li>5+ years in product design with shipped SaaS products.</li>
-                    <li>Strong prototyping skills (Figma, interactive prototypes) and practical research experience.</li>
-                    <li>Experience contributing to or maintaining a design system.</li>
-                    <li>Excellent cross-functional communication and a portfolio demonstrating outcomes (not just 
-                    screens).</li>
-                </ul>
+                    <h4>Preferable</h4>
+                    <ul>
+                        <?php foreach ($preferable as $item) {
+                            if (trim($item)) echo "<li>" . htmlspecialchars(trim($item)) . "</li>";
+                        } ?>
+                    </ul>
 
-                <!-- Another unordered list for "nice to have" skills. -->
-                <h4>Preferable</h4>
-                <ul>
-                    <li>Familiarity with HTML/CSS or React component thinking.</li>
-                    <li>Experience in developer tooling, analytics, or B2B workflow products.</li>
-                </ul>
+                    <a href="apply.php?job=<?php echo urlencode($row['ref']); ?>" class="applybtn">Apply Now</a>
+                </article>
 
-                <!--Button Apply-->
-                <a href="apply.php" class="applybtn">Apply Now</a>
-            </article>
+                <br>
+                <?php
+            }
+        } else {
+            echo "<p>No open positions at this time.</p>";
+        }
+        ?>
+    </section>
 
-            <br> <!--Line Break-->
+    <section id="apply" aria-labelledby="apply-title" style="float: left; width: 60%">
+        <h2 id="apply-title" style="color: black;">How to apply</h2>
+        <p>Send a one-page cover note and portfolio or GitHub link to 
+           <a href="mailto:info@thebox.com">info@thebox.com</a> 
+           with the reference code in the subject line.</p>
+        <p>We review applications on a rolling basis and aim for an interview loop 
+           that includes a short design/code exercise and two cross-functional interviews.</p>
+        <p>Company is an equal-opportunity employer. Candidates must be authorized 
+           to work in the country they apply from.</p>
+    </section>
 
-            <!-- Second job article for Front-end Engineer-->
-            <article aria-labelledby="frontend-engineer-title">
-                <!--Unique reference ID ("D4E5F"), makes it targetable.-->
-                <h3 id="frontend-engineer-title">Ref: D4E5F — Frontend Engineer, Design Systems</h3>
-
-                <!-- A short description/summary of the role. -->
-                <p>
-                    Short: Build and maintain the design system and component library used by product teams; reduce 
-                    design-to-code friction.
-                </p>
-                
-                <!-- Description List for Salary and Person to report to -->
-                <dl>
-                    <dt>Salary</dt>
-                        <dd>AUD 140,000 - 170,000 + Employee Equity</dd>
-                    <dt>Reporting line</dt>
-                        <dd>Reports to Engineering Manager (Platform)</dd>
-                </dl>
-
-                <!-- Ordered list for Responsibilites-->
-                <h4>Key Responsibilities</h4>
-                <ol>
-                    <li>Implement accessible, testable UI components as a shared library (React + TypeScript).</li>
-                    <li>Integrate design tokens and automate releases for designers and product teams.</li>
-                    <li>Collaborate with designers to translate patterns into code and improve documentation/examples. </li>
-                    <li>Maintain CI, visual regression tests, and versioning for the component library.</li>
-                </ol>
-
-                <!-- Unordered list for Essential Requirements-->
-                <h4>Essential requirements</h4>
-                <ul>
-                    <li>4+ years building production React component libraries in TypeScript.</li>
-                    <li>Practical experience with Storybook, unit & visual regression testing, and CSS-in-JS or 
-                    utility-first approaches.</li>
-                    <li>Clear communicator who can partner with designers to iterate on accessibility and behavior.</li>
-                </ul>
-
-                <!-- Another unordered list for "nice to have" (non-essential) skills. -->
-                <h4>Preferable</h4>
-                <ul> 
-                    <li>Experience exporting design tokens from Figma or similar tools and automating token pipelines.</li>
-                    <li>Worked at early-stage startups or on platform/infra teams focused on developer UX.</li>
-                </ul>
-
-                <!--Button to Apply-->
-                <a href="apply.php?job=A1B2C" class="applybtn">Apply Now</a>
-            </article>
-        </section>
-
-        <br>
-
-        <!-- Section for instructions on how to apply -->
-        <section id = apply aria-labelledby="apply-title" style="float: left ; width: 60%">
-            <!--Embedded Style to make font black-->
-            <h2 id="apply-title" style="color: black;">How to apply</h2>
-
-            <p> Send a one-page cover note and portfolio or GitHub link to </p>
-            <!--Link to Email--> 
-            <a href= "mailto:info@thebox.com">info@thebox.com with the reference code in the subject line.</a>
-
-            <p> We review applications on a rolling basis and aim for an interview loop that includes a short design/code
-                exercise and two cross-functional interviews.
-            </p>
-            
-            <p> Company is an equal-opportunity employer. Candidates must be authorized to work in the country they apply
-                from. 
-            </p>
-        </section>
-
-        <!-- Aside for Perks and practicals.-->
-        <aside aria-labelledby="perks-title">
-            <h3 id="perks-title">Perks & practicals</h3>
-            <!--Unordered List for Perks-->
-            <ul>
-                <li>Flexible remote working (core overlap hours)</li>
-                <li>Competitive equity and parental leave</li>
-                <li>Learning budget and home office allowance</li>
-            </ul>
-        </aside>
-    </main>
+    <aside aria-labelledby="perks-title">
+        <h3 id="perks-title">Perks & practicals</h3>
+        <ul>
+            <li>Flexible remote working (core overlap hours)</li>
+            <li>Competitive equity and parental leave</li>
+            <li>Learning budget and home office allowance</li>
+        </ul>
+    </aside>
+</main>
 
     <?php
         // header footer
